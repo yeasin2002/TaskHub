@@ -1,21 +1,18 @@
 import { lazy, Suspense } from "react";
-import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import * as allRouter from "./utils/RouteTypes";
 
 //  Pages Components
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
 const About = lazy(() => import("./pages/aboutUs/AboutUs"));
 const Contact = lazy(() => import("./pages/aboutUs/AboutUs"));
+
+// eslint-disable-next-line no-unused-vars
 const helpAndSupport = lazy(() =>
   import("./pages/helpAndSupport/helpAndSupport")
 );
 
+// eslint-disable-next-line no-unused-vars
 const TodoHome = lazy(() => import("./pages/TodoHome/TodoHome"));
 const SingIn = lazy(() => import("./pages/SingIn/SingIn"));
 const LogIn = lazy(() => import("./pages/Login/LogIn"));

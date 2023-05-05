@@ -5,7 +5,9 @@ const LandingPage = () => {
   return (
     <div>
       LandingPage
-      <Link to={"about"}>home</Link>
+      <Link className="text-blue-800" to={"about"}>
+        home
+      </Link>
     </div>
   );
 };

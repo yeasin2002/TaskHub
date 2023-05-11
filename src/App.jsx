@@ -1,26 +1,30 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import * as allRouter from "./utils/RouteTypes";
+import * as allRouter from "./Route/RouteTypes";
 
-//  Pages Components
+//  redux
+import { Provider } from "react-redux";
+import store from "./Redux/store";
+
+// Public Pages
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
 const About = lazy(() => import("./pages/aboutUs/AboutUs"));
 const Contact = lazy(() => import("./pages/aboutUs/AboutUs"));
-
-// eslint-disable-next-line no-unused-vars
+const SingIn = lazy(() => import("./pages/SingIn/SingIn"));
+const LogIn = lazy(() => import("./pages/Login/LogIn"));
 const helpAndSupport = lazy(() =>
   import("./pages/helpAndSupport/helpAndSupport")
 );
 
-// eslint-disable-next-line no-unused-vars
+//  Private Pages
 const TodoHome = lazy(() => import("./pages/TodoHome/TodoHome"));
-const SingIn = lazy(() => import("./pages/SingIn/SingIn"));
-const LogIn = lazy(() => import("./pages/Login/LogIn"));
 
 //  Global Components / layout
 const NotFound = lazy(() => import("./layout/NotFound"));
 import Loading from "./layout/Loading";
+import PrivetRoues from "./pages/privet routes/PrivetRoues";
 
+//  app router
 const router = createBrowserRouter([
   {
     path: allRouter.LandingPage,
@@ -46,6 +50,17 @@ const router = createBrowserRouter([
     path: allRouter.singIn,
     element: <SingIn />,
   },
+  ,
+  {
+    path: "/",
+    element: <PrivetRoues />,
+    children: [
+      {
+        path: "/home",
+        element: <TodoHome />,
+      },
+    ],
+  },
   {
     path: "*",
     element: <NotFound />,
@@ -55,7 +70,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <Suspense fallback={<Loading />}>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </Suspense>
   );
 }

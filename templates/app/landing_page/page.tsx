@@ -1,7 +1,11 @@
-import React from "react";
+import Modals from "../../components/Global/Modals";
 
 const page = () => {
-  return <div>landing page</div>;
+  return (
+    <div>
+      <Modals />
+    </div>
+  );
 };
 
 export default page;

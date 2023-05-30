@@ -4,19 +4,15 @@ const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:9000/",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
   }),
-  tagTypes: ["AllTodo"],
+  tagTypes: ["Videos"],
   endpoints: (builder) => ({
-    getAllTodo: builder.query({
+    getVideos: builder.query({
       query: () => "videos",
       keepUnusedDataFor: 600,
-      providesTags: ["AllTodo"],
+      providesTags: ["Videos"],
     }),
   }),
 });
 export default apiSlice;
-export const { useGetAllTodoQuery } = apiSlice;
+export const { useGetVideosQuery } = apiSlice;

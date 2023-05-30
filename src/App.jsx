@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import * as allRouter from "./Route/RouteTypes";
+import * as allRouter from "./lib/RouteTypes";
 
 //  redux
 import { Provider } from "react-redux";
@@ -24,46 +24,55 @@ const NotFound = lazy(() => import("./layout/NotFound"));
 import Loading from "./layout/Loading";
 import PrivetRoues from "./pages/privet routes/PrivetRoues";
 
+import Root from "./layout/Root";
+
 //  app router
 const router = createBrowserRouter([
   {
-    path: allRouter.LandingPage,
-    element: <LandingPage />,
-  },
-  {
-    path: allRouter.about,
-    element: <About />,
-  },
-  {
-    path: allRouter.contact,
-    element: <Contact />,
-  },
-  {
-    path: allRouter.helpAndSupport,
-    element: <helpAndSupport />,
-  },
-  {
-    path: allRouter.login,
-    element: <LogIn />,
-  },
-  {
-    path: allRouter.singIn,
-    element: <SingIn />,
-  },
-  ,
-  {
     path: "/",
-    element: <PrivetRoues />,
+    element: <Root />,
     children: [
       {
-        path: "/home",
-        element: <TodoHome />,
+        index: true,
+        // path: allRouter.LandingPage,
+        element: <LandingPage />,
+      },
+      {
+        path: allRouter.about,
+        element: <About />,
+      },
+      {
+        path: allRouter.contact,
+        element: <Contact />,
+      },
+      {
+        path: allRouter.helpAndSupport,
+        element: <helpAndSupport />,
+      },
+      {
+        path: allRouter.login,
+        element: <LogIn />,
+      },
+      {
+        path: allRouter.singIn,
+        element: <SingIn />,
+      },
+      ,
+      {
+        path: "/",
+        element: <PrivetRoues />,
+        children: [
+          {
+            path: "/home",
+            element: <TodoHome />,
+          },
+        ],
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
-  },
-  {
-    path: "*",
-    element: <NotFound />,
   },
 ]);
 

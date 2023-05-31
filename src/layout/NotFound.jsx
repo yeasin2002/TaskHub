@@ -3,7 +3,7 @@ import NotFoundImg from "../components/Icons/NotFoundImg";
 const NotFound = () => {
   return (
     <div>
-      <section className="dark:bg-gray-900  bg-white">
+      <section className="dark:bg-gray-900 bg-white">
         <div className="lg:flex lg:items-center lg:gap-12 container min-h-screen px-6 py-12 mx-auto">
           <div className="wf-ull lg:w-1/2">
             <p className="dark:text-blue-400 text-sm font-medium text-blue-500">

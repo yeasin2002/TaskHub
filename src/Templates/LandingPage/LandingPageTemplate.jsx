@@ -1,10 +1,11 @@
-import React from "react";
+import Hero from "./Hero";
 import SearchBoxTemplate from "./SearchBoxTemplate";
 
 const LandingPageTemplate = () => {
   return (
     <div>
       <SearchBoxTemplate />
+      <Hero />
     </div>
   );
 };

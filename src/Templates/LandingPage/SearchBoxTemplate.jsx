@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 //  components lib
-import { Button as MButton } from "@material-tailwind/react";
+import { Button } from "@mui/material";
 
 //  assets
 import Menu from "../../components/Icons/Menu";
@@ -25,18 +24,22 @@ const SearchBoxTemplate = () => {
               className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
             ></button>
             <div className="md:block md:into-center relative hidden">
-              <MButton className="mx-2">Sing IN</MButton>
-              <MButton className="mx-2">Log In</MButton>
+              <Button variant="contained" className="mx-1 bg-blue-600">
+                Contained
+              </Button>
+              <Button variant="contained" className="mx-1 bg-blue-600">
+                Log In
+              </Button>
             </div>
 
             {/*  open menu on mobile mode  */}
-            <MButton
+            <Button
               type="button"
               className="md:hidden inline-flex items-center p-2 text-sm rounded-lg"
             >
               <span className="sr-only">Open menu</span>
               <Menu />
-            </MButton>
+            </Button>
           </div>
           <div
             className="md:flex md:w-auto md:order-1 items-center justify-between hidden w-full"

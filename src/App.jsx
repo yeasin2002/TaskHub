@@ -1,3 +1,5 @@
+/* eslint-disable no-sparse-arrays */
+/* eslint-disable no-unused-vars */
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import * as allRouter from "./lib/RouteTypes";
@@ -34,7 +36,6 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        // path: allRouter.LandingPage,
         element: <LandingPage />,
       },
       {

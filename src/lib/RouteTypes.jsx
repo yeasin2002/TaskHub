@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 export const LandingPage = "/";
 export const todoHome = "todo_home";
 export const about = "about";

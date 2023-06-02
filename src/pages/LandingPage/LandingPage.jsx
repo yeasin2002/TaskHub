@@ -1,9 +1,9 @@
-import LandingPageTemplate from "../../Templates/LandingPage/LandingPageTemplate";
+import LandingPage_Temp from "../../Templates/LandingPage/LandingPage_Temp";
 
 const LandingPage = () => {
   return (
     <div>
-      <LandingPageTemplate />
+      <LandingPage_Temp />
     </div>
   );
 };

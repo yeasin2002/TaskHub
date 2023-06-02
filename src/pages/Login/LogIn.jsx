@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
+import LogIn_temp from "../../Templates/Log In/LogIn_temp";
 
 const LogIn = () => {
   return (
     <div>
-      LogIn
-      <Link to={"/"}>home</Link>
+      <LogIn_temp />
     </div>
   );
 };

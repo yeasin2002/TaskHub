@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
+import AboutUs_Temp from "../../Templates/AboutUs/AboutUs_Temp";
 
 const AboutUs = () => {
   return (
     <div>
-      AboutUs
-      <Link to={"/"}>home</Link>
+      <AboutUs_Temp />
     </div>
   );
 };

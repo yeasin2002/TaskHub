@@ -3,14 +3,16 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:9000/",
+    baseUrl: "https://baby-todo.onrender.com",
+    headers: {
+      "Content-Type": "application/json",
+      Authentication: `Bearer ${localStorage.getItem("token")}`,
+    },
   }),
   tagTypes: ["Videos"],
   endpoints: (builder) => ({
-    getVideos: builder.query({
-      query: () => "videos",
-      keepUnusedDataFor: 600,
-      providesTags: ["Videos"],
+    logIn: builder.mutation({
+      query: () => "/account/login",
     }),
   }),
 });

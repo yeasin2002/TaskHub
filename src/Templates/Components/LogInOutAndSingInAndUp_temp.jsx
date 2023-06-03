@@ -5,7 +5,7 @@ import brand from "../../assets/Brand.svg";
 
 const LogInOutAndSingInAndUp_temp = ({ children }) => {
   return (
-    <section className="md:p-9 bg-Shades-500 flex w-full h-screen p-5">
+    <section className="md:p-9 bg-Shades flex w-full h-screen p-5">
       <div
         style={{ backgroundImage: `url(${cover})` }}
         className="bg-slate-700 md:block relative flex-1 hidden"

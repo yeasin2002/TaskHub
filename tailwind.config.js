@@ -11,10 +11,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        Shades: {
-          100: "#406BBF",
-          500: "#6689CC",
-        },
+        Shades: "#6689CC",
+        accent: "#406BBF",
+        light: "ECF0F9",
       },
     },
   },

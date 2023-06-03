@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
+import SingIn_temp from "../../Templates/SingIN/SingIn_temp";
 
 const SingIn = () => {
   return (
     <div>
-      SingIn
-      <Link to={"/"}>home</Link>
+      <SingIn_temp />
     </div>
   );
 };

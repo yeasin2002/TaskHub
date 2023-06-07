@@ -14,6 +14,7 @@ export default {
         Shades: "#6689CC",
         accent: "#406BBF",
         light: "ECF0F9",
+        dim: "#C6D3EC",
       },
     },
   },

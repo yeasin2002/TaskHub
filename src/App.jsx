@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         element: <PrivetRoues />,
         children: [
           {
-            path: "/home",
+            path: "/todo_home",
             element: <TodoHome />,
           },
         ],

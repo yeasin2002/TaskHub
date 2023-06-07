@@ -60,11 +60,11 @@ const SearchBoxTemplate = () => {
                 Home
               </Link>
               <Link
-                to={"/"}
+                to={"/todo_home"}
                 className="md:bg-transparent gap-x-1 md:text-blue-700 md:p-0 flex items-center justify-center py-2 pl-3 pr-4 text-white bg-blue-700 rounded"
               >
                 <AiOutlineTeam className="w-6 h-6" />
-                About us
+                Todo Home
               </Link>
 
               <Link

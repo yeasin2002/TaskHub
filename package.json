@@ -9,7 +9,7 @@
     "dev": "yarn formate && yarn lint && vite",
     "build": "vite build",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri "
   },
   "dependencies": {
     "react-dom": "^18.2.0",

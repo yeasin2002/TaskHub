@@ -3,7 +3,7 @@ import TodoHomeSidebar_temp from "./TodoHomeSidebar_temp";
 
 const TodoHome_temp = () => {
   return (
-    <main>
+    <main className="flex">
       <TodoHomeSidebar_temp />
       <TodoHomeIndex_temp />
     </main>

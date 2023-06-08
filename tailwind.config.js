@@ -15,6 +15,7 @@ export default {
         accent: "#406BBF",
         light: "ECF0F9",
         dim: "#C6D3EC",
+        blackens: "#132039",
       },
     },
   },

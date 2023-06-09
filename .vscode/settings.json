@@ -1,5 +1,5 @@
 {
   "css.validate": false,
   "tailwindCSS.emmetCompletions": true,
-  "cSpell.words": ["daisyui", "Flowbite", "tauri"]
+  "cSpell.words": ["daisyui", "Flowbite", "Querys", "tauri"]
 }

@@ -11,8 +11,8 @@ import UpdateEmail from "./Querys/Accounts/UpdateEmail";
 import UpdateUsername from "./Querys/Accounts/UpdateUsername";
 import UpdatePassword from "./Querys/Accounts/UpdatePassword";
 
-const apiSlice = createApi({
-  reducerPath: "api",
+const accountApiSlice = createApi({
+  reducerPath: "accountApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://baby-todo.onrender.com",
     headers: {
@@ -66,5 +66,6 @@ const apiSlice = createApi({
     //  end points - end
   }),
 });
-export default apiSlice;
-export const { useGetJWTQuery, useGetVerificationOTPMutation } = apiSlice;
+export default accountApiSlice;
+export const { useGetJWTQuery, useGetVerificationOTPMutation } =
+  accountApiSlice;

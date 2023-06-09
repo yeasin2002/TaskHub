@@ -1,10 +1,10 @@
-import TodoHome_temp from "../../Templates/TodoHome/Home/TodoHome_temp";
+import Search_temp from "../../Templates/TodoHome/Search/Search_temp";
 
 const Home = () => {
   return (
     <>
       {/* <div>hi</div> */}
-      <TodoHome_temp />
+      <Search_temp />
     </>
   );
 };

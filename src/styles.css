@@ -12,4 +12,8 @@
   .title {
     @apply text-blackens text-2xl font-bold;
   }
+
+  .avatar {
+    @apply ring-2 ring-Shades w-10 h-10 rounded-full;
+  }
 }

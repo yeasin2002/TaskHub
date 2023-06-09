@@ -13,9 +13,10 @@ export default {
       colors: {
         Shades: "#6689CC",
         accent: "#406BBF",
-        light: "ECF0F9",
+        Light: "ECF0F9",
         dim: "#C6D3EC",
         blackens: "#132039",
+        Amber: " #D9E1F2",
       },
     },
   },

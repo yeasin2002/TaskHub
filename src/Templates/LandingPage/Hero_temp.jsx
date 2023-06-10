@@ -1,4 +1,5 @@
 import Btn_Primary from "../Components/Btn_Primary";
+import view from "./../../assets/display/view.png";
 
 const Hero = () => {
   return (
@@ -28,7 +29,7 @@ const Hero = () => {
             <img
               className="object-cover object-center rounded"
               alt="hero"
-              src="https://dummyimage.com/720x600"
+              src={view}
             />
           </div>
         </div>

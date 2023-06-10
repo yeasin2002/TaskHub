@@ -2,11 +2,13 @@ import SearchBar from "./SearchBar";
 
 const TodoSearchArea = () => {
   return (
-    <div className="w-full px-4 py-2 pt-6">
+    <div className=" flex-1">
       <SearchBar />
-      <h1>TodoSearchArea</h1>
+      <div className="flex justify-between px-6 mt-2">
+        <p>6 Task Found</p>
+        <span className="bg-dim border-Shades px-2 border-b">Sort By </span>
+      </div>
     </div>
   );
 };
-
 export default TodoSearchArea;

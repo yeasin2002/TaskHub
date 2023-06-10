@@ -1,7 +1,15 @@
 {
-  "name": "your-todos",
+  "name": "task-hub",
   "version": "0.0.1",
   "type": "module",
+  "displayName": "TaskHub",
+  "description": "TaskMaster simplifies task management by offering a comprehensive set of features tailored to meet the needs of individuals and teams. Users can effortlessly create, organize, prioritize, and track their tasks, ensuring nothing falls through the cracks. The application offers an intuitive user interface that allows for seamless navigation and efficient task management",
+  "author": {
+    "name": "Md Kawsar Islam Yeasin",
+    "email": "mdkawsaislam2002@gmail.com",
+    "url": "https://github.com/Mdkawsarislam2002/TaskHub"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "vite",
     "formate": "npx prettier --write ./src  ",

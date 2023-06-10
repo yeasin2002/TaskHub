@@ -1,10 +1,10 @@
 [package]
-name = "your-todo-desktop"
-version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
+name = "taskhub"
+version = "0.0.1"
+description = "TaskMaster simplifies task management by offering a comprehensive set of features tailored to meet the needs of individuals and teams. Users can effortlessly create, organize, prioritize, and track their tasks, ensuring nothing falls through the cracks. The application offers an intuitive user interface that allows for seamless navigation and efficient task management"
+authors = ["Md Kawsar Islam Yeasin"]
 license = ""
-repository = ""
+repository = "https://github.com/Mdkawsarislam2002/TaskHub"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

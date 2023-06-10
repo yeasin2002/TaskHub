@@ -1,16 +1,17 @@
+import FilterCard from "./FilterCard";
+
 const SideBarForSorting = () => {
   return (
     <>
       <div
         id="sideBarForSorting "
-        className="md:block bg-slate-300 pt-7 hidden h-full px-4"
+        className=" pt-7 md:flex gap-y-4 flex-col hidden h-full px-4"
       >
-        <p>filter</p>
-        <p>category</p>
-        <p>participants</p>
+        <FilterCard />
+        <FilterCard />
+        <FilterCard />
       </div>
     </>
   );
 };
-
 export default SideBarForSorting;

@@ -1,10 +1,10 @@
-import Search_temp from "../../Templates/TodoHome/Search/Search_temp";
+import AddTaskOrModifieTask_temp from "../../Templates/AddTaskOrModifieTask/AddTaskOrModifieTask_temp";
 
 const Home = () => {
   return (
     <>
       {/* <div>hi</div> */}
-      <Search_temp />
+      <AddTaskOrModifieTask_temp />
     </>
   );
 };

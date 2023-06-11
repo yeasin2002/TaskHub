@@ -11,7 +11,7 @@ import { Button } from "@mui/material";
 
 //  assets
 
-import logo from "../../assets/Brand.svg";
+import logo from "../../assets/logo.svg";
 
 const SearchBoxTemplate = () => {
   return (

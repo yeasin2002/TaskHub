@@ -1,0 +1,3 @@
+I am using tauri with react.js and  Building my web app with vite.js and also window application with tauri. 
+
+Now I want to show a button that will only render on the window application not on the web app. How can I do that?

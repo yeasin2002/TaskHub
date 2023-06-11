@@ -8,7 +8,7 @@ import { BsCalendarDate } from "react-icons/bs";
 
 import { Link } from "react-router-dom";
 
-const TaskOrModifieTaskDetils = () => {
+const TaskOrModifieTaskDetils_Basic = () => {
   return (
     <div className=" px-7 flex-1 py-4">
       <div className=" flex justify-between">
@@ -26,18 +26,18 @@ const TaskOrModifieTaskDetils = () => {
         </div>
       </div>
 
-      <div className="my-6">
+      <div>
         <input
           type="text"
-           //    daysi ui is conflicting with this inp
+          //    daysi ui is conflicting with this inp
           style={{
             outline: "none",
           }}
           placeholder="Add a title to your task "
-          className=" placeholder:text-Shades placeholder:text-2xl w-full py-4 my-2 border-none rounded-lg"
+          className=" inputHolder"
         />
 
-        <div>
+        <div className="my-4">
           <label
             className="gap-x-1 bg-Amber/70 rounded-2xl inline-flex items-center pr-2"
             htmlFor="startDate"
@@ -49,13 +49,13 @@ const TaskOrModifieTaskDetils = () => {
           </label>
         </div>
 
-        <div>
-          <label htmlFor="Description" className="text-blackens">
-            Description
+        <div className="my-4">
+          <label htmlFor="Description" className="text-blackens ">
+            <p>Description</p>
           </label>
           <br />
           <textarea
-            className="placeholder:text-Shades w-full h-48 border-none"
+            className="placeholder:text-Shades ring ring-Shades/10 w-full h-48 border-none rounded-lg"
             name="Description"
             id="Description"
             placeholder="Write a meaningfull  Description"
@@ -65,4 +65,4 @@ const TaskOrModifieTaskDetils = () => {
     </div>
   );
 };
-export default TaskOrModifieTaskDetils;
+export default TaskOrModifieTaskDetils_Basic;

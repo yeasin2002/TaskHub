@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { login } from "../../lib/RouteTypes";
+import { login } from "../lib/RouteTypes";
 
 let isAuth = true;
 

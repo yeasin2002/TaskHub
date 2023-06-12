@@ -1,23 +1,13 @@
-import { Button } from "@material-tailwind/react";
-import { useResetPasswordMutation } from "./Redux/feature/API/accountApiSlice/accountApiSlice";
+// import {  } from "@material-tailwind/react";
+
+import { useGetJWTQuery } from "./Redux/feature/API/accountApiSlice/accountApiSlice";
 
 const Test = () => {
-  const [ResetPassword] = useResetPasswordMutation();
-
+  const { data } = useGetJWTQuery();
+  console.log(data?.cout);
   return (
     <div>
-      <Button
-        variant="filled"
-        onClick={() => {
-          ResetPassword({
-            login: "mdkawsarislam2002@gmail.com",
-            code: "123456",
-            new_password: "Yeasin2002",
-          });
-        }}
-      >
-        click
-      </Button>
+      <p>Test</p>
     </div>
   );
 };

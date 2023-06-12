@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const userApiSlice = createApi({
   reducerPath: "userApiSlice",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://baby-todo.onrender.com/account",
+    baseUrl: "https://baby-todo.onrender.com/user",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${localStorage.getItem("userJWT")}`,
@@ -12,7 +12,7 @@ const userApiSlice = createApi({
 
   endpoints: (builder) => ({
     //  endpoints start
-    getAllUserCount: builder.query({
+    getNewJWT: builder.query({
       query: () => "/new-token",
     }),
 
@@ -20,4 +20,4 @@ const userApiSlice = createApi({
   }),
 });
 export default userApiSlice;
-export const { useGetJWTQuery } = userApiSlice;
+export const { useGetNewJWTQuery } = userApiSlice;

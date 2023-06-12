@@ -1,13 +1,12 @@
-// import {  } from "@material-tailwind/react";
-
-import { useGetJWTQuery } from "./Redux/feature/API/accountApiSlice/accountApiSlice";
+import { useGetAllTaskQuery } from "./Redux/feature/API/taskApiSlice/taskApiSlice";
 
 const Test = () => {
-  const { data } = useGetJWTQuery();
-  console.log(data?.cout);
+  const { data, isLoading } = useGetAllTaskQuery();
+  console.log(data);
   return (
     <div>
       <p>Test</p>
+      <p>{isLoading && "loading"}</p>
     </div>
   );
 };

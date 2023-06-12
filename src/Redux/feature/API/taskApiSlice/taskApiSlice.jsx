@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const accountApiSlice = createApi({
-  reducerPath: "accountApiSlice",
+const taskApiSlice = createApi({
+  reducerPath: "taskApiSlice",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://baby-todo.onrender.com/account",
+    baseUrl: "https://baby-todo.onrender.com/tasks",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${localStorage.getItem("userJWT")}`,
@@ -12,12 +12,12 @@ const accountApiSlice = createApi({
 
   endpoints: (builder) => ({
     //  endpoints start
-    getAllUserCount: builder.query({
-      query: () => "/new-token",
+    getAllTask: builder.query({
+      query: () => "/",
     }),
 
     //  endpoints end
   }),
 });
-export default accountApiSlice;
-export const { useGetJWTQuery } = accountApiSlice;
+export default taskApiSlice;
+export const { useGetAllTaskQuery } = taskApiSlice;

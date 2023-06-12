@@ -1,12 +1,13 @@
-import * as RouteTypes from "../../lib/RouteTypes";
-import Btn_Primary from "../../components/Btn_Primary";
-
-import view from "./../../assets/display/view.png";
+import { useGetAllUserCountQuery } from "../../Redux/feature/API/extraApiSlice/extraApiSlice";
 import { Link } from "react-router-dom";
+import * as RouteTypes from "../../lib/RouteTypes";
 
-// import { useCountOfUserQuery } from "../../Redux/feature/API/userApiSlice";
+import Btn_Primary from "../../components/Btn_Primary";
+import view from "./../../assets/display/view.png";
 
 const LandingHero = () => {
+  const { data, isSuccess } = useGetAllUserCountQuery();
+
   return (
     <>
       <main className="">
@@ -34,8 +35,8 @@ const LandingHero = () => {
               </div>
 
               <p className="mt-4">
-                <span>
-                  {/* {isLoading ? "Loading..." : data?.countOfUsers?.count} */}
+                <span className="mx-2 font-semibold">
+                  {isSuccess && data?.data?.count}
                 </span>
                 people are already enjoying our app
               </p>

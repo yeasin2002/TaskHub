@@ -7,7 +7,7 @@ const WindowNav = () => {
     <div>
       <div className="navbar px-4 py-1">
         <div className="bg-dim text-slate-800 inline-block p-2 rounded-full">
-          <Link className="btn btn-ghost text-xl normal-case">
+          <Link to={-1} className="btn btn-ghost text-xl normal-case">
             <MdOutlineArrowBackIos />
           </Link>
         </div>

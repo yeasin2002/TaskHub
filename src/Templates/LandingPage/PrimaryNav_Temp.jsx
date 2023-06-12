@@ -30,12 +30,8 @@ const SearchBoxTemplate = () => {
               className="md:hidden text-gray-500  hover:bg-gray-100  focus:outline-none focus:ring-4 focus:ring-gray-200  rounded-lg text-sm p-2.5 mr-1"
             ></button>
             <div className="md:block md:into-center relative hidden">
-              <Button variant="contained" className="mx-1 bg-blue-600">
-                Contained
-              </Button>
-              <Button variant="contained" className="mx-1 bg-blue-600">
-                Log In
-              </Button>
+              <Button className="mx-1 bg-blue-600">Contained</Button>
+              <Button className="mx-1 bg-blue-600">Log In</Button>
             </div>
 
             {/*  open menu on mobile mode  */}

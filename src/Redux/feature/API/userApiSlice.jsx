@@ -13,13 +13,13 @@ const userApiSlice = createApi({
   }),
 
   endpoints: (builder) => ({
-    //  Get all task
-    getAllTask: builder.mutation({
-      query: "",
+    //  Get count of user in the database
+    countOfUser: builder.query({
+      query: () => "/extra/users-count",
     }),
 
     //  end points - end
   }),
 });
 export default userApiSlice;
-// export const {  } = userApiSlice;
+export const { useCountOfUserQuery } = userApiSlice;

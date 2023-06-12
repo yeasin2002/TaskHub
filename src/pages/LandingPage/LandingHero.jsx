@@ -1,8 +1,19 @@
+import * as RouteTypes from "../../lib/RouteTypes";
 import Btn_Primary from "../../components/Btn_Primary";
 
 import view from "./../../assets/display/view.png";
+import { Link } from "react-router-dom";
+// import { useCountOfUserQuery } from "../../Redux/feature/API/userApiSlice";
+
+import { useGetJWTQuery } from "../../Redux/feature/API/accountsApiSlice";
+import { useEffect } from "react";
 
 const LandingHero = () => {
+  let { data, isSuccess } = useGetJWTQuery();
+  useEffect(() => {
+    console.log(isSuccess);
+  }, [isSuccess]);
+
   return (
     <>
       <main className="">
@@ -17,15 +28,24 @@ const LandingHero = () => {
                 bringing them to live a bit more fun.
               </p>
               <div className="flex justify-center">
-                <Btn_Primary className="focus:outline-none hover:bg-indigo-600 inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded">
-                  Button
-                </Btn_Primary>
-                <Btn_Primary className="focus:outline-none hover:bg-gray-200 inline-flex px-6 py-2 ml-4 text-lg text-gray-700 bg-gray-100 border-0 rounded">
-                  Button
-                </Btn_Primary>
+                <Link to={RouteTypes.singIn}>
+                  <Btn_Primary className="focus:outline-none hover:bg-indigo-600 inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded">
+                    Sing Up
+                  </Btn_Primary>
+                </Link>
+                <Link to={RouteTypes.getApps}>
+                  <Btn_Primary className="focus:outline-none hover:bg-gray-200 inline-flex px-6 py-2 ml-4 text-lg text-gray-700 bg-gray-100 border-0 rounded">
+                    Install Apps
+                  </Btn_Primary>
+                </Link>
               </div>
 
-              <p className="mt-4">69 people are already enjoying our app</p>
+              <p className="mt-4">
+                <span>
+                  {/* {isLoading ? "Loading..." : data?.countOfUsers?.count} */}
+                </span>
+                people are already enjoying our app
+              </p>
             </div>
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
               <img

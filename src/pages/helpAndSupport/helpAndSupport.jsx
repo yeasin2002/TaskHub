@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const helpAndSupport = () => {
+const HelpAndSupport = () => {
   return (
     <div>
       helpAndSupport
@@ -9,4 +9,4 @@ const helpAndSupport = () => {
   );
 };
 
-export default helpAndSupport;
+export default HelpAndSupport;

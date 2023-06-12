@@ -5,7 +5,7 @@ const Btn_Primary = ({ children, className, type }) => {
     <Button
       type={type}
       className={`bg-accent transition-all  ${className}`}
-      variant="contained"
+      variant="filled"
     >
       {children}
     </Button>

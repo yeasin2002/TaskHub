@@ -6,6 +6,7 @@ export const helpAndSupport = "help_and_support";
 export const login = "login";
 export const singIn = "sing_in";
 export const notFound = "notFound";
+export const getApps = "get_apps";
 
 export const todoHome = "todo_home";
 //  subroutes pf todoHome

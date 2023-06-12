@@ -9,10 +9,11 @@ import { useGetJWTQuery } from "../../Redux/feature/API/accountsApiSlice";
 import { useEffect } from "react";
 
 const LandingHero = () => {
-  let { data, isSuccess } = useGetJWTQuery();
+  let { data } = useGetJWTQuery();
+
   useEffect(() => {
-    console.log(isSuccess);
-  }, [isSuccess]);
+    console.log(data);
+  }, [data]);
 
   return (
     <>

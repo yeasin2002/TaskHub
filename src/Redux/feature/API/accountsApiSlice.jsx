@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 //  endpoints query's
 import verificationOTP from "./Querys/Accounts/verificationOTP";
-import GetJWT from "./Querys/Accounts/GetJWT";
+// import GetJWT from "./Querys/Accounts/GetJWT";
 import singUP from "./Querys/Accounts/Signup";
 import logIn from "./Querys/Accounts/Login";
 import ForgetPassword from "./Querys/Accounts/ForgetPassword";
@@ -22,13 +22,14 @@ const accountApiSlice = createApi({
   }),
 
   endpoints: (builder) => ({
+    // Get an OTP to verify your email
+    GetJWT: builder.query({
+      query: () => "/account/new-token",
+    }),
+
     //  Get an OTP to verify your email
     getVerificationOTP: builder.mutation({
       query: verificationOTP,
-    }),
-    // Get an OTP to verify your email
-    GetJWT: builder.query({
-      query: GetJWT,
     }),
 
     // singUp
@@ -67,5 +68,4 @@ const accountApiSlice = createApi({
   }),
 });
 export default accountApiSlice;
-export const { useGetJWTQuery, useGetVerificationOTPMutation } =
-  accountApiSlice;
+export const { useGetJWTQuery } = accountApiSlice;

@@ -28,7 +28,8 @@ const LandingNav = () => {
               <Link to={RouteTypes.login}>
                 <Button className="mx-1 bg-blue-600">Log In</Button>
               </Link>
-              <Link to={RouteTypes.todoHome}>
+              {/* <Link to={RouteTypes.todoHome}> */}
+              <Link to={"test"}>
                 <Button className="mx-1 bg-blue-600">Start For Free</Button>
               </Link>
             </div>

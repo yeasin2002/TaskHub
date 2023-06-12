@@ -14,6 +14,7 @@ import Loading from "./layout/Loading";
 import PrivetRoues from "./layout/PrivetRoues";
 
 import Root from "./layout/Root";
+import Test from "./Test";
 
 // Public Pages
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
@@ -128,6 +129,10 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+      {
+        path: "test",
+        element: <Test />,
       },
     ],
   },

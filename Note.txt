@@ -1,0 +1,7 @@
+  singUp({
+            email: "",
+            username: "",
+            name: "",
+            password: "",
+            code: "",
+          });

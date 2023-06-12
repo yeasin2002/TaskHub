@@ -3,12 +3,10 @@ import Btn_Primary from "../../components/Btn_Primary";
 
 import view from "./../../assets/display/view.png";
 import { Link } from "react-router-dom";
-import { useGetJWTQuery } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
+
 // import { useCountOfUserQuery } from "../../Redux/feature/API/userApiSlice";
 
 const LandingHero = () => {
-  const { data } = useGetJWTQuery();
-  console.log(data);
   return (
     <>
       <main className="">

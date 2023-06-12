@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+
+//  icons
 import {
   AiOutlineMenu as Menu,
   AiOutlineTeam,
@@ -13,7 +15,7 @@ import { Button } from "@material-tailwind/react";
 
 import logo from "../../assets/logo.svg";
 
-const SearchBoxTemplate = () => {
+const LandingNav = () => {
   return (
     <>
       <nav className=" bg-white border-gray-200">
@@ -81,4 +83,4 @@ const SearchBoxTemplate = () => {
     </>
   );
 };
-export default SearchBoxTemplate;
+export default LandingNav;

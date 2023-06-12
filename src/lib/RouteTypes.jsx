@@ -12,7 +12,8 @@ export const todoHome = "todo_home";
 export const search = "serch";
 export const notification = "notification";
 export const profile = "profile";
-export const todoHomeIndex = "/";
+
+export const todoHomeIndex = "/todo_home_index";
 //  all, complete and incomplete task  subroutes of todoHomeIndex
 export const allTask = "all_task";
 export const completeTask = "complete_task";

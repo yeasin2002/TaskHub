@@ -8,13 +8,13 @@ export const singIn = "sing_in";
 export const notFound = "notFound";
 export const getApps = "get_apps";
 
-export const todoHome = "todo_home";
+export const todoHome = "/todo_home";
 //  subroutes pf todoHome
 export const search = "serch";
 export const notification = "notification";
 export const profile = "profile";
 
-export const todoHomeIndex = "/todo_home_index";
+// export const todoHomeIndex = "/todo_home_index";
 //  all, complete and incomplete task  subroutes of todoHomeIndex
 export const allTask = "all_task";
 export const completeTask = "complete_task";

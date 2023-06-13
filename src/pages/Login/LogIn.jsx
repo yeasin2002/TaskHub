@@ -2,8 +2,8 @@ import { useState } from "react";
 import LogInOutAndSingInAndUpContainer from "../../components/LogInOutAndSingInAndUpContainer";
 
 //  sub pages
-import LogIn_GetJWT from "./LogIn_GetJWT";
-import LogIn_providePass from "./LogIn_providePass";
+import LogIn_Direect from "./LogIn_Direect";
+import LogIn_ForgotPass from "./LogIn_ForgotPass";
 
 const LogIn = () => {
   const [isConfirmPass, setIsConfirmPass] = useState(false);
@@ -11,9 +11,9 @@ const LogIn = () => {
     <div>
       <LogInOutAndSingInAndUpContainer>
         {!isConfirmPass ? (
-          <LogIn_GetJWT setIsConfirmPass={setIsConfirmPass} />
+          <LogIn_Direect setIsConfirmPass={setIsConfirmPass} />
         ) : (
-          <LogIn_providePass setIsConfirmPass={setIsConfirmPass} />
+          <LogIn_ForgotPass setIsConfirmPass={setIsConfirmPass} />
         )}
       </LogInOutAndSingInAndUpContainer>
     </div>

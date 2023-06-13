@@ -1,7 +1,7 @@
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Btn_Primary from "../../Components/Btn_Primary";
 
-const LogIn_providePass = ({ setIsConfirmPass }) => {
+const LogIn_ForgotPass = ({ setIsConfirmPass }) => {
   return (
     <>
       <div className=" p-14">
@@ -57,4 +57,4 @@ const LogIn_providePass = ({ setIsConfirmPass }) => {
   );
 };
 
-export default LogIn_providePass;
+export default LogIn_ForgotPass;

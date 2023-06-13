@@ -35,9 +35,11 @@ const LandingHero = () => {
               </div>
 
               <p className="mt-4">
-                <span className="mx-2 font-semibold">
-                  {isSuccess && data?.data?.count}
-                </span>
+                {isSuccess && (
+                  <span className="mx-2 font-semibold">
+                    {data?.data?.count}
+                  </span>
+                )}
                 people are already enjoying our app
               </p>
             </div>

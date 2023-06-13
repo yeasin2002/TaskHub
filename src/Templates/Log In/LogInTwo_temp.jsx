@@ -13,14 +13,14 @@ const LogInTwo_temp = () => {
         <form className="mt-20">
           <div className="mt-10">
             <label
-              htmlFor="passCode"
+              htmlFor="logInTwoPassCode"
               className=" block mb-4 text-sm font-medium text-gray-900"
             >
               New password
             </label>
             <input
               type="password"
-              id="passCode"
+              id="logInTwoPassCode"
               placeholder="**********"
               className="form-input"
             />

@@ -24,14 +24,14 @@ const LogInOne_temp = () => {
 
         <div className="mt-10">
           <label
-            htmlFor="passCode"
+            htmlFor="logInTempPassCode"
             className=" block mb-4 text-sm font-medium text-gray-900"
           >
             Email or username
           </label>
           <input
             type="password"
-            id="passCode"
+            id="logInTempPassCode"
             placeholder="**********"
             className="form-input"
           />

@@ -3,6 +3,7 @@ import * as RouteTypes from "../../lib/RouteTypes";
 import Btn_Primary from "../../Components/Btn_Primary";
 import { useLogInMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
 import { useState } from "react";
+import { setUserJWT } from "../../lib/usetJWT_Handler";
 
 const LogIn_Direect = ({ setIsConfirmPass }) => {
   const [emailOrUserName, setEmailOrUserName] = useState("");
@@ -13,12 +14,17 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const go = await LogIn({
-      login: emailOrUserName,
-      password,
-    });
-    if (go?.data?.status === "success") {
-      navigate(RouteTypes.todoHome);
+    try {
+      const go = await LogIn({
+        login: emailOrUserName,
+        password,
+      });
+      if (go?.data?.status === "success") {
+        setUserJWT(go?.data?.token);
+        navigate(RouteTypes.todoHome);
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
   return (
@@ -35,9 +41,10 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
           </label>
           <input
             type="text"
-            id="userName"
+            id="logIN_userName"
             placeholder="john.doe@example.com"
             className="form-input"
+            required
             onChange={(e) => {
               setEmailOrUserName(e.target.value);
             }}
@@ -46,23 +53,24 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
 
         <div className="mt-10">
           <label
-            htmlFor="passCode"
+            htmlFor="logIg_passCode"
             className=" block mb-4 text-sm font-medium text-gray-900"
           >
             password
           </label>
           <input
             type="password"
-            id="passCode"
+            id="logIg_passCode"
             placeholder="**********"
             className="form-input"
+            required
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
         </div>
         <p
-          className="pl-1 mt-2 font-semibold text-blue-600"
+          className="text-Shades hover:text-blue-700 pl-1 mt-8 font-semibold transition-all cursor-pointer"
           onClick={() => {
             setIsConfirmPass(true);
           }}
@@ -76,7 +84,7 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
 
         <div className="into-center gap-x-1 pt-4">
           <p className="text-slate-700">Already logged in?</p>
-          <Link className="text-blue-600" to={"sing_in"}>
+          <Link className="text-blue-600" to={RouteTypes.singIn}>
             Sign Up
           </Link>
         </div>

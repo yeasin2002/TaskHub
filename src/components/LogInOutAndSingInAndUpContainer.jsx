@@ -1,6 +1,8 @@
 //  Importable Dependencies
 import cover from "../assets/cover/logInCover.svg";
 import brand from "../assets/Brand.svg";
+import { Link } from "react-router-dom";
+import * as RouteTypes from "../lib/RouteTypes";
 
 const LogInOutAndSingInAndUpContainer = ({ children }) => {
   return (
@@ -22,9 +24,9 @@ const LogInOutAndSingInAndUpContainer = ({ children }) => {
           </div>
           <div>
             <ul className="gap-x-6 flex pb-8 font-bold text-white">
-              <li>home</li>
-              <li>about</li>
-              <li>service</li>
+              <Link to={RouteTypes.LandingPage}>home</Link>
+              <Link to={RouteTypes.about}>about</Link>
+              <Link to={RouteTypes.helpAndSupport}>Help And Support </Link>
             </ul>
           </div>
         </div>

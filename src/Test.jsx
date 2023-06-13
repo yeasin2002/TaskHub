@@ -1,12 +1,9 @@
-import { useGetAllTaskQuery } from "./Redux/feature/API/taskApiSlice/taskApiSlice";
+import Loading from "./layout/Loading";
 
 const Test = () => {
-  const { data, isLoading } = useGetAllTaskQuery();
-  console.log(data);
   return (
     <div>
-      <p>Test</p>
-      <p>{isLoading && "loading"}</p>
+      <Loading />
     </div>
   );
 };

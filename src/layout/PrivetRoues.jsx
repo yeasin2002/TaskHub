@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { login } from "../lib/RouteTypes";
 
-let isAuth = localStorage.getItem("userJWT");
-
 const PrivetRoues = () => {
+  let isAuth = localStorage.getItem("userJWT");
+
   return isAuth ? <Outlet /> : <Navigate to={login} />;
 };
 

@@ -2,8 +2,9 @@ import { useGetAllUserCountQuery } from "../../Redux/feature/API/extraApiSlice/e
 import { Link } from "react-router-dom";
 import * as RouteTypes from "../../lib/RouteTypes";
 
-import Btn_Primary from "../../components/Btn_Primary";
-import view from "./../../assets/display/view.png";
+import Btn_Primary from "../../Components/Btn_Primary";
+
+import LandingCarousel from "./LandingCarousel";
 
 const LandingHero = () => {
   const { data, isSuccess } = useGetAllUserCountQuery();
@@ -44,11 +45,7 @@ const LandingHero = () => {
               </p>
             </div>
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-              <img
-                className="object-cover object-center rounded"
-                alt="hero"
-                src={view}
-              />
+              <LandingCarousel />
             </div>
           </div>
         </section>

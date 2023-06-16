@@ -12,6 +12,7 @@ import store from "./Redux/store";
 const NotFound = lazy(() => import("./layout/NotFound"));
 import Loading from "./layout/Loading";
 import PrivetRoues from "./layout/PrivetRoues";
+import PublicRoute from "./layout/PublicRoute";
 
 import Root from "./layout/Root";
 import Test from "./Test";
@@ -64,19 +65,26 @@ const router = createBrowserRouter([
         path: allRouter.helpAndSupport,
         element: <HelpAndSupport />,
       },
-      {
-        path: allRouter.login,
-        element: <LogIn />,
-      },
+
       {
         path: allRouter.getApps,
         element: <GetApps />,
       },
+
       {
-        path: allRouter.singIn,
-        element: <SingIn />,
+        path: "/",
+        element: <PublicRoute />,
+        children: [
+          {
+            path: allRouter.singIn,
+            element: <SingIn />,
+          },
+          {
+            path: allRouter.login,
+            element: <LogIn />,
+          },
+        ],
       },
-      ,
       {
         path: "/",
         element: <PrivetRoues />,

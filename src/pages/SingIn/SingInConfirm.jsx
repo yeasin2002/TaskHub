@@ -1,20 +1,50 @@
-import { useState } from "react";
-import { useGetOTPMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
-
 //  Components  and icons
-
+import { useNavigate } from "react-router-dom";
+import * as RouteTypes from "../../lib/RouteTypes";
+import { useForm } from "react-hook-form";
 import Btn_Primary from "../../Components/Btn_Primary";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useSingUpMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
+import { useSelector } from "react-redux";
+
+//   react  toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//  util
+import { setUserJWT } from "../../lib/usetJWT_Handler";
 
 const SingInConfirm = ({ setIsConfirmStage }) => {
-  const [MailState, SetMailState] = useState("");
-  const [getOTP, { isLoading }] = useGetOTPMutation();
+  const navigate = useNavigate();
+  const { userAvatar, firstName, lastName, userMail, userPassword } =
+    useSelector((state) => state?.singInInputsSlice);
 
-  const formHandler = async (e) => {
-    e.preventDefault();
-    await getOTP(MailState);
+  const [singUp, { isLoading }] = useSingUpMutation();
+
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm();
+  const handleForm = async (data) => {
+    const finalSingUp = await singUp({
+      email: userMail,
+      username: data?.userName,
+      name: `${firstName} ${lastName}`,
+      avatar: userAvatar,
+      password: userPassword,
+      code: data?.provideCode,
+    });
+    console.log(finalSingUp);
+    if (finalSingUp?.data?.data?.token) {
+      setUserJWT(finalSingUp?.data?.data?.token);
+      navigate(RouteTypes.todoHome);
+    }
+    if (finalSingUp?.error?.data?.status === "fail") {
+      await toast(finalSingUp.error.data.message || "Something went wrong");
+    }
   };
-
   return (
     <>
       <div className=" p-14">
@@ -32,33 +62,60 @@ const SingInConfirm = ({ setIsConfirmStage }) => {
 
         {/* <HandleCodeAfterReceivingOTP setErrorState={setErrorState} /> */}
 
-        <form className="mt-20" onSubmit={formHandler}>
+        <form className="mt-20" onSubmit={handleSubmit(handleForm)}>
           <div className="my-10">
             <label
-              htmlFor="singIn_email"
+              htmlFor="userName"
               className=" block mb-4 text-sm font-medium text-gray-900"
             >
-              Email
+              User Name
             </label>
             <input
               type="text"
-              id="singIn_email"
-              placeholder="john.doe@example.com"
+              id="userName"
+              placeholder="yeasin2002"
               className="form-input"
-              value={MailState}
-              onChange={(e) => {
-                SetMailState(e.target.value);
-              }}
+              {...register("userName", {
+                required: "User Name is required",
+              })}
             />
+            {errors?.userName && (
+              <p className="text-red-800">{errors?.userName?.message}</p>
+            )}
           </div>
 
-          {/*  sent OTP */}
+          {/* provide code */}
+          <div className="my-10">
+            <label
+              htmlFor="provideCode"
+              className=" block mb-4 text-sm font-medium text-gray-900"
+            >
+              code
+            </label>
+            <input
+              type="text"
+              id="provideCode"
+              placeholder="Code from your mail "
+              className="form-input"
+              {...register("provideCode", {
+                required: "provide a code that  you get from your mail",
+                minLength: {
+                  value: 6,
+                  message: "code must be at least 6 characters",
+                },
+              })}
+            />
+            {errors?.provideCode && (
+              <p className="text-red-800">{errors?.provideCode?.message}</p>
+            )}
+          </div>
 
           <Btn_Primary className={"w-full mt-4 pt-3"} type={"submit"}>
-            {isLoading ? "Loading..." : "Send OTP"}
+            {isLoading ? "Loading..." : "Sing In"}
           </Btn_Primary>
           <p className="mt-4 text-center"> Send again in 58 seconds </p>
         </form>
+        <ToastContainer />
       </div>
     </>
   );

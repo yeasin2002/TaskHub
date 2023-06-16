@@ -17,9 +17,6 @@ import { AiFillCamera } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useGetOTPMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
 
-//  form schema
-
-//  md.Yeasin@2002
 const SingInForm = ({ setIsConfirmStage }) => {
   const [getOTP, { isLoading }] = useGetOTPMutation();
   const dispatch = useDispatch();

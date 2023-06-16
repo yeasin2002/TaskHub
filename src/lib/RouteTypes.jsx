@@ -10,7 +10,7 @@ export const getApps = "get_apps";
 
 export const todoHome = "/todo_home";
 //  subroutes pf todoHome
-export const search = "serch";
+export const search = "search";
 export const notification = "notification";
 export const profile = "profile";
 

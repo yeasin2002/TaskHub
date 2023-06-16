@@ -93,17 +93,16 @@ const router = createBrowserRouter([
         children: [
           {
             path: allRouter.todoHome,
-
             element: <TodoIndex />,
             children: [
               {
                 index: true,
-                path: "todoHomeMain",
                 element: <TodoHome />,
                 //  all nested child route - all task, complete task, incomplete task
               },
               {
                 path: allRouter.search,
+                // index: true,
                 element: <Search />,
               },
               {

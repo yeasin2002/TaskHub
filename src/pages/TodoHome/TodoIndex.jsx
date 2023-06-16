@@ -1,9 +1,17 @@
-import TodoHome_temp from "../../Templates/TodoHome/Home/TodoHome_temp";
+import { Outlet } from "react-router-dom";
+import TodoHomeSidebar from "./TodoHomeSidebar";
 
 const HomeIndex = () => {
   return (
     <>
-      <TodoHome_temp />
+      <div className=" flex flex-col justify-between">
+        <div className="flex">
+          <TodoHomeSidebar />
+
+          {/* outlets */}
+          <Outlet />
+        </div>
+      </div>
     </>
   );
 };

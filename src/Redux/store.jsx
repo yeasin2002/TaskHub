@@ -7,6 +7,7 @@ import taskApiSlice from "./feature/API/taskApiSlice/taskApiSlice";
 import userApiSlice from "./feature/API/userApiSlice/userApiSlice";
 
 //  general  Slices
+import singInInputsSlice from "./feature/singInInputs/singInInputs";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,8 @@ const store = configureStore({
     [extraApiSlice.reducerPath]: extraApiSlice.reducer,
     [taskApiSlice.reducerPath]: taskApiSlice.reducer,
     [userApiSlice.reducerPath]: userApiSlice.reducer,
+    // general slices
+    singInInputsSlice: singInInputsSlice.reducer,
   },
   middleware: (defaultMiddleware) =>
     defaultMiddleware().concat(

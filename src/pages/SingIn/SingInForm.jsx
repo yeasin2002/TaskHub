@@ -1,29 +1,44 @@
-/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
-import { AiFillCamera } from "react-icons/ai";
+import { useForm } from "react-hook-form";
+import { setSingInInputs } from "../../Redux/feature/singInInputs/singInInputs";
 
 // form validation
 import { DevTool } from "@hookform/devtools";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-//   Components
+//   Components and icons
 import Btn_Primary from "../../Components/Btn_Primary";
-import { useForm } from "react-hook-form";
+import { AiFillCamera } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 
 //  form schema
 const schema = yup
   .object({
-    userAvatar: yup.mixed().required(),
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    userName: yup.string().required(),
-    userPassword: yup.string().required(),
-    confirmPassword: yup.string().required(),
+    userAvatar: yup.mixed(),
+    firstName: yup.string().required("First name is required"),
+    lastName: yup.string().required("Last name is required"),
+    userName: yup.string().required("user name is required"),
+    userPassword: yup
+      .string()
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters long")
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+      ),
+    confirmPassword: yup
+      .string()
+      .oneOf(
+        [yup.ref("userPassword"), null],
+        "confirm  passwords should  match with password"
+      )
+      .required("Confirm Password is required"),
   })
   .required();
-
-const SingInForm = () => {
+//  md.Yeasin@2002
+const SingInForm = ({ setIsConfirmStage }) => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -32,9 +47,24 @@ const SingInForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  console.log(errors);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    //  request-email-verify - 2002 = code open else throw error
+    // code = math = signup else throw error and show on the ui
+
+    dispatch(
+      setSingInInputs({
+        userAvatar: data.userAvatar[0],
+        firstName: data.firstName,
+        lastName: data.lastName,
+        userName: data.userName,
+        userPassword: data.userPassword,
+        confirmPassword: data.confirmPassword,
+      })
+    );
+
+    await setIsConfirmStage(true);
+  };
   return (
     <>
       <div className=" px-6 py-3">
@@ -93,6 +123,15 @@ const SingInForm = () => {
             </div>
           </div>
 
+          <div className="grid grid-cols-2">
+            {errors?.firstName && (
+              <p className="text-red-500">{errors?.firstName?.message}</p>
+            )}
+            {errors?.lastName && (
+              <p className="text-red-500">{errors?.lastName?.message}</p>
+            )}
+          </div>
+
           {/* userName */}
           <div>
             <div className="mt-2">
@@ -109,6 +148,11 @@ const SingInForm = () => {
                 className="form-input"
                 {...register("userName")}
               />
+            </div>
+            <div className="my-1">
+              {errors?.userName && (
+                <p className="text-red-500">{errors?.userName?.message}</p>
+              )}
             </div>
           </div>
 
@@ -127,6 +171,11 @@ const SingInForm = () => {
               className="form-input"
               {...register("userPassword")}
             />
+            <div className="mt-1">
+              {errors?.userPassword && (
+                <p className="text-red-500">{errors?.userPassword?.message}</p>
+              )}
+            </div>
           </div>
 
           {/* new password */}
@@ -144,6 +193,13 @@ const SingInForm = () => {
               className="form-input"
               {...register("confirmPassword")}
             />
+            <div>
+              {errors?.confirmPassword && (
+                <p className="text-red-500">
+                  {errors?.confirmPassword?.message}
+                </p>
+              )}
+            </div>
           </div>
 
           {/* form input end */}
@@ -154,28 +210,12 @@ const SingInForm = () => {
           <div className="into-center gap-x-1 pt-4">
             <p className="text-slate-700">Already logged in?</p>
             <Link className="text-blue-600" to={"sing_in"}>
-              Sign Up
+              Sing in
             </Link>
           </div>
           <DevTool control={control} />
         </form>
-        <div className="px-8 mt-2">
-          {errors.firstName && (
-            <p className="text-red-500">first Name is required</p>
-          )}
-          {errors.lastName && (
-            <p className="text-red-500">last Name is required</p>
-          )}
-          {errors.userName && (
-            <p className="text-red-500">user Name is required</p>
-          )}
-          {errors.userPassword && (
-            <p className="text-red-500">user Password is required</p>
-          )}
-          {errors.confirmPassword && (
-            <p className="text-red-500">confirm Password is required</p>
-          )}
-        </div>
+        <div className="px-8 mt-2"></div>
       </div>
     </>
   );

@@ -41,16 +41,6 @@ const AddTask = lazy(() => import("./pages/TodoHome/Task/AddTask/AddTask"));
 const UpdateTask = lazy(() =>
   import("./pages/TodoHome/Task/UpdateTask/UpdateTask")
 );
-//  all, complete and incomplete task  subroutes of todoHomeIndex
-const AllTask = lazy(() =>
-  import("./pages/TodoHome/HomeIndex/AllTask/AllTask")
-);
-const CompleteTask = lazy(() =>
-  import("./pages/TodoHome/HomeIndex/CompleteTask/CompleteTask")
-);
-const IncompleteTask = lazy(() =>
-  import("./pages/TodoHome/HomeIndex/IncompleteTask/IncompleteTask")
-);
 
 //  app router
 const router = createBrowserRouter([
@@ -108,6 +98,7 @@ const router = createBrowserRouter([
               {
                 path: allRouter.profile,
                 element: <Profile />,
+                //  nested profile and preference route
               },
               {
                 path: allRouter.notification,
@@ -129,6 +120,7 @@ const router = createBrowserRouter([
         path: "*",
         element: <NotFound />,
       },
+      //  temporary route for testing purpose
       {
         path: "test",
         element: <Test />,

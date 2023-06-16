@@ -1,15 +1,15 @@
 import { useState } from "react";
-import LogInOutAndSingInAndUp_temp from "../../Templates/Components/LogInOutAndSingInAndUp_temp";
-// import SingIn_temp from "../../Templates/SingIN/SingIn_temp";
+
 import SingInConfirm from "./SingInConfirm";
 import SingInForm from "./SingInForm";
+import LogInOutAndSingInAndUpContainer from "../../components/LogInOutAndSingInAndUpContainer";
 
 const SingIn = () => {
   const [IsConfirmStage, setIsConfirmStage] = useState(false);
 
   return (
     <div>
-      <LogInOutAndSingInAndUp_temp>
+      <LogInOutAndSingInAndUpContainer>
         {!IsConfirmStage ? (
           <SingInForm setIsConfirmStage={setIsConfirmStage} />
         ) : (
@@ -17,7 +17,7 @@ const SingIn = () => {
         )}
 
         <div className="px-14">{/* error state */}</div>
-      </LogInOutAndSingInAndUp_temp>
+      </LogInOutAndSingInAndUpContainer>
     </div>
   );
 };

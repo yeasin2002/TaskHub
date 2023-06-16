@@ -3,13 +3,10 @@ import * as RouteTypes from "../../lib/RouteTypes";
 
 //  components lib
 import { Button } from "@material-tailwind/react";
+import Drawer from "./Drawer";
 
 //  icons
-import {
-  AiOutlineMenu as Menu,
-  AiOutlineTeam,
-  AiOutlineQuestionCircle,
-} from "react-icons/ai";
+import { AiOutlineTeam, AiOutlineQuestionCircle } from "react-icons/ai";
 import { BiHomeAlt2 } from "react-icons/bi";
 
 //  assets
@@ -20,11 +17,11 @@ const LandingNav = () => {
     <>
       <nav className=" bg-white border-gray-200">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
-          <Link to={"/"} className="flex items-center">
-            <img src={logo} className="w-52" />
+          <Link to={"/"} className="flex items-center flex-1">
+            <img src={logo} className="md:w-52 w-40" />
           </Link>
-          <div className="md:order-2 flex">
-            <div className="md:block md:into-center relative hidden">
+          <div className="xl:order-2 flex">
+            <div className="xl:block xl:into-center relative hidden">
               <Link to={RouteTypes.login}>
                 <Button className="mx-1 bg-blue-600">Log In</Button>
               </Link>
@@ -36,13 +33,12 @@ const LandingNav = () => {
 
             {/*  open menu on mobile mode  */}
 
-            <Button
-              type="button"
-              className="md:hidden inline-flex items-center p-2 text-sm rounded-lg"
-            >
-              <span className="sr-only">Open menu</span>
-              <Menu className=" w-6 h-6" />
-            </Button>
+            {/* drawer start */}
+            <div className="md:hidden block">
+              <Drawer />
+            </div>
+
+            {/* drawer end */}
           </div>
           <div
             className="md:flex md:w-auto md:order-1 items-center justify-between hidden w-full"

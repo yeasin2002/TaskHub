@@ -24,9 +24,15 @@ const LogInOutAndSingInAndUpContainer = ({ children }) => {
           </div>
           <div>
             <ul className="gap-x-6 flex pb-8 font-bold text-white">
-              <Link to={RouteTypes.LandingPage}>home</Link>
-              <Link to={RouteTypes.about}>about</Link>
-              <Link to={RouteTypes.helpAndSupport}>Help And Support </Link>
+              <Link className="cursor-pointer" to={RouteTypes.LandingPage}>
+                home
+              </Link>
+              <Link className="cursor-pointer" to={RouteTypes.about}>
+                about
+              </Link>
+              <Link className="cursor-pointer" to={RouteTypes.helpAndSupport}>
+                Help And Support{" "}
+              </Link>
             </ul>
           </div>
         </div>

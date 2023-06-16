@@ -24,12 +24,12 @@ const LandingHero = () => {
               </p>
               <div className="flex justify-center">
                 <Link to={RouteTypes.singIn}>
-                  <Btn_Primary className="focus:outline-none hover:bg-indigo-600 inline-flex px-6 py-2 text-lg text-white bg-indigo-500 border-0 rounded">
+                  <Btn_Primary className="focus:outline-none hover:bg-indigo-600 inline-flex px-4 py-2 text-lg text-white capitalize bg-indigo-500 border-0 rounded">
                     Sing Up
                   </Btn_Primary>
                 </Link>
                 <Link to={RouteTypes.getApps}>
-                  <Btn_Primary className="focus:outline-none hover:bg-gray-200 inline-flex px-6 py-2 ml-4 text-lg text-gray-700 bg-gray-100 border-0 rounded">
+                  <Btn_Primary className="focus:outline-none hover:bg-gray-200 inline-flex px-4 py-2 ml-2 text-lg text-gray-700 bg-gray-100 border-0 rounded">
                     Install Apps
                   </Btn_Primary>
                 </Link>

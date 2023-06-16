@@ -5,8 +5,7 @@ const Btn_Primary = ({ children, className, type, ...rest }) => {
     <Button
       type={type}
       {...rest}
-      className={`bg-accent transition-all  ${className}`}
-      variant="filled"
+      className={`bg-accent hover:bg-Shades  transition-all  capitalize ${className}`}
     >
       {children}
     </Button>

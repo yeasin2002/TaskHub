@@ -75,7 +75,7 @@ const TodoHomeSidebar = () => {
         </div>
         <div>
           <span
-            className="bg-blackens inline-block p-2 rounded-full cursor-pointer"
+            className="bg-blackens hover:bg-blue-gray-900 inline-block p-2 transition-all rounded-full cursor-pointer"
             onClick={() => {
               setIsOpen(!isOpen);
             }}

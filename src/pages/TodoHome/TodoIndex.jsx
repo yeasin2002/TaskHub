@@ -11,7 +11,9 @@ const HomeIndex = () => {
         <div className="flex">
           <TodoHomeSidebar />
           {/* outlets */}
-          <Outlet />
+          <div className="flex-1">
+            <Outlet />
+          </div>
         </div>
       </div>
 

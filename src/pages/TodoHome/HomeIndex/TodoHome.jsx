@@ -1,5 +1,15 @@
+import TodoTopArea from "./TodoTopArea";
+import TodoHomeTodoRender from "./TodoHomeTodoRender";
+import { useState } from "react";
+
 const TodoHome = () => {
-  return <div>TodoHome</div>;
+  const [TodoStage, setTodoStage] = useState("all");
+  return (
+    <div className="flex-1">
+      <TodoTopArea setTodoStage={setTodoStage} TodoStage={TodoStage} />
+      <TodoHomeTodoRender setTodoStage={setTodoStage} TodoStage={TodoStage} />
+    </div>
+  );
 };
 
 export default TodoHome;

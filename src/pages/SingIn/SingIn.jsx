@@ -6,26 +6,17 @@ import SingInForm from "./SingInForm";
 
 const SingIn = () => {
   const [IsConfirmStage, setIsConfirmStage] = useState(false);
-  const [errorState, setErrorState] = useState({
-    isError: false,
-    errorMsg: "",
-  });
 
   return (
     <div>
       <LogInOutAndSingInAndUp_temp>
-        {IsConfirmStage ? (
-          <SingInConfirm
-            setErrorState={setErrorState}
-            setIsConfirmStage={setIsConfirmStage}
-          />
-        ) : (
+        {!IsConfirmStage ? (
           <SingInForm setIsConfirmStage={setIsConfirmStage} />
+        ) : (
+          <SingInConfirm setIsConfirmStage={setIsConfirmStage} />
         )}
 
-        <div className="px-14">
-          {errorState.isError && <p>{errorState.errorMsg} </p>}
-        </div>
+        <div className="px-14">{/* error state */}</div>
       </LogInOutAndSingInAndUp_temp>
     </div>
   );

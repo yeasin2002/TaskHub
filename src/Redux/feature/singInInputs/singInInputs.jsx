@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  userAvatar: [],
+  userAvatar: "",
   firstName: "",
   lastName: "",
-  userName: "",
+  userMail: "",
   userPassword: "",
   confirmPassword: "",
 };
@@ -14,11 +14,10 @@ const singInInputsSlice = createSlice({
   initialState,
   reducers: {
     setSingInInputs: (state, action) => {
-      console.log(action.payload);
       state.userAvatar = action.payload.userAvatar;
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
-      state.userName = action.payload.userName;
+      state.userMail = action.payload.userMail;
       state.userPassword = action.payload.userPassword;
       state.confirmPassword = action.payload.confirmPassword;
     },

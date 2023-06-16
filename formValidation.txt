@@ -2,28 +2,43 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { setSingInInputs } from "../../Redux/feature/singInInputs/singInInputs";
 
-//  react  toastify
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 // form validation
 import { DevTool } from "@hookform/devtools";
+import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import schema from "./FormSchema";
 
 //   Components and icons
 import Btn_Primary from "../../Components/Btn_Primary";
 import { AiFillCamera } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { useGetOTPMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
 
 //  form schema
-
+const schema = yup
+  .object({
+    userAvatar: yup.mixed(),
+    firstName: yup.string().required("First name is required"),
+    lastName: yup.string().required("Last name is required"),
+    userName: yup.string().required("user name is required"),
+    userPassword: yup
+      .string()
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters long")
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+      ),
+    confirmPassword: yup
+      .string()
+      .oneOf(
+        [yup.ref("userPassword"), null],
+        "confirm  passwords should  match with password"
+      )
+      .required("Confirm Password is required"),
+  })
+  .required();
 //  md.Yeasin@2002
 const SingInForm = ({ setIsConfirmStage }) => {
-  const [getOTP, { isLoading }] = useGetOTPMutation();
   const dispatch = useDispatch();
-
   const {
     register,
     handleSubmit,
@@ -34,25 +49,21 @@ const SingInForm = ({ setIsConfirmStage }) => {
   });
 
   const onSubmit = async (data) => {
-    const req = await getOTP(data?.userMail);
+    //  request-email-verify - 2002 = code open else throw error
+    // code = math = signup else throw error and show on the ui
 
-    if (req?.data?.status === "success") {
-      dispatch(
-        setSingInInputs({
-          userAvatar: data?.userAvatar[0]?.name,
-          firstName: data?.firstName,
-          lastName: data?.lastName,
-          userMail: data?.userMail,
-          userPassword: data?.userPassword,
-          confirmPassword: data?.confirmPassword,
-        })
-      );
-      await setIsConfirmStage(true);
-    }
+    dispatch(
+      setSingInInputs({
+        userAvatar: data.userAvatar[0],
+        firstName: data.firstName,
+        lastName: data.lastName,
+        userName: data.userName,
+        userPassword: data.userPassword,
+        confirmPassword: data.confirmPassword,
+      })
+    );
 
-    if (req?.error?.data?.status === "fail") {
-      await toast(req.error.data.message || "Something went wrong");
-    }
+    await setIsConfirmStage(true);
   };
   return (
     <>
@@ -121,26 +132,26 @@ const SingInForm = ({ setIsConfirmStage }) => {
             )}
           </div>
 
-          {/* userMail */}
+          {/* userName */}
           <div>
             <div className="mt-2">
               <label
-                htmlFor="userMail"
+                htmlFor="username"
                 className=" block mb-4 text-sm font-medium text-gray-900"
               >
-                E-mail
+                username
               </label>
               <input
                 type="text"
-                id="userMail"
-                placeholder="mdkawsarislam2002@gmail.com"
+                id="userName"
+                placeholder="yeasin2002"
                 className="form-input"
-                {...register("userMail")}
+                {...register("userName")}
               />
             </div>
             <div className="my-1">
-              {errors?.userMail && (
-                <p className="text-red-500">{errors?.userMail?.message}</p>
+              {errors?.userName && (
+                <p className="text-red-500">{errors?.userName?.message}</p>
               )}
             </div>
           </div>
@@ -194,7 +205,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
           {/* form input end */}
 
           <Btn_Primary className={"w-full mt-8 pt-3"} type={"submit"}>
-            {isLoading ? "Loading..." : "Sing In"}
+            Log in
           </Btn_Primary>
           <div className="into-center gap-x-1 pt-4">
             <p className="text-slate-700">Already logged in?</p>
@@ -204,7 +215,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
           </div>
           <DevTool control={control} />
         </form>
-        <ToastContainer />
+        <div className="px-8 mt-2"></div>
       </div>
     </>
   );

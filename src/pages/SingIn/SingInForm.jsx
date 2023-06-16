@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // form validation
-import { DevTool } from "@hookform/devtools";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./FormSchema";
 
@@ -199,7 +199,6 @@ const SingInForm = ({ setIsConfirmStage }) => {
               Sing in
             </Link>
           </div>
-          <DevTool control={control} />
         </form>
         <ToastContainer />
       </div>

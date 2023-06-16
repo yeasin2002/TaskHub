@@ -5,6 +5,10 @@ import { useLogInMutation } from "../../Redux/feature/API/accountApiSlice/accoun
 import { useState } from "react";
 import { setUserJWT } from "../../lib/usetJWT_Handler";
 
+//  toast
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
+
 const LogIn_Direect = ({ setIsConfirmPass }) => {
   const [emailOrUserName, setEmailOrUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -20,8 +24,12 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
         password,
       });
       if (go?.data?.status === "success") {
-        setUserJWT(go?.data?.token);
-        navigate(RouteTypes.todoHome);
+        await setUserJWT(go?.data?.data?.token);
+        await navigate(RouteTypes.todoHome);
+      }
+
+      if (go?.error?.data.status === "fail") {
+        await toast(go?.error?.data.message || "Something went wrong");
       }
     } catch (error) {
       console.log(error.message);
@@ -89,6 +97,7 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
           </Link>
         </div>
       </form>
+      <ToastContainer position="top-right" />
     </div>
   );
 };

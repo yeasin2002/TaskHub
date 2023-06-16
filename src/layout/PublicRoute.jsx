@@ -4,7 +4,7 @@ import { todoHome } from "../lib/RouteTypes";
 const PublicRoute = () => {
   let isAuth = localStorage.getItem("userJWT");
 
-  return isAuth ? <Navigate to={todoHome} /> : <Outlet />;
+  return !isAuth ? <Navigate to={todoHome} /> : <Outlet />;
 };
 
 export default PublicRoute;

@@ -1,5 +1,3 @@
-/* eslint-disable no-sparse-arrays */
-/* eslint-disable no-unused-vars */
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import * as allRouter from "./lib/RouteTypes";
@@ -15,7 +13,6 @@ import PrivetRoues from "./layout/PrivetRoues";
 import PublicRoute from "./layout/PublicRoute";
 
 import Root from "./layout/Root";
-import Test from "./Test";
 
 // Public Pages
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
@@ -129,10 +126,6 @@ const router = createBrowserRouter([
         element: <NotFound />,
       },
       //  temporary route for testing purpose
-      {
-        path: "test",
-        element: <Test />,
-      },
     ],
   },
 ]);

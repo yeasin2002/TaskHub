@@ -25,18 +25,19 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
       });
       if (go?.data?.status === "success") {
         await setUserJWT(go?.data?.data?.token);
-        await navigate(RouteTypes.todoHome);
+        await navigate(RouteTypes?.todoHome);
       }
 
-      if (go?.error?.data.status === "fail") {
-        await toast(go?.error?.data.message || "Something went wrong");
+      if (go?.error?.data?.status === "fail") {
+        await toast(go?.error?.data?.message || "Something went wrong");
       }
     } catch (error) {
-      console.log(error.message);
+      await toast(error?.message || "Something went wrong");
+      console.log(error?.message);
     }
   };
   return (
-    <div className=" p-14">
+    <div className="md:p-14 px-4 py-10">
       <h2 className="text-2xl font-bold text-blue-700">Log In </h2>
 
       <form className="mt-20" onSubmit={handleSubmit}>

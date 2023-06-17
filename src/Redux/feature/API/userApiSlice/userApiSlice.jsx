@@ -15,6 +15,69 @@ const userApiSlice = createApi({
     getNewJWT: builder.query({
       query: () => "/new-token",
     }),
+    getAllUser: builder.query({
+      query: () => "/",
+    }),
+
+    updateUser: builder.mutation({
+      query: (updateRequirement) => {
+        return {
+          url: `/user`,
+          method: "PATCH",
+          body: updateRequirement,
+        };
+      },
+    }),
+
+    deleteUser: builder.mutation({
+      query: (password) => {
+        return {
+          url: `/delete-me`,
+          method: "PATCH",
+          body: {
+            password,
+          },
+        };
+      },
+    }),
+
+    updateSettings: builder.mutation({
+      query: (updateRequirement) => {
+        return {
+          url: `/settings`,
+          method: "PATCH",
+          body: updateRequirement,
+        };
+      },
+    }),
+
+    // Add Task Collection
+    addTaskCollection: builder.mutation({
+      query: (collectionRequirement) => {
+        return {
+          url: `/collections`,
+          method: "PATCH",
+          body: collectionRequirement,
+        };
+      },
+    }),
+    updateTaskCollection: builder.mutation({
+      query: (updatedCollectionRequirement) => {
+        return {
+          url: `/collections`,
+          method: "PATCH",
+          body: updatedCollectionRequirement,
+        };
+      },
+    }),
+    deleteTaskCollection: builder.mutation({
+      query: (id) => {
+        return {
+          url: `/collections/${id}`,
+          method: "PATCH",
+        };
+      },
+    }),
 
     //  endpoints end
   }),

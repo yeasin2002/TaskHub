@@ -83,4 +83,4 @@ const taskApiSlice = createApi({
   }),
 });
 export default taskApiSlice;
-export const { useGetAllTaskQuery } = taskApiSlice;
+export const { useGetAllTaskQuery, useCreateTaskMutation } = taskApiSlice;

@@ -1,19 +1,46 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Btn_Primary from "../../../../components/Btn_Primary";
 
 //  icons
 import { AiOutlineTeam } from "react-icons/ai";
 import { BsCalendarDate } from "react-icons/bs";
 import DatesPicker from "./DatesPicker";
+import { useCreateTaskMutation } from "../../../../Redux/feature/API/taskApiSlice/taskApiSlice";
 // components
 
 const AddTask_Form = () => {
   const [participants, setParticipants] = useState([]);
   const { handleSubmit, formState, register } = useForm();
+  const [createTask, { isLoading, error }] = useCreateTaskMutation();
 
+  const formHandler = async (data) => {
+    console.log(data);
+    try {
+      const addTask = await createTask({
+        title: data.title,
+        description: data.description,
+        startingDate: data.StartDate,
+        endingDate: data.EndDate,
+        participants: [],
+        collection: data.collection,
+      });
+      if (addTask?.data?.status === "success") {
+        console.log("task created successfully");
+      } else {
+        console.log("task not created");
+        console.log(addTask);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
-    <div className=" px-7 flex flex-col justify-between flex-1 h-screen py-4">
+    <form
+      onSubmit={handleSubmit(formHandler)}
+      className=" px-7 flex flex-col justify-between flex-1 h-screen py-4 mb-20"
+    >
       <div>
         <input
           type="text"
@@ -23,16 +50,30 @@ const AddTask_Form = () => {
           }}
           placeholder="Add a title to your task "
           className=" inputHolder"
-          {...register("title", {
-            required: "Todo Title is required",
-          })}
+          required
+          {...register("title")}
         />
         {/*  dates */}
         <div className=" gap-x-2 flex items-center">
-          {/* start dates */}
-          <DatesPicker />
-          {/*  ending date  */}
-          <DatesPicker />
+          <div className=" flex flex-col">
+            <p>Start Date</p>
+            <input
+              type="date"
+              name="StartDate"
+              id="StartDate"
+              {...register("StartDate")}
+            />
+          </div>
+          <div className=" flex flex-col">
+            <p>End Date</p>
+            <input
+              type="date"
+              name="EndDate"
+              id="EndDate"
+              required
+              {...register("EndDate")}
+            />
+          </div>
         </div>
 
         <div className="my-4">
@@ -45,9 +86,7 @@ const AddTask_Form = () => {
             name="Description"
             id="Description"
             placeholder="Write a meaningfull  Description"
-            {...register("description", {
-              required: "Description is required",
-            })}
+            {...register("description")}
           ></textarea>
         </div>
 
@@ -75,8 +114,12 @@ const AddTask_Form = () => {
         </div>
       </div>
 
-      {/*  advance part  */}
-    </div>
+      <div className="flex justify-end">
+        <Btn_Primary type={"submit"}>
+          {isLoading ? "Loading..." : "Create Task"}
+        </Btn_Primary>
+      </div>
+    </form>
   );
 };
 export default AddTask_Form;

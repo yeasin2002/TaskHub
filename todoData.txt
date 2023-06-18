@@ -1,0 +1,15 @@
+title
+participants
+startingDate
+_id
+completed
+description
+createdAt
+endingDate
+
+owner={
+    avatar
+    name
+    username
+    _id
+}

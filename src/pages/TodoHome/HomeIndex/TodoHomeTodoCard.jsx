@@ -1,4 +1,15 @@
-const TodoHomeTodoCard = ({ todoColor = "bg-dim" }) => {
+/* eslint-disable no-unused-vars */
+const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails }) => {
+  const {
+    title,
+    participants,
+    startingDate,
+    _id,
+    completed,
+    description,
+    createdAt,
+    endingDate,
+  } = todoDetails;
   let tempImg =
     "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0";
   return (
@@ -6,15 +17,12 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim" }) => {
       <div className=" flex justify-between">
         <div>
           <div className=" flex items-center gap-2">
-            <h2 className="title">Task Title </h2>
+            <h2 className="title">{title} </h2>
             <span className="bg-Shades px-2 py-1 text-sm text-white rounded-md">
               Tag Category
             </span>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
-            error?
-          </p>
+          <p>{description}</p>
         </div>
         <div>
           <input type="checkbox" name="todo" id="todo" defaultChecked />

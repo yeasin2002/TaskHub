@@ -9,7 +9,7 @@ import {
 const AddTaskStage = ({ isAdvance }) => {
   return (
     <>
-      <div className=" flex justify-between">
+      <div className=" mx-9 flex justify-between mt-5">
         <div className="flex items-center">
           <div className="md:hidden flex">
             <MdOutlineKeyboardArrowLeft className="text-2xl" />

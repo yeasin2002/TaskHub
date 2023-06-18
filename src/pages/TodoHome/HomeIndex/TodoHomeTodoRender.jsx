@@ -4,7 +4,7 @@ import CompleteTask from "./CompleteTask/CompleteTask";
 import IncompleteTask from "./IncompleteTask/IncompleteTask";
 
 const TodoHomeTodoRender = ({ TodoStage }) => {
-  const { data } = useGetAllTaskQuery();
+  const { data, isLoading } = useGetAllTaskQuery();
 
   const completedTask =
     data?.data?.tasks.filter((todo) => {
@@ -33,7 +33,16 @@ const TodoHomeTodoRender = ({ TodoStage }) => {
       break;
   }
 
-  return <>{renderComponent}</>;
+  return (
+    <>
+      <div>{renderComponent}</div>
+      {isLoading && (
+        <div className="w-full">
+          <p className=" text-2xl font-bold">Loading </p>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default TodoHomeTodoRender;

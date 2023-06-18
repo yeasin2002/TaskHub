@@ -7,9 +7,14 @@ import { BiHomeAlt2 } from "react-icons/bi";
 import { BsSearch, BsArrowLeftSquare } from "react-icons/bs";
 import { AiFillPlusCircle, AiOutlineBell } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
+import { useGetAllUserQuery } from "../../Redux/feature/API/userApiSlice/userApiSlice";
 
 const TodoHomeSidebar = () => {
+  const { data } = useGetAllUserQuery();
   const [isOpen, setIsOpen] = useState(false);
+
+  let tempIng =
+    "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?pid=ImgDet&rs=1";
   return (
     <>
       <aside
@@ -22,19 +27,19 @@ const TodoHomeSidebar = () => {
           <div className="flex flex-col items-center mt-6 -mx-2">
             <img
               className="object-cover w-24 h-24 mx-2 rounded-full"
-              src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+              src={data?.data?.user?.avatar || tempIng}
               alt="avatar"
             />
-            <h4 className=" title">John Doe</h4>
+            <h4 className=" title">{data?.data?.user?.name}</h4>
             <p className=" mx-2 mt-1 text-sm font-medium text-gray-600">
-              john@example.com
+              {data?.data?.user?.mail}
             </p>
           </div>
         ) : (
           <div className="flex flex-col items-center mt-6 -mx-2">
             <img
               className="object-cover w-8 h-8 mx-2 rounded-full"
-              src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+              src={data?.data?.user?.avatar || tempIng}
               alt="avatar"
             />
             <Link to={RouteTypes.addTask}>

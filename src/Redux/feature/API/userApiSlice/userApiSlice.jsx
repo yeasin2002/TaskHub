@@ -83,4 +83,4 @@ const userApiSlice = createApi({
   }),
 });
 export default userApiSlice;
-export const { useGetNewJWTQuery } = userApiSlice;
+export const { useGetAllUserQuery } = userApiSlice;

@@ -1,6 +1,10 @@
 import { BsFillSunFill } from "react-icons/bs";
+import { useGetAllUserQuery } from "../../../Redux//feature/API/userApiSlice/userApiSlice";
 
 const TodoTopArea = ({ TodoStage, setTodoStage }) => {
+  const { data } = useGetAllUserQuery();
+
+  //  avatar, email, name , username,id
   let tempIng =
     "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?pid=ImgDet&rs=1";
   return (
@@ -17,7 +21,9 @@ const TodoTopArea = ({ TodoStage, setTodoStage }) => {
             </div>
             <div>
               <p className="text-slate-600 font-semibold">Good Morning</p>
-              <h4 className="text-Shades text-xl font-bold">Jon Doe</h4>
+              <h4 className="text-Shades text-xl font-bold">
+                {data?.data?.user?.name}
+              </h4>
             </div>
           </div>
 

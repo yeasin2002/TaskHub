@@ -6,18 +6,26 @@ import IncompleteTask from "./IncompleteTask/IncompleteTask";
 const TodoHomeTodoRender = ({ TodoStage }) => {
   const { data } = useGetAllTaskQuery();
 
-  console.log(data);
+  const completedTask =
+    data?.data?.tasks.filter((todo) => {
+      if (todo?.completed) return todo;
+    }) || [];
+
+  const incompleteTask =
+    data?.data?.tasks.filter((todo) => {
+      if (!todo?.completed) return todo;
+    }) || [];
 
   let renderComponent = null;
   switch (TodoStage) {
     case "all":
-      renderComponent = <AllTask />;
+      renderComponent = <AllTask data={data?.data?.tasks} />;
       break;
     case "complete":
-      renderComponent = <CompleteTask />;
+      renderComponent = <CompleteTask data={completedTask} />;
       break;
     case "incomplete":
-      renderComponent = <IncompleteTask />;
+      renderComponent = <IncompleteTask data={incompleteTask} />;
       break;
 
     default:

@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import * as RouteTypes from "../../lib/RouteTypes";
 import { useForm } from "react-hook-form";
-import Btn_Primary from "../../Components/Btn_Primary";
+import Btn_Primary from "../../components/Btn_Primary";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useSingUpMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
 import { useSelector } from "react-redux";

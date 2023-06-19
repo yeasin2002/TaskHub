@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { AiFillCamera } from "react-icons/ai";
 
 //   Components
-import Btn_Primary from "../Components/Btn_Primary";
+import Btn_Primary from "../components/Btn_Primary";
 
 const SingInOne = () => {
   return (

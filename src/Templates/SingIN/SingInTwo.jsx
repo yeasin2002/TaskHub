@@ -2,8 +2,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 
 //  Components
 import FormInput from "../Components/FormInputForOTP";
-import Btn_Primary from "../Components/Btn_Primary";
-
+import Btn_Primary from "../components/Btn_Primary";
 const SingInTwo = () => {
   return (
     <>

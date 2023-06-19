@@ -1,4 +1,4 @@
-import Btn_Primary from "../Components/Btn_Primary";
+import Btn_Primary from "../components/Btn_Primary";
 import view from "./../../assets/display/view.png";
 
 const Hero = () => {

@@ -1,5 +1,5 @@
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import Btn_Primary from "../../Components/Btn_Primary";
+import Btn_Primary from "../../components/Btn_Primary";
 import { useState } from "react";
 import { useForgetPasswordMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
 import ChangePass from "./ChangePass";

@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import * as RouteTypes from "../../lib/RouteTypes";
-import Btn_Primary from "../../Components/Btn_Primary";
+import Btn_Primary from "../../components/Btn_Primary";
 import { useLogInMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
 import { useState } from "react";
 import { setUserJWT } from "../../lib/usetJWT_Handler";

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Btn_Primary from "../Components/Btn_Primary";
+import Btn_Primary from "../components/Btn_Primary";
 
 const LogInOne_temp = () => {
   return (

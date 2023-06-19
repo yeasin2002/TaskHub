@@ -1,4 +1,4 @@
-import Btn_Primary from "../Components/Btn_Primary";
+import Btn_Primary from "../components/Btn_Primary";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const LogInTwo_temp = () => {

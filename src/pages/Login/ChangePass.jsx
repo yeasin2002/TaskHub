@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as RouteTypes from "../../lib/RouteTypes";
 
-import Btn_Primary from "../../Components/Btn_Primary";
+import Btn_Primary from "../../components/Btn_Primary";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useResetPasswordMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
 import { setUserJWT } from "../../lib/usetJWT_Handler";

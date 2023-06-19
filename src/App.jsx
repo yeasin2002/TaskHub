@@ -21,8 +21,8 @@ const Contact = lazy(() => import("./pages/aboutUs/AboutUs"));
 const SingIn = lazy(() => import("./pages/SingIn/SingIn"));
 const LogIn = lazy(() => import("./pages/Login/LogIn"));
 const GetApps = lazy(() => import("./pages/getApp/GetApps"));
-const HelpAndSupport = lazy(() =>
-  import("./pages/helpAndSupport/HelpAndSupport")
+const HelpAndSupportPage = lazy(() =>
+  import("./pages/HelpAndSupportPage/HelpAndSupport")
 );
 
 //  TodoHome  Pages and Routes
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: allRouter.helpAndSupport,
-        element: <HelpAndSupport />,
+        element: <HelpAndSupportPage />,
       },
 
       {

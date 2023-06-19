@@ -9,7 +9,7 @@ const TodoTopArea = ({ TodoStage, setTodoStage }) => {
     "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?pid=ImgDet&rs=1";
   return (
     <>
-      <div className="bg-dim fixed top-0 z-50 w-full pt-6">
+      <div className="bg-dim z-50 w-full pt-6">
         <div className="topAre md:hidden flex items-center justify-between px-10 pb-5">
           <div className="into-center gap-x-2">
             <div>

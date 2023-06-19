@@ -1,22 +1,13 @@
 import TodoHomeTodoCard from "../TodoHomeTodoCard";
-import SelectDropDown from "../SelectDropDown";
 
 const AllTask = ({ data }) => {
   return (
     <div className=" w-full h-full px-10 py-4">
       <div className=" md:flex-row flex flex-col justify-between w-full my-4">
         <p className="my-4">6 tasks found</p>
-
-        <div className="gap-x-1 flex mt-10">
-          {/*  dropdown 1 */}
-
-          <SelectDropDown />
-          <SelectDropDown />
-          {/*  dropdown 1 --  end  */}
-        </div>
       </div>
 
-      <div className=" md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 grid grid-cols-1 gap-3">
+      <div className=" xl:grid-cols-2 2xl:grid-cols-2 grid grid-cols-1 gap-3">
         {data?.map((todoDetails, index) => {
           return <TodoHomeTodoCard key={index} todoDetails={todoDetails} />;
         })}

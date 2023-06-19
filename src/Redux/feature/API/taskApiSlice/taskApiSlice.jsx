@@ -9,11 +9,12 @@ const taskApiSlice = createApi({
       authorization: `Bearer ${localStorage.getItem("userJWT")}`,
     },
   }),
-
+  tagTypes: ["Task"],
   endpoints: (builder) => ({
     //  endpoints start
     getAllTask: builder.query({
       query: () => "/",
+      providesTags: ["Task"],
     }),
     createTask: builder.mutation({
       query: (taskDetails) => {
@@ -23,6 +24,7 @@ const taskApiSlice = createApi({
           body: taskDetails,
         };
       },
+      invalidatesTags: ["Task"],
     }),
     updateTask: builder.mutation({
       query: ({ id, taskDetails }) => {
@@ -40,6 +42,7 @@ const taskApiSlice = createApi({
           method: "DELETE",
         };
       },
+      invalidatesTags: ["Task"],
     }),
     completedTask: builder.mutation({
       query: (id) => {
@@ -48,6 +51,7 @@ const taskApiSlice = createApi({
           method: "PATCH",
         };
       },
+      invalidatesTags: ["Task"],
     }),
 
     uncompletedTask: builder.mutation({
@@ -57,6 +61,7 @@ const taskApiSlice = createApi({
           method: "PATCH",
         };
       },
+      invalidatesTags: ["Task"],
     }),
 
     RemoveParticipant: builder.mutation({
@@ -83,4 +88,13 @@ const taskApiSlice = createApi({
   }),
 });
 export default taskApiSlice;
-export const { useGetAllTaskQuery, useCreateTaskMutation } = taskApiSlice;
+export const {
+  useGetAllTaskQuery,
+  useCreateTaskMutation,
+  useChangeParticipantRoleMutation,
+  useCompletedTaskMutation,
+  useUncompletedTaskMutation,
+  useDeleteTaskMutation,
+  useRemoveParticipantMutation,
+  useUpdateTaskMutation,
+} = taskApiSlice;

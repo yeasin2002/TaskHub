@@ -24,7 +24,7 @@ const TodoHomeSidebar = () => {
         className="rtl:border-r-0 rtl:border-l md:flex flex-col hidden h-screen px-4 py-8 overflow-y-auto bg-white border-r"
       >
         {isOpen ? (
-          <div className="flex flex-col items-center mt-6 -mx-2">
+          <div className=" flex flex-col items-center mt-6 -mx-2">
             <img
               className="object-cover w-24 h-24 mx-2 rounded-full"
               src={data?.data?.user?.avatar || tempIng}
@@ -92,5 +92,4 @@ const TodoHomeSidebar = () => {
     </>
   );
 };
-
 export default TodoHomeSidebar;

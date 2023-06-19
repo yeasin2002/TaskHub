@@ -16,7 +16,7 @@ const AllTask = ({ data }) => {
         </div>
       </div>
 
-      <div className=" md:grid-cols-2 xl:grid-cols-3 grid grid-cols-1 gap-3">
+      <div className=" md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 grid grid-cols-1 gap-3">
         {data?.map((todoDetails, index) => {
           return <TodoHomeTodoCard key={index} todoDetails={todoDetails} />;
         })}

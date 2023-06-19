@@ -1,17 +1,24 @@
+import ParticipantsManage from "../../../components/ParticipantsManage";
+import formateDate from "../../../utils/formateDate";
+
 /* eslint-disable no-unused-vars */
 const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails }) => {
   const {
-    title,
-    participants,
-    startingDate,
+    title = "",
+    participants = [],
+    startingDate = "",
     _id,
-    completed,
-    description,
-    createdAt,
-    endingDate,
+    completed = "",
+    description = "",
+    createdAt = "",
+    endingDate = "",
   } = todoDetails;
-  let tempImg =
-    "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0";
+
+  // modify the date
+  const startDate = formateDate(startingDate);
+  const EndDate = formateDate(endingDate);
+  console.log(todoDetails);
+
   return (
     <div className={`${todoColor} p-4`}>
       <div className=" flex justify-between">
@@ -31,25 +38,10 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails }) => {
       <div className="bg-slate-900/40 my-2 w-full h-[.10rem]"></div>
 
       <div className="flex justify-between">
-        <div>12:30 AM - 2:45 PM</div>
         <div>
-          <div className="flex -space-x-4">
-            <img
-              className=" w-10 h-10 border-2 border-white rounded-full"
-              src={tempImg}
-              alt=""
-            />
-            <img
-              className=" w-10 h-10 border-2 border-white rounded-full"
-              src={tempImg}
-              alt=""
-            />
-
-            <p className="hover:bg-gray-600 flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full">
-              +99
-            </p>
-          </div>
+          {startDate} - {EndDate}
         </div>
+        <ParticipantsManage participants={participants} />
       </div>
     </div>
   );

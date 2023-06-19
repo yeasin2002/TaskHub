@@ -2,7 +2,7 @@ import { useGetAllUserCountQuery } from "../../Redux/feature/API/extraApiSlice/e
 import { Link } from "react-router-dom";
 import * as RouteTypes from "../../lib/RouteTypes";
 
-import Btn_Primary from "../../Components/Btn_Primary";
+import Btn_Primary from "../../components/Btn_Primary";
 
 import LandingCarousel from "./LandingCarousel";
 

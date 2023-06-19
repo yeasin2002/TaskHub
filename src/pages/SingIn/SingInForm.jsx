@@ -12,7 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./FormSchema";
 
 //   Components and icons
-import Btn_Primary from "../../Components/Btn_Primary";
+import Btn_Primary from "../../components/Btn_Primary";
 import { AiFillCamera } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useGetOTPMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
@@ -24,7 +24,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
   const {
     register,
     handleSubmit,
-    control,
+
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),

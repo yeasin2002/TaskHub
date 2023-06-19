@@ -23,10 +23,10 @@ const LandingNav = () => {
           <div className="xl:order-2 flex">
             <div className="xl:block xl:into-center relative hidden">
               <Link to={RouteTypes.login}>
-                <Button className="mx-1 bg-blue-600">Log In</Button>
+                <Button className="ml-12 mr-3 bg-blue-600">Log In</Button>
               </Link>
               {/* <Link to={RouteTypes.todoHome}> */}
-              <Link to={"test"}>
+              <Link to={RouteTypes.singIn}>
                 <Button className="mx-1 bg-blue-600">Start For Free</Button>
               </Link>
             </div>

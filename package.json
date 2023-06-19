@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "vite",
     "tauri": "tauri ",
-    "start": "yarn formate && yarn lint && yarn tauri dev",
+    "start": "yarn formate && yarn lint && yarn  dev",
     "build": "vite build",
     "formate": "npx prettier --write ./src  ",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -43,12 +43,10 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.2.2",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.14",
-    "cloc": "^1.96.0-cloc",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

@@ -4,7 +4,7 @@ import AddTaskStage from "./AddTaskStage";
 const AddTask = () => {
   return (
     <>
-      <div className="bg-Light  w-full h-full">
+      <div className="bg-Light w-full h-full">
         <AddTaskStage />
         <AddTask_Form />
       </div>

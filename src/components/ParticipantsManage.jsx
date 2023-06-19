@@ -1,12 +1,10 @@
 const ParticipantsManage = ({ participants = [] }) => {
-  console.log(participants);
   let tempImg =
     "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0";
   return (
     <div className="flex -space-x-4">
       {participants.length >= 2 &&
         participants?.slice(0, 2).map((singParticipant, index) => {
-          console.log("singParticipant", singParticipant);
           return (
             <img
               key={index}

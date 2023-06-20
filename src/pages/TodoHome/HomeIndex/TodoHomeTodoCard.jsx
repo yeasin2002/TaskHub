@@ -46,7 +46,7 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails }) => {
           <ParticipantsManage participants={participants} />
         </div>
       </div>
-      <TodoDeleteOrGoToUpdate id={_id} />
+      <TodoDeleteOrGoToUpdate id={_id} todoDetails={todoDetails} />
     </div>
   );
 };

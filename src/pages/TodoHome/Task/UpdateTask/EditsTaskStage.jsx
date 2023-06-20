@@ -6,7 +6,7 @@ import {
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 
-const EditsTaskStage = ({ isAdvance }) => {
+const EditsTaskStage = () => {
   return (
     <>
       <div className=" mx-9 flex justify-between mt-5">
@@ -15,7 +15,7 @@ const EditsTaskStage = ({ isAdvance }) => {
             <MdOutlineKeyboardArrowLeft className="text-2xl" />
             <MdOutlineKeyboardArrowRight className="text-2xl" />
           </div>
-          <p>New Task/{!isAdvance ? "basic" : "advance"} </p>
+          <p>New Task/ </p>
         </div>
         <div>
           <Link to={"/todo_home"}>

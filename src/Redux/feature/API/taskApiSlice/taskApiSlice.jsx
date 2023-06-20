@@ -34,6 +34,7 @@ const taskApiSlice = createApi({
           body: taskDetails,
         };
       },
+      invalidatesTags: ["Task"],
     }),
     deleteTask: builder.mutation({
       query: (id) => {

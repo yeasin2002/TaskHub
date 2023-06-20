@@ -1,30 +1,67 @@
 import { useForm } from "react-hook-form";
 import Btn_Primary from "../../../../components/Btn_Primary";
+import { useLocation } from "react-router-dom";
+import EncodeDate from "../../../../utils/EncodeDate";
+
+//  react Toast
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //  icons
-import { AiOutlineTeam } from "react-icons/ai";
+import { AiFillPlusCircle } from "react-icons/ai";
 
-import { useCreateTaskMutation } from "../../../../Redux/feature/API/taskApiSlice/taskApiSlice";
 // components
+import { useUpdateTaskMutation } from "../../../../Redux/feature/API/taskApiSlice/taskApiSlice";
+import SingleParticipant from "../../../../components/SingParticipant";
 
 const UpdateTaskForm = () => {
+  const location = useLocation();
+
+  const {
+    title = "",
+    participants = [],
+    startingDate = "",
+    _id,
+    // completed = false,
+    description = "",
+    // createdAt = "",
+    endingDate = "",
+  } = location.state;
+
+  const beginningDate = EncodeDate(startingDate);
+  const EndingDate = EncodeDate(endingDate);
+
   //   const [participants, setParticipants] = useState([]);
   const { handleSubmit, register } = useForm();
   // eslint-disable-next-line no-unused-vars
-  const [createTask, { isLoading }] = useCreateTaskMutation();
+  const [uncompletedTask, { isLoading }] = useUpdateTaskMutation();
 
   const formHandler = async (data) => {
-    console.log(data);
-
-    //   const addTask = await createTask({
-    //     title: data.title,
-    //     description: data.description,
-    //     startingDate: data.StartDate,
-    //     endingDate: data.EndDate,
-    //     participants: [],
-    //     collection: data.collection,
-    //   });
+    try {
+      const updateTask = await uncompletedTask({
+        id: _id,
+        taskDetails: {
+          title: data.title,
+          description: data.description,
+          startingDate: data.StartDate,
+          endingDate: data.EndDate,
+          participants: participants,
+          collection: "",
+        },
+      });
+      console.log(updateTask);
+      if (updateTask?.data?.status) {
+        toast.success("Task updated  Successfully");
+      } else {
+        toast.error("Task updated  Failed");
+      }
+    } catch (error) {
+      console.warn(error.message);
+    }
   };
+
+  let tempImg =
+    "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0";
   return (
     <form
       onSubmit={handleSubmit(formHandler)}
@@ -41,6 +78,7 @@ const UpdateTaskForm = () => {
           className=" inputHolder"
           required
           {...register("title")}
+          defaultValue={title}
         />
         {/*  dates */}
         <div className=" gap-x-2 flex items-center">
@@ -51,6 +89,7 @@ const UpdateTaskForm = () => {
               name="StartDate"
               id="StartDate"
               {...register("StartDate")}
+              defaultValue={beginningDate}
             />
           </div>
           <div className=" flex flex-col">
@@ -61,6 +100,7 @@ const UpdateTaskForm = () => {
               id="EndDate"
               required
               {...register("EndDate")}
+              defaultValue={EndingDate}
             />
           </div>
         </div>
@@ -76,10 +116,11 @@ const UpdateTaskForm = () => {
             id="Description"
             placeholder="Write a meaningfull  Description"
             {...register("description")}
+            defaultValue={description}
           ></textarea>
         </div>
 
-        <div className="w-full">
+        <div className="hidden w-full">
           <label htmlFor="collection" className=" text-xl font-semibold">
             Collection
           </label>
@@ -97,8 +138,20 @@ const UpdateTaskForm = () => {
           <p className="text-blackens my-4 text-xl font-semibold">
             Participants
           </p>
-          <span className="border-Shades hover:cursor-pointer inline-block p-1 border-2 rounded-md">
-            <AiOutlineTeam className="text-3xl text-blue-800" />
+        </div>
+
+        <div className=" gap-x-3 flex">
+          {participants?.length > 0 &&
+            participants?.map((SingleParticipantData, index) => {
+              return (
+                <SingleParticipant
+                  key={index}
+                  imgSrc={SingleParticipantData.user.avatar || tempImg}
+                />
+              );
+            })}
+          <span className="border-Shades hover:cursor-pointer into-center p-1 border-2 rounded-md">
+            <AiFillPlusCircle className="text-2xl text-blue-700" />
           </span>
         </div>
       </div>
@@ -108,6 +161,8 @@ const UpdateTaskForm = () => {
           {isLoading ? "Loading..." : "Create Task"}
         </Btn_Primary>
       </div>
+
+      <ToastContainer />
     </form>
   );
 };

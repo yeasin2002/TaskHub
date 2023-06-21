@@ -8,6 +8,7 @@ import userApiSlice from "./feature/API/userApiSlice/userApiSlice";
 
 //  general  Slices
 import singInInputsSlice from "./feature/singInInputs/singInInputs";
+import searchSlice from "./feature/search/search";
 
 const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
     [userApiSlice.reducerPath]: userApiSlice.reducer,
     // general slices
     singInInputsSlice: singInInputsSlice.reducer,
+    searchSlice: searchSlice.reducer,
   },
   middleware: (defaultMiddleware) =>
     defaultMiddleware().concat(

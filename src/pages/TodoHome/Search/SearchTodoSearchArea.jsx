@@ -13,7 +13,6 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
       <div className="gap-y-2 grid">
         {isSuccess &&
           tasks?.map((items) => {
-            console.log(items);
             return <TodoHomeTodoCard todoDetails={items} key={items._id} />;
           })}
       </div>

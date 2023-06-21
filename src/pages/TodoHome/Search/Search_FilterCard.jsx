@@ -18,7 +18,7 @@ const Search_FilterCard = () => {
             className="checkers "
           />
           <label className="mx-2" htmlFor="description">
-            description
+            name
           </label>
         </div>
         {/*   */}
@@ -26,7 +26,7 @@ const Search_FilterCard = () => {
         <div>
           <input type="checkbox" name="name" id="name" className="checkers " />
           <label className="mx-2" htmlFor="name">
-            Work
+            description
           </label>
         </div>
       </div>

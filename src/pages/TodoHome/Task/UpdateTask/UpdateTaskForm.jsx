@@ -5,7 +5,7 @@ import EncodeDate from "../../../../utils/EncodeDate";
 
 //  react Toast
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 
 //  icons
 import { AiFillPlusCircle } from "react-icons/ai";

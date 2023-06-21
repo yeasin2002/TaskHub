@@ -6,7 +6,7 @@ import { useState } from "react";
 import { setUserJWT } from "../../lib/usetJWT_Handler";
 
 //  toast
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 
 const LogIn_Direect = ({ setIsConfirmPass }) => {

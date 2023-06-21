@@ -4,7 +4,7 @@ import { setSingInInputs } from "../../Redux/feature/singInInputs/singInInputs";
 
 //  react  toastify
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 
 // form validation
 

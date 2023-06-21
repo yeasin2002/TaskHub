@@ -5,7 +5,7 @@ import Btn_Primary from "../../../../components/Btn_Primary";
 
 //   react toast message
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 
 //  icons
 import { AiOutlineTeam } from "react-icons/ai";

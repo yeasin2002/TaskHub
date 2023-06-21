@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 import { ThemeProvider } from "@material-tailwind/react";
+import "react-toastify/dist/ReactToastify.css";
 import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

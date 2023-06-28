@@ -48,7 +48,7 @@ const TodoDeleteOrGoToUpdate = ({ id, todoDetails }) => {
       </div>
       <Link
         state={todoDetails}
-        to={`${RouteTypes.updateTask}/${id}`}
+        to={`/todo_home/${RouteTypes.updateTask}/${id}`}
         className="hover:bg-dim p-2 transition-all rounded-full cursor-pointer"
       >
         <BiEdit className="text-blackens text-xl font-bold" />

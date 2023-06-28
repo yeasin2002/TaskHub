@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as RouteTypes from "./../../lib/RouteTypes";
+import { motion } from "framer-motion";
 
 //  icons
 import { BiHomeAlt2 } from "react-icons/bi";
@@ -17,10 +18,15 @@ const TodoHomeSidebar = () => {
     "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?pid=ImgDet&rs=1";
   return (
     <>
-      <aside
-        style={{
+      <motion.aside
+        initial={{ width: "5em" }}
+        animate={{
           width: isOpen ? "16rem" : "5em",
         }}
+        transition={{ duration: 0.2 }}
+        // style={{
+        //   width: isOpen ? "16rem" : "5em",
+        // }}
         className="rtl:border-r-0 rtl:border-l md:flex flex-col hidden h-screen px-4 py-8 overflow-y-auto bg-[#D9E2F2] border-r"
       >
         {isOpen ? (
@@ -88,7 +94,7 @@ const TodoHomeSidebar = () => {
             <BsArrowLeftSquare className="text-white" />
           </span>
         </div>
-      </aside>
+      </motion.aside>
     </>
   );
 };

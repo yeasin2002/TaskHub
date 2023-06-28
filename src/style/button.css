@@ -1,0 +1,10 @@
+/* make button reusable */
+.btn {
+  @apply w-full px-6 py-2 font-bold transition-all rounded-lg;
+}
+.btn-primary {
+  @apply hover:bg-blue-900 text-gray-100 bg-blue-800;
+}
+.btn-secondary {
+  @apply bg-Amber text-blue-800;
+}

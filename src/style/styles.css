@@ -1,3 +1,7 @@
+/*  custom components  */
+@import "./button.css";
+@import "./formStyles.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,25 +10,13 @@
   .into-center {
     @apply flex items-center justify-center;
   }
-  .form-input {
-    @apply sm:text-xs focus:ring-blue-500 focus:border-blue-500 block w-full py-3 text-gray-900 bg-blue-100 border border-blue-700 rounded-lg;
-  }
   .title {
     @apply text-blackens text-2xl font-bold;
-  }
-
-  .avatar {
-    @apply ring-2 ring-Shades w-10 h-10 rounded-full;
-  }
-  .checkers {
-    @apply focus:ring-blue-500 focus:ring-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded;
   }
   .moodSwitcher {
     @apply bg-dim/50 hover:bg-dim text-blackens py-2 pl-2 pr-20 mx-2 text-xl font-bold transition-all rounded-lg cursor-pointer;
   }
-  .inputHolder {
-    @apply placeholder:text-Shades placeholder:text-2xl ring ring-dim/10 w-full py-4 my-4 border-none rounded-lg;
-  }
+
   .sidebarMenu {
     @apply hover:bg-gray-100 hover:text-gray-700 flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg;
   }

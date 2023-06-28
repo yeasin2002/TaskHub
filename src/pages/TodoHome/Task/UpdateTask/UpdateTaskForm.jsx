@@ -5,7 +5,6 @@ import EncodeDate from "../../../../utils/EncodeDate";
 
 //  react Toast
 import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 
 //  icons
 import { AiFillPlusCircle } from "react-icons/ai";
@@ -33,7 +32,7 @@ const UpdateTaskForm = () => {
 
   //   const [participants, setParticipants] = useState([]);
   const { handleSubmit, register } = useForm();
-  // eslint-disable-next-line no-unused-vars
+
   const [uncompletedTask, { isLoading }] = useUpdateTaskMutation();
 
   const formHandler = async (data) => {

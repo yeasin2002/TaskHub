@@ -1,6 +1,5 @@
 import ChanceName from "./ChanceName";
 import ChangeEmail from "./ChangeEmail";
-import ChangeImg from "./ChangeImg";
 import ChangePassword from "./ChangePassword";
 import ChangeUserName from "./ChangeUserName";
 import DeleteAccount from "./DeleteAccount";
@@ -12,8 +11,6 @@ const Profile = () => {
       id="profile"
     >
       <div className="md:w-6/12 container mb-40">
-        <ChangeImg />
-
         <ChanceName />
         <div className="mt-12">
           <ChangeEmail />

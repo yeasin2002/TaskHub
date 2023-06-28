@@ -22,7 +22,7 @@ const userApiSlice = createApi({
     updateUser: builder.mutation({
       query: (updateRequirement) => {
         return {
-          url: `/user`,
+          url: `/`,
           method: "PATCH",
           body: updateRequirement,
         };

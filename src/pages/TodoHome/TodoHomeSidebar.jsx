@@ -8,6 +8,8 @@ import { BiHomeAlt2 } from "react-icons/bi";
 import { BsSearch, BsArrowLeftSquare } from "react-icons/bs";
 import { AiFillPlusCircle, AiOutlineBell } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
+
+//  Query
 import { useGetAllUserQuery } from "../../Redux/feature/API/userApiSlice/userApiSlice";
 
 const TodoHomeSidebar = () => {
@@ -16,6 +18,7 @@ const TodoHomeSidebar = () => {
 
   let tempIng =
     "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?pid=ImgDet&rs=1";
+
   return (
     <>
       <motion.aside
@@ -24,10 +27,7 @@ const TodoHomeSidebar = () => {
           width: isOpen ? "16rem" : "5em",
         }}
         transition={{ duration: 0.2 }}
-        // style={{
-        //   width: isOpen ? "16rem" : "5em",
-        // }}
-        className="rtl:border-r-0 rtl:border-l md:flex flex-col hidden h-screen px-4 py-8 overflow-y-auto bg-[#D9E2F2] border-r"
+        className="rtl:border-r-0 rtl:border-l  md:flex flex-col hidden h-screen px-4 py-8 overflow-y-auto bg-[#D9E2F2] border-r"
       >
         {isOpen ? (
           <div className=" flex flex-col items-center mt-6 -mx-2">

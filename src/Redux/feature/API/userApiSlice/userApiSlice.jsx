@@ -83,4 +83,15 @@ const userApiSlice = createApi({
   }),
 });
 export default userApiSlice;
-export const { useGetAllUserQuery } = userApiSlice;
+export const {
+  useAddTaskCollectionMutation,
+  useDeleteTaskCollectionMutation,
+  useUpdateTaskCollectionMutation,
+  useDeleteUserMutation,
+  useGetAllUserQuery,
+  useGetNewJWTQuery,
+  useUpdateSettingsMutation,
+  useUpdateUserMutation,
+  useLazyGetAllUserQuery,
+  useLazyGetNewJWTQuery,
+} = userApiSlice;

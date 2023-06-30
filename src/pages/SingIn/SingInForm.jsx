@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { setSingInInputs } from "../../Redux/feature/singInInputs/singInInputs";
 
 //  react  toastify
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
 // form validation
@@ -200,7 +200,6 @@ const SingInForm = ({ setIsConfirmStage }) => {
             </Link>
           </div>
         </form>
-        <ToastContainer />
       </div>
     </>
   );

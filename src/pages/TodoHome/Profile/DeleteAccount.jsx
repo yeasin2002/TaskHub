@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDeleteUserMutation } from "../../../Redux/feature/API/userApiSlice/userApiSlice";
 
 // react toastify
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const DeleteAccount = () => {
   const [deleteAccount, setDeleteAccount] = useState(true);
@@ -24,7 +24,11 @@ const DeleteAccount = () => {
   return (
     <div className="my-4">
       {deleteAccount ? (
-        <Button onClick={() => setDeleteAccount(false)} className="w-full">
+        <Button
+          color="red"
+          onClick={() => setDeleteAccount(false)}
+          className="w-full"
+        >
           Delete Account
         </Button>
       ) : (
@@ -40,7 +44,7 @@ const DeleteAccount = () => {
             />
           </div>
           <div className=" gap-x-2 flex items-center">
-            <Button className="w-full my-2" type="submit">
+            <Button className="w-full my-2" type="submit " color="red">
               {isLoading ? "Deleting..." : "Delete"}
             </Button>
             <Button
@@ -53,8 +57,6 @@ const DeleteAccount = () => {
           </div>
         </form>
       )}
-
-      <ToastContainer />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useGetAllTaskQuery } from "../../../Redux/feature/API/taskApiSlice/task
 import AllTask from "./AllTask/AllTask";
 import CompleteTask from "./CompleteTask/CompleteTask";
 import IncompleteTask from "./IncompleteTask/IncompleteTask";
+import loading from "../.././../assets/global/loading.svg";
 
 const TodoHomeTodoRender = ({ TodoStage }) => {
   const { data, isLoading } = useGetAllTaskQuery();
@@ -37,8 +38,10 @@ const TodoHomeTodoRender = ({ TodoStage }) => {
     <>
       <div>{renderComponent}</div>
       {isLoading && (
-        <div className="w-full">
-          <p className=" text-2xl font-bold">Loading </p>
+        <div className="w-full h-full">
+          <div className="h-5/6 flex items-center justify-center w-full">
+            <img src={loading} alt="loading............!" />
+          </div>
         </div>
       )}
     </>

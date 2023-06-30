@@ -8,7 +8,7 @@ import { useSingUpMutation } from "../../Redux/feature/API/accountApiSlice/accou
 import { useSelector } from "react-redux";
 
 //   react  toastify
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
 //  util
@@ -115,7 +115,6 @@ const SingInConfirm = ({ setIsConfirmStage }) => {
           </Btn_Primary>
           <p className="mt-4 text-center"> Send again in 58 seconds </p>
         </form>
-        <ToastContainer />
       </div>
     </>
   );

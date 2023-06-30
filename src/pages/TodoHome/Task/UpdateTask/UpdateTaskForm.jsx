@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import EncodeDate from "../../../../utils/EncodeDate";
 
 //  react Toast
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 //  icons
 import { AiFillPlusCircle } from "react-icons/ai";
@@ -160,8 +160,6 @@ const UpdateTaskForm = () => {
           {isLoading ? "Loading..." : "Create Task"}
         </Btn_Primary>
       </div>
-
-      <ToastContainer />
     </form>
   );
 };

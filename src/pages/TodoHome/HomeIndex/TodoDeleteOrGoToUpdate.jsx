@@ -3,7 +3,7 @@ import * as RouteTypes from "../../../lib/RouteTypes";
 import loader from "../../../assets/global/loaderIcon.svg";
 
 // react Toast
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 // icons
 import { AiOutlineDelete } from "react-icons/ai";
@@ -53,7 +53,6 @@ const TodoDeleteOrGoToUpdate = ({ id, todoDetails }) => {
       >
         <BiEdit className="text-blackens text-xl font-bold" />
       </Link>
-      <ToastContainer />
     </div>
   );
 };

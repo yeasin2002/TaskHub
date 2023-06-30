@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import Btn_Primary from "../../../../components/Btn_Primary";
 
 //   react toast message
-import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 //  icons
 import { AiOutlineTeam } from "react-icons/ai";
@@ -127,8 +126,6 @@ const AddTask_Form = () => {
           </Btn_Primary>
         </div>
       </form>
-
-      <ToastContainer />
     </div>
   );
 };

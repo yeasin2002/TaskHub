@@ -7,7 +7,7 @@ import { useUpdateUserMutation } from "../../../Redux/feature/API/userApiSlice/u
 let tempImg =
   "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0";
 
-const ChanceName = () => {
+const ChanceName = ({ img }) => {
   const [avatar, setAvatar] = useState(null);
   const [name, setName] = useState("");
   const [updateUser, { isLoading }] = useUpdateUserMutation();
@@ -33,7 +33,7 @@ const ChanceName = () => {
       <div className="into-center">
         <label htmlFor="img">
           <img
-            src={tempImg}
+            src={img || tempImg}
             className="avatar w-20 h-20 cursor-pointer"
             alt="Profile Picture "
           />

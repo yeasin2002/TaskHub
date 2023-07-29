@@ -8,16 +8,19 @@ import DeleteAccount from "./DeleteAccount";
 import { TbLogout } from "react-icons/tb";
 import logOut from "../../../utils/logOut";
 import { useNavigate } from "react-router-dom";
+import { useGetAllUserQuery } from "../../../Redux/feature/API/userApiSlice/userApiSlice";
 
 const Profile = () => {
+  const { data } = useGetAllUserQuery();
+
   const navigate = useNavigate();
   return (
     <section
-      className="bg-[#ECF0F8] w-full h-full flex justify-center py-10 px-6"
+      className="bg-[#ECF0F8] w-full  flex justify-center  py-6 px-6"
       id="profile"
     >
-      <div className="md:w-6/12 container mb-40">
-        <ChanceName />
+      <div className="md:w-6/12 container mb-20">
+        <ChanceName img={data?.data?.avatar} />
         <div className="mt-12">
           <ChangeEmail />
           <ChangePassword />

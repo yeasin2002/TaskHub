@@ -1,5 +1,6 @@
 import SearchBar from "./SearchBar";
 import TodoHomeTodoCard from "../HomeIndex/TodoHomeTodoCard";
+import CardSkeleton from "../../../components/skeleton/CardSkeleton";
 
 const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
   return (
@@ -11,8 +12,16 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
         )}
         <span className="bg-dim border-Shades px-2 border-b">Sort By </span>
       </div>
-      <div>{isLoading && <p>loading</p>}</div>
-      <div className="gap-y-2 grid">
+      <div>
+        {isLoading && (
+          <div className="w-full">
+            {[1, 2, 3, 4, 5].map((val, i) => {
+              return <CardSkeleton className={"my-2 w-full"} key={i} />;
+            })}
+          </div>
+        )}
+      </div>
+      <div className="gap-y-2 md:mx-1 grid mx-4">
         {isSuccess &&
           tasks?.map((items) => {
             return <TodoHomeTodoCard todoDetails={items} key={items._id} />;

@@ -22,7 +22,7 @@ const TodoHomeSidebar = () => {
   return (
     <>
       <motion.aside
-        initial={{ width: "5em" }}
+        initial={{ width: "5em", height: window.innerHeight }}
         animate={{
           width: isOpen ? "16rem" : "5em",
         }}

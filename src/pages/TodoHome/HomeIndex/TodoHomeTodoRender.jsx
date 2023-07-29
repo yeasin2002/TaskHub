@@ -2,7 +2,8 @@ import { useGetAllTaskQuery } from "../../../Redux/feature/API/taskApiSlice/task
 import AllTask from "./AllTask/AllTask";
 import CompleteTask from "./CompleteTask/CompleteTask";
 import IncompleteTask from "./IncompleteTask/IncompleteTask";
-import loading from "../.././../assets/global/loading.svg";
+// import loading from "../.././../assets/global/loading.svg";
+import CardSkeleton from "../../../components/skeleton/CardSkeleton";
 
 const TodoHomeTodoRender = ({ TodoStage }) => {
   const { data, isLoading } = useGetAllTaskQuery();
@@ -35,16 +36,18 @@ const TodoHomeTodoRender = ({ TodoStage }) => {
   }
 
   return (
-    <>
-      <div>{renderComponent}</div>
+    <div>
+      <div> {renderComponent}</div>
+
+      {/*  loading Stage  */}
       {isLoading && (
-        <div className="w-full h-full">
-          <div className="h-5/6 flex items-center justify-center w-full">
-            <img src={loading} alt="loading............!" />
-          </div>
+        <div className=" xl:grid-cols-2 2xl:grid-cols-2 grid grid-cols-1 gap-3 p-6">
+          {[41, 5, 5, 2, 1, 5, 4, 54].map((val) => {
+            return <CardSkeleton key={val} />;
+          })}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

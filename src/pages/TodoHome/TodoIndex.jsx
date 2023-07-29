@@ -7,11 +7,11 @@ import TodoHomeBottomMobileNav from "./TodoHomeBottomMobileNav";
 const HomeIndex = () => {
   return (
     <main>
-      <div className=" flex-col justify-between">
-        <div className="flex">
+      <div className=" flex-col justify-between h-screen">
+        <div className="flex h-screen">
           <TodoHomeSidebar />
           {/* outlets */}
-          <div className="flex-1">
+          <div className="flex-1 overflow-scroll">
             <Outlet />
           </div>
         </div>

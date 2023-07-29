@@ -13,6 +13,7 @@ import PrivetRoues from "./layout/PrivetRoues";
 // import PublicRoute from "./layout/PublicRoute";
 
 import Root from "./layout/Root";
+import ErrorPage from "./layout/Error";
 
 // Public Pages
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
@@ -27,14 +28,14 @@ const HelpAndSupportPage = lazy(() =>
 
 //  TodoHome  Pages and Routes
 const TodoIndex = lazy(() => import("./pages/TodoHome/TodoIndex"));
-//  subroute of TodoHome
+//  sub-route of TodoHome
 const TodoHome = lazy(() => import("./pages/TodoHome/HomeIndex/TodoHome"));
 const Search = lazy(() => import("./pages/TodoHome/Search/Search"));
 const Profile = lazy(() => import("./pages/TodoHome/Profile/Profile"));
 const Notification = lazy(() =>
   import("./pages/TodoHome/Notification/Notification")
 );
-// add task or update task subroute of TodoHome
+// add task or update task sub-route of TodoHome
 const AddTask = lazy(() => import("./pages/TodoHome/Task/AddTask/AddTask"));
 const UpdateTask = lazy(() =>
   import("./pages/TodoHome/Task/UpdateTask/UpdateTask")
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -121,7 +123,6 @@ const router = createBrowserRouter([
         path: "*",
         element: <NotFound />,
       },
-      //  temporary route for testing purpose
     ],
   },
 ]);

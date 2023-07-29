@@ -1,21 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "paths": {
-      "$slice/*": ["./src/store/slice/*"],
-      "$ui/*": ["./src/components/UI/*"],
-      "$api/*": ["./src/api/*"],
-      "$assets/*": ["./src/assets/*"],
-      "$components/*": ["./src/components/*"],
-      "$config/*": ["./src/config/*"],
-      "$data/*": ["./src/data/*"],
-      "$hooks/*": ["./src/hooks/*"],
-      "$layout/*": ["./src/layout/*"],
-      "$pages/*": ["./src/pages/*"],
-      "$socket/*": ["./src/socket/*"],
-      "$store/*": ["./src/store/*"],
-      "$styles/*": ["./src/styles/*"],
-      "$utils/*": ["./src/utils/*"],
-      "$src/*": ["./src/*"]
+      "@/*": ["src/*"],
+      "@redux/*": ["src/Redux/feature/*"],
+      "@page/*": ["src/pages/*"],
+      "@templates/*": ["src/Templates/"]
     }
-  }
+  },
+  "exclude": ["node_modules", "build", "dist"]
 }

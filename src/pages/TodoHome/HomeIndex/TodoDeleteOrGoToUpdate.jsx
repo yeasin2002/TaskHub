@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import * as RouteTypes from "../../../lib/RouteTypes";
-import loader from "../../../assets/global/loaderIcon.svg";
 
 // react Toast
 import { toast } from "react-toastify";
 
 // icons
-import { AiOutlineDelete } from "react-icons/ai";
+import SvgSpinners90RingWithBg from "../../../components/Icons/SvgSpinners90RingWithBg";
 import { BiEdit } from "react-icons/bi";
 import { useDeleteTaskMutation } from "../../../Redux/feature/API/taskApiSlice/taskApiSlice";
+import { AiFillDelete } from "react-icons/ai";
 
 const TodoDeleteOrGoToUpdate = ({ id, todoDetails }) => {
   const [deleteTask, { isLoading }] = useDeleteTaskMutation();
@@ -33,17 +33,10 @@ const TodoDeleteOrGoToUpdate = ({ id, todoDetails }) => {
       <div className="hover:bg-dim p-2 transition-all rounded-full cursor-pointer">
         {!isLoading ? (
           <span onClick={deleteHandler}>
-            <AiOutlineDelete className="text-blackens text-xl font-bold" />
+            <AiFillDelete />
           </span>
         ) : (
-          //  delete task while loading
-          <span className="inline-block">
-            <img
-              src={loader}
-              className="bg-blackens h-10/12 w-10/12 rounded-full"
-              alt="deleting"
-            />
-          </span>
+          <SvgSpinners90RingWithBg />
         )}
       </div>
       <Link

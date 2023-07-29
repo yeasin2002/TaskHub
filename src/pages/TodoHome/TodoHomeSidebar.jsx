@@ -10,7 +10,7 @@ import { AiFillPlusCircle, AiOutlineBell } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 
 //  Query
-import { useGetAllUserQuery } from "../../Redux/feature/API/userApiSlice/userApiSlice";
+import { useGetAllUserQuery } from "@redux/API/userApiSlice/userApiSlice";
 
 const TodoHomeSidebar = () => {
   const { data } = useGetAllUserQuery();
@@ -86,7 +86,7 @@ const TodoHomeSidebar = () => {
         </div>
         <div>
           <span
-            className="bg-blackens hover:bg-blue-gray-900 inline-block p-2 transition-all rounded-full cursor-pointer"
+            className="bg-blackens hover:bg-blue-gray-900 inline-block p-2 transition-all rounded-full cursor-pointer select-none"
             onClick={() => {
               setIsOpen(!isOpen);
             }}

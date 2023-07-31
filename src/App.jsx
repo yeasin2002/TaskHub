@@ -9,8 +9,6 @@ import store from "./Redux/store";
 //  Global Components / layout
 const NotFound = lazy(() => import("./layout/NotFound"));
 import Loading from "./layout/Loading";
-// import PrivetRoues from "./layout/PrivetRoues";
-// import PublicRoute from "./layout/PublicRoute";
 
 import { getJWT } from "./lib/usetJWT_Handler";
 import { ToastContainer } from "react-toastify";
@@ -73,10 +71,7 @@ function App() {
                   path={allRouter.notification}
                   element={<Notification />}
                 />
-                <Route
-                  path={`${allRouter.updateTask}/:id`}
-                  element={<AddTask />}
-                />
+                <Route path={allRouter.addTask} element={<AddTask />} />
                 <Route
                   path={`${allRouter.updateTask}/:id`}
                   element={<UpdateTask />}

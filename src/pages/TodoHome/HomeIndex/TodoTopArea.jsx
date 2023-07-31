@@ -1,5 +1,17 @@
 import { BsFillSunFill } from "react-icons/bs";
 import { useGetAllUserQuery } from "../../../Redux//feature/API/userApiSlice/userApiSlice";
+import { motion } from "framer-motion";
+const topAreaItems = [
+  {
+    title: "all",
+  },
+  {
+    title: "complete",
+  },
+  {
+    title: "incomplete",
+  },
+];
 
 const TodoTopArea = ({ TodoStage, setTodoStage }) => {
   const { data } = useGetAllUserQuery();
@@ -37,23 +49,26 @@ const TodoTopArea = ({ TodoStage, setTodoStage }) => {
         {/*  navigation are */}
         <div className="bg-dim md:pt-2 h-10 pt-4">
           <div className=" grid w-full grid-cols-3">
-            <div className="flex flex-col items-center">
-              <button onClick={() => setTodoStage("all")}>All</button>
-              {TodoStage === "all" && <span className="navActive"></span>}
-            </div>
-
-            <div className="flex flex-col items-center">
-              <button onClick={() => setTodoStage("complete")}>complete</button>
-              {TodoStage === "complete" && <span className="navActive"></span>}
-            </div>
-            <div className="flex flex-col items-center">
-              <button onClick={() => setTodoStage("incomplete")}>
-                incomplete
-              </button>
-              {TodoStage === "incomplete" && (
-                <span className="navActive"></span>
-              )}
-            </div>
+            {topAreaItems.map((val) => {
+              return (
+                <div key={val.title} className="flex flex-col items-center">
+                  <button onClick={() => setTodoStage(val.title)}>
+                    {val.title}
+                  </button>
+                  {TodoStage === val.title && (
+                    <motion.span
+                      transition={{
+                        type: "spring",
+                        bounce: 0.2,
+                        duration: 0.6,
+                      }}
+                      layoutId="active-pill"
+                      className="navActive"
+                    ></motion.span>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

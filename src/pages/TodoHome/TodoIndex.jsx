@@ -11,7 +11,7 @@ const HomeIndex = () => {
         <div className="flex h-screen">
           <TodoHomeSidebar />
           {/* outlets */}
-          <div className="flex-1 overflow-scroll">
+          <div className=" flex-1">
             <Outlet />
           </div>
         </div>

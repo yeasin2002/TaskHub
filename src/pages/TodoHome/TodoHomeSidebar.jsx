@@ -2,17 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as RouteTypes from "./../../lib/RouteTypes";
 import { motion } from "framer-motion";
+import sidebarItem from "./SidebarItems";
 
 //  icons
-import { BiHomeAlt2 } from "react-icons/bi";
-import { BsSearch, BsArrowLeftSquare } from "react-icons/bs";
-import { AiFillPlusCircle, AiOutlineBell } from "react-icons/ai";
-import { RxAvatar } from "react-icons/rx";
 
-//  Query
+import { BsArrowLeftSquare } from "react-icons/bs";
+import { AiFillPlusCircle } from "react-icons/ai";
+
+//  Querys
 import { useGetAllUserQuery } from "@redux/API/userApiSlice/userApiSlice";
 
 const TodoHomeSidebar = () => {
+  const [active, setActive] = useState("Home");
   const { data } = useGetAllUserQuery();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -60,28 +61,26 @@ const TodoHomeSidebar = () => {
           } `}
         >
           <nav>
-            <Link
-              to={RouteTypes.TodoHomeIndex}
-              className=" flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg"
-            >
-              <BiHomeAlt2 />
-              {isOpen && <span className="mx-4 font-medium">Home</span>}
-            </Link>
-
-            <Link to={RouteTypes.search} className="sidebarMenu">
-              <BsSearch />
-              {isOpen && <span className="mx-4 font-medium">Search</span>}
-            </Link>
-
-            <Link to={RouteTypes.notification} className="sidebarMenu">
-              <AiOutlineBell />
-              {isOpen && <span className="mx-4 font-medium">Notification</span>}
-            </Link>
-
-            <Link to={RouteTypes.profile} className="sidebarMenu">
-              <RxAvatar />
-              {isOpen && <span className="mx-4 font-medium">Profile</span>}
-            </Link>
+            <div className="gap-y-3 flex flex-col">
+              {sidebarItem.map((val) => {
+                return (
+                  <>
+                    <Link
+                      onClick={() => setActive(val.title)}
+                      key={val.title}
+                      to={val.route}
+                      className={`flex items-center px-4 transition-all  py-2 duration-200 text-gray-700 rounded-lg 
+                      ${active === val.title && "bg-gray-100"}`}
+                    >
+                      {val.icons}
+                      {isOpen && (
+                        <span className="mx-4 font-medium">{val.title}</span>
+                      )}
+                    </Link>
+                  </>
+                );
+              })}
+            </div>
           </nav>
         </div>
         <div>

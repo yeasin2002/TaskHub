@@ -16,7 +16,7 @@ const Profile = () => {
   const navigate = useNavigate();
   return (
     <section
-      className="bg-[#ECF0F8] w-full  flex justify-center  py-6 px-6"
+      className="bg-[#ECF0F8] w-full  flex justify-center  py-6 px-6 h-full "
       id="profile"
     >
       <div className="md:w-6/12 container mb-20">

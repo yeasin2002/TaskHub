@@ -28,7 +28,7 @@ const TodoHomeSidebar = () => {
           width: isOpen ? "16rem" : "5em",
         }}
         transition={{ duration: 0.2 }}
-        className="rtl:border-r-0 rtl:border-l  md:flex flex-col hidden h-screen px-4 py-8 overflow-y-auto bg-[#D9E2F2] border-r"
+        className="rtl:border-r-0 rtl:border-l   md:flex flex-col hidden h-screen px-4 py-8 overflow-y-auto bg-[#D9E2F2] border-r"
       >
         {isOpen ? (
           <div className=" flex flex-col items-center mt-6 -mx-2">
@@ -69,10 +69,10 @@ const TodoHomeSidebar = () => {
                       onClick={() => setActive(val.title)}
                       key={val.title}
                       to={val.route}
-                      className={`flex items-center px-4 transition-all  py-2 duration-200 text-gray-700 rounded-lg 
+                      className={` px-4 flex   items-start justify-start   transition-all  py-2 duration-200 text-gray-700 rounded-lg 
                       ${active === val.title && "bg-gray-100"}`}
                     >
-                      {val.icons}
+                      <div>{val.icons}</div>
                       {isOpen && (
                         <span className="mx-4 font-medium">{val.title}</span>
                       )}

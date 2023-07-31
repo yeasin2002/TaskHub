@@ -1,6 +1,6 @@
+import { useState } from "react";
 import TodoTopArea from "./TodoTopArea";
 import TodoHomeTodoRender from "./TodoHomeTodoRender";
-import { useState } from "react";
 
 const TodoHome = () => {
   const [TodoStage, setTodoStage] = useState("all");

@@ -18,7 +18,7 @@ const AddTaskStage = ({ isAdvance }) => {
           <p>New Task/{!isAdvance ? "basic" : "advance"} </p>
         </div>
         <div>
-          <Link to={"/todo_home"}>
+          <Link to={"/"}>
             <RxCross1 />
           </Link>
         </div>

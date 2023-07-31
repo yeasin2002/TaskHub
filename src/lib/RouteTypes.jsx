@@ -8,7 +8,7 @@ export const singIn = "/sing_in";
 export const notFound = "notFound";
 export const getApps = "get_apps";
 
-export const todoHome = "/todo_home";
+export const todoHome = "/";
 //  subroutes pf todoHome
 export const search = "search";
 export const notification = "notification";

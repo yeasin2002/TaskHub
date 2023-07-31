@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import * as allRouter from "./lib/RouteTypes";
 
 //  redux
@@ -9,11 +9,11 @@ import store from "./Redux/store";
 //  Global Components / layout
 const NotFound = lazy(() => import("./layout/NotFound"));
 import Loading from "./layout/Loading";
-import PrivetRoues from "./layout/PrivetRoues";
+// import PrivetRoues from "./layout/PrivetRoues";
 // import PublicRoute from "./layout/PublicRoute";
 
-import Root from "./layout/Root";
-import ErrorPage from "./layout/Error";
+import { getJWT } from "./lib/usetJWT_Handler";
+import { ToastContainer } from "react-toastify";
 
 // Public Pages
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
@@ -40,98 +40,54 @@ const AddTask = lazy(() => import("./pages/TodoHome/Task/AddTask/AddTask"));
 const UpdateTask = lazy(() =>
   import("./pages/TodoHome/Task/UpdateTask/UpdateTask")
 );
-
-//  app router
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
-        element: <LandingPage />,
-      },
-      {
-        path: allRouter.about,
-        element: <About />,
-      },
-      {
-        path: allRouter.contact,
-        element: <Contact />,
-      },
-      {
-        path: allRouter.helpAndSupport,
-        element: <HelpAndSupportPage />,
-      },
-
-      {
-        path: allRouter.getApps,
-        element: <GetApps />,
-      },
-
-      //  public route -start
-      {
-        path: allRouter.singIn,
-        element: <SingIn />,
-      },
-      {
-        path: allRouter.login,
-        element: <LogIn />,
-      },
-      //  public route -end
-      {
-        path: "/",
-        element: <PrivetRoues />,
-        children: [
-          {
-            path: allRouter.todoHome,
-            element: <TodoIndex />,
-            children: [
-              {
-                index: true,
-                element: <TodoHome />,
-                //  all nested child route - all task, complete task, incomplete task
-              },
-              {
-                path: allRouter.search,
-                // index: true,
-                element: <Search />,
-              },
-              {
-                path: allRouter.profile,
-                element: <Profile />,
-                //  nested profile and preference route
-              },
-              {
-                path: allRouter.notification,
-                element: <Notification />,
-              },
-              {
-                path: allRouter.addTask,
-                element: <AddTask />,
-              },
-              {
-                path: `${allRouter.updateTask}/:id`,
-                element: <UpdateTask />,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        path: "*",
-        element: <NotFound />,
-      },
-    ],
-  },
-]);
+const isJWT = getJWT();
 
 function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Provider store={store}>
-        <RouterProvider router={router} />
+        <Routes>
+          <Route path={allRouter.about} element={<About />} />
+          <Route path={allRouter.contact} element={<Contact />} />
+          <Route path={allRouter.getApps} element={<GetApps />} />
+          <Route
+            path={allRouter.helpAndSupport}
+            element={<HelpAndSupportPage />}
+          />
+
+          {!isJWT ? (
+            <>
+              {/* public route for is not logged in */}
+              <Route path={allRouter.LandingPage} element={<LandingPage />} />
+              <Route path={allRouter.singIn} element={<SingIn />} />
+              <Route path={allRouter.login} element={<LogIn />} />
+            </>
+          ) : (
+            <>
+              {/*  protected if logged in   */}
+              <Route path={allRouter.todoHome} element={<TodoIndex />}>
+                <Route index element={<TodoHome />} />
+                <Route path={allRouter.search} element={<Search />} />
+                <Route path={allRouter.profile} element={<Profile />} />
+                <Route
+                  path={allRouter.notification}
+                  element={<Notification />}
+                />
+                <Route
+                  path={`${allRouter.updateTask}/:id`}
+                  element={<AddTask />}
+                />
+                <Route
+                  path={`${allRouter.updateTask}/:id`}
+                  element={<UpdateTask />}
+                />
+              </Route>
+            </>
+          )}
+
+          <Route path={"*"} element={<NotFound />} />
+        </Routes>
+        <ToastContainer />
       </Provider>
     </Suspense>
   );

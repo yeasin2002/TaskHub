@@ -1,10 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { login } from "../lib/RouteTypes";
+import { LandingPage } from "../lib/RouteTypes";
 
 const PrivetRoues = () => {
   let isAuth = localStorage.getItem("userJWT");
-
-  return isAuth ? <Outlet /> : <Navigate to={login} />;
+  return isAuth ? <Outlet /> : <Navigate to={LandingPage} />;
 };
 
 export default PrivetRoues;

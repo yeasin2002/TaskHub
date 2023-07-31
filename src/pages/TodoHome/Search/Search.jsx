@@ -1,4 +1,4 @@
-import { useGetAllTaskQuery } from "../../../Redux/feature/API/taskApiSlice/taskApiSlice";
+import { useGetAllTaskQuery } from "@redux/API/taskApiSlice/taskApiSlice";
 import CountParticipants from "../../../utils/CountParticipants";
 import SearchTodoSearchArea from "./SearchTodoSearchArea";
 import ShortTodo from "./ShortTodo";

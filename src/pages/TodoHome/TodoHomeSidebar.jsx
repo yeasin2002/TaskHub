@@ -23,12 +23,12 @@ const TodoHomeSidebar = () => {
   return (
     <>
       <motion.aside
-        initial={{ width: "5em", height: window.innerHeight }}
+        initial={{ width: "5em" }}
         animate={{
           width: isOpen ? "16rem" : "5em",
         }}
         transition={{ duration: 0.2 }}
-        className="rtl:border-r-0 rtl:border-l   md:flex flex-col hidden h-screen px-4 py-8 overflow-y-auto bg-[#D9E2F2] border-r"
+        className="rtl:border-r-0 rtl:border-l    md:flex flex-col hidden h-screen px-4 py-8 overflow-hidden bg-[#D9E2F2] border-r"
       >
         {isOpen ? (
           <div className=" flex flex-col items-center mt-6 -mx-2">

@@ -1,8 +1,13 @@
 import SearchBar from "./SearchBar";
 import TodoHomeTodoCard from "../HomeIndex/TodoHomeTodoCard";
 import CardSkeleton from "../../../components/skeleton/CardSkeleton";
+import { useSelector } from "react-redux";
 
 const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
+  // eslint-disable-next-line no-unused-vars
+  const { participants, nameAndDescription, sortByAccenting, searchValue } =
+    useSelector((state) => state?.searchSlice);
+  console.log(participants);
   return (
     <div className=" flex-1">
       <SearchBar />

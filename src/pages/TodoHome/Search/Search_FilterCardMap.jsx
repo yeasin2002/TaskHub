@@ -1,6 +1,9 @@
 import { BiDownArrow } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { setParticipants } from "../../../Redux/feature/search/search";
 
 const Search_FilterCardMap = ({ AllParticipants }) => {
+  let dispatch = useDispatch();
   return (
     <div className="bg-Amber border-Shades p-4 border rounded-lg">
       <div className=" w-28 flex justify-between">
@@ -13,20 +16,19 @@ const Search_FilterCardMap = ({ AllParticipants }) => {
           <div className="mt-3" key={index}>
             <div>
               <input
+                onClick={() => dispatch(setParticipants(name))}
                 type="checkbox"
-                name="description"
-                id="description"
+                name={name}
+                id={name}
                 className="checkers "
               />
-              <label className="mx-2" htmlFor="description">
+              <label className="mx-2" htmlFor={name}>
                 {name}
               </label>
             </div>
           </div>
         );
       })}
-
-      {/*  input  */}
     </div>
   );
 };

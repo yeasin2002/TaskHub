@@ -1,9 +1,21 @@
 import { BsSearch } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+
+import { setSearchValue } from "../../../Redux/feature/search/search";
 
 const SearchBar = () => {
+  const dispatch = useDispatch();
+
+  const searchInputHandler = (e) => {
+    e.preventDefault();
+    dispatch(setSearchValue(e?.target?.searchValue?.value));
+  };
   return (
     <>
-      <form className="bg-dim md:bg-white px-4 py-4">
+      <form
+        onSubmit={searchInputHandler}
+        className="bg-dim md:bg-white px-4 py-4"
+      >
         <label htmlFor="simple-search" className="sr-only">
           Search
         </label>
@@ -12,8 +24,8 @@ const SearchBar = () => {
             <BsSearch />
           </div>
           <input
-            type="text"
-            id="simple-search"
+            type="search"
+            id="searchValue"
             className="bg-Amber border border-Shades text-gray-900 text-sm rounded-lg focus:ring-Shades focus:border-Shades block w-full pl-10 p-2.5  "
             placeholder="Search"
             required

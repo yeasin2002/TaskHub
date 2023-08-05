@@ -38,5 +38,10 @@ const searchSlice = createSlice({
   },
 });
 
-// export const {} = searchSlice.actions;
+export const {
+  setNameAndDescription,
+  setParticipants,
+  setSearchValue,
+  setSortByAccenting,
+} = searchSlice.actions;
 export default searchSlice;

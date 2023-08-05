@@ -18,7 +18,7 @@ const EditsTaskStage = () => {
           <p>New Task/ </p>
         </div>
         <div>
-          <Link to={"/todo_home"}>
+          <Link to={"/"}>
             <RxCross1 />
           </Link>
         </div>

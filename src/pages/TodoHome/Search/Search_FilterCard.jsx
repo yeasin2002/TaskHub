@@ -1,6 +1,9 @@
+import { setNameAndDescription } from "../../../Redux/feature/search/search";
 import { BiDownArrow } from "react-icons/bi";
+import { useDispatch } from "react-redux";
 
 const Search_FilterCard = () => {
+  let dispatch = useDispatch();
   return (
     <div className="bg-Amber border-Shades p-4 border rounded-lg">
       <div className=" w-28 flex justify-between">
@@ -12,9 +15,10 @@ const Search_FilterCard = () => {
       <div className="mt-3">
         <div>
           <input
+            onClick={() => dispatch(setNameAndDescription("name"))}
             type="checkbox"
-            name="description"
-            id="description"
+            name="shortByName"
+            id="shortByName"
             className="checkers "
           />
           <label className="mx-2" htmlFor="description">
@@ -24,7 +28,13 @@ const Search_FilterCard = () => {
         {/*   */}
 
         <div>
-          <input type="checkbox" name="name" id="name" className="checkers " />
+          <input
+            type="checkbox"
+            name="description"
+            id="description"
+            className="checkers"
+            onClick={() => dispatch(setNameAndDescription("description"))}
+          />
           <label className="mx-2" htmlFor="name">
             description
           </label>

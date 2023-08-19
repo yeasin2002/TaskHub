@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Btn_Primary from "../../../../components/Btn_Primary";
 
@@ -9,12 +7,12 @@ import { toast } from "react-toastify";
 //  icons
 import { AiOutlineTeam } from "react-icons/ai";
 import { useCreateTaskMutation } from "../../../../Redux/feature/API/taskApiSlice/taskApiSlice";
-// components
+
+// import UploadLoop from "../../../../components/Icons/UploadLoop";
 
 const AddTask_Form = () => {
-  const [participants, setParticipants] = useState([]);
-  const { handleSubmit, formState, register } = useForm();
-  const [createTask, { isLoading, error }] = useCreateTaskMutation();
+  const { handleSubmit, register } = useForm();
+  const [createTask, { isLoading }] = useCreateTaskMutation();
 
   const formHandler = async (data) => {
     console.log(data);
@@ -122,7 +120,8 @@ const AddTask_Form = () => {
 
         <div className="flex justify-end">
           <Btn_Primary type={"submit"}>
-            {isLoading ? "Loading..." : "Create Task"}
+            {/* <UploadLoop className={"w-full "} /> */}
+            {isLoading ? "loading" : "Create Task"}
           </Btn_Primary>
         </div>
       </form>

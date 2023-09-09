@@ -29,9 +29,10 @@ const Profile = () => {
         </div>
         <div>
           <Button
-            onClick={() => {
-              logOut();
-              navigate("/");
+            onClick={async () => {
+              const { done } = await logOut();
+              if (done) await navigate("/");
+              await window.location.reload("/");
             }}
             className="gap-x-2 group flex bg-red-700"
           >

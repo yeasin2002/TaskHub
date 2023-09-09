@@ -1,5 +1,8 @@
-const logOut = () => {
-  localStorage.removeItem("userJWT");
+const logOut = async () => {
+  await localStorage.removeItem("userJWT");
+  return {
+    done: true,
+  };
 };
 
 export default logOut;

@@ -24,15 +24,16 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
         password,
       });
       if (go?.data?.status === "success") {
-        await setUserJWT(go?.data?.data?.token);
-        await navigate(RouteTypes?.todoHome);
+        setUserJWT(go?.data?.data?.token);
+        navigate(RouteTypes?.todoHome);
+        window.location.reload();
       }
 
       if (go?.error?.data?.status === "fail") {
-        await toast(go?.error?.data?.message || "Something went wrong");
+        toast(go?.error?.data?.message || "Something went wrong");
       }
     } catch (error) {
-      await toast(error?.message || "Something went wrong");
+      toast(error?.message || "Something went wrong");
       console.log(error?.message);
     }
   };

@@ -30,7 +30,7 @@ const DevelopersOfTodoProject = [
       technology: "Figma",
       title: "Figma Design ",
       link: "https://www.figma.com/file/t8qolnOAK308vTfE0cLpfd/ToDo-App",
-      displayName: "Design",
+      displayName: "Source",
     },
   },
 
@@ -61,7 +61,7 @@ const DevelopersOfTodoProject = [
       technology: "React, Redux",
       title: "Front End Code",
       link: "https://github.com/Mdkawsarislam2002/TaskHub",
-      displayName: "Code",
+      displayName: "Source",
     },
   },
 
@@ -73,17 +73,17 @@ const DevelopersOfTodoProject = [
     contact: [
       {
         name: "website",
-        link: "",
+        link: "nazmussayad.com",
         icons: <BsGlobe />,
       },
       {
         name: "github",
-        link: "",
+        link: "https://github.com/NazmusSayad",
         icons: <BsGithub />,
       },
       {
         name: "Facebook",
-        link: "",
+        link: "https://www.facebook.com/NazmusSayad",
         icons: <BsFacebook />,
       },
     ],
@@ -91,7 +91,7 @@ const DevelopersOfTodoProject = [
       technology: "nodejs/express.js, MongoDB",
       title: "Server Side Code ",
       link: "https://github.com/wdhive2/todo-server/tree/master/",
-      displayName: "Code",
+      displayName: "Source",
     },
   },
 ];

@@ -36,10 +36,11 @@ const SingInConfirm = ({ setIsConfirmStage }) => {
       password: userPassword,
       code: data?.provideCode,
     });
-    console.log(finalSingUp);
+
     if (finalSingUp?.data?.data?.token) {
       setUserJWT(finalSingUp?.data?.data?.token);
       navigate(RouteTypes.todoHome);
+      window.location.href = "/";
     }
     if (finalSingUp?.error?.data?.status === "fail") {
       await toast(finalSingUp.error.data.message || "Something went wrong");

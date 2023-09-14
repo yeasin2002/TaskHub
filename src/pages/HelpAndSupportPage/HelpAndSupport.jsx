@@ -1,5 +1,12 @@
+import LandingNav from "../LandingPage/LandingNav";
+
 const HelpAndSupport = () => {
-  return <div>HelpAndSupport</div>;
+  return (
+    <section>
+      <LandingNav />
+      HelpAndSupport
+    </section>
+  );
 };
 
 export default HelpAndSupport;

@@ -39,7 +39,7 @@ const TodoHomeTodoRender = ({ TodoStage }) => {
     <div>
       <div> {renderComponent}</div>
 
-      {/*  loading Stage  */}
+      {/*  loading Stage    */}
       {isLoading && (
         <div className=" xl:grid-cols-2 2xl:grid-cols-2 grid grid-cols-1 gap-3 p-6">
           {[41, 5, 5, 2, 1, 5, 4, 54].map((val) => {

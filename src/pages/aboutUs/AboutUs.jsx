@@ -27,7 +27,12 @@ const AboutUs = () => {
                 <span className="space-x-2s gap-x-2 flex py-2 pl-3 ml-3 border-l-4 border-gray-200">
                   {wdHiveContactInfo.map((val) => {
                     return (
-                      <a key={val.name} href={val.link}>
+                      <a
+                        key={val.name}
+                        href={val.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         {val.icons}
                       </a>
                     );

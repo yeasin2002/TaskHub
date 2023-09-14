@@ -1,16 +1,16 @@
-import DotsBounce from "../../../../components/Icons/DotsBounce";
+// import DotsBounce from "../../../../components/Icons/DotsBounce";
 import TodoHomeTodoCard from "../TodoHomeTodoCard";
 
 const AllTask = ({ data }) => {
   return (
     <div className=" w-full h-full px-10 py-4">
-      <div className=" md:flex-row flex flex-col justify-between w-full my-4">
-        {data?.length ? (
+      {/* <div className=" md:flex-row flex flex-col justify-between w-full my-4">
+        {data?.length !== 0 ? (
           <p className="my-4">{data?.length || ""} tasks found</p>
         ) : (
           <DotsBounce />
         )}
-      </div>
+      </div> */}
 
       <div className=" xl:grid-cols-2 2xl:grid-cols-2 grid grid-cols-1 gap-3">
         {data?.map((todoDetails, index) => {

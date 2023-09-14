@@ -9,6 +9,8 @@ import { setUserJWT } from "../../lib/usetJWT_Handler";
 // import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 
+import SvgSpinnersBarsFade from "../../components/Icons/SvgSpinnersBarsFade";
+
 const LogIn_Direect = ({ setIsConfirmPass }) => {
   const [emailOrUserName, setEmailOrUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +28,7 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
       if (go?.data?.status === "success") {
         setUserJWT(go?.data?.data?.token);
         navigate(RouteTypes?.todoHome);
-        window.location.reload();
+        window.location.href = "/";
       }
 
       if (go?.error?.data?.status === "fail") {
@@ -89,7 +91,15 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
         </p>
 
         <Btn_Primary type={"submit"} className={"w-full mt-4 pt-3"}>
-          {isLoading ? "Loading..." : "Log in"}
+          {isLoading ? (
+            <span className=" into-center gap-x-2">
+              <p>Loading...</p>
+              <SvgSpinnersBarsFade className={`text-green-700`} />
+            </span>
+          ) : (
+            "Log in"
+          )}
+          {/* <SvgSpinnersBarsFade /> */}
         </Btn_Primary>
 
         <div className="into-center gap-x-1 pt-4">

@@ -19,14 +19,13 @@ const Developers = ({ name, fullName, Roll, contact, image, workDetails }) => {
           <div className="gap-x-1 flex flex-wrap mt-5">
             {contact.map((val) => {
               return (
-                <a
-                  key={val.name}
-                  href={val.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {val.icons}
-                </a>
+                <div key={val.name}>
+                  {val.link && (
+                    <a href={val.link} target="_blank" rel="noreferrer">
+                      {val.icons}
+                    </a>
+                  )}
+                </div>
               );
             })}
           </div>

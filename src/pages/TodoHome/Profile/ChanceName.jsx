@@ -22,7 +22,7 @@ const ChanceName = ({ img }) => {
       });
       setAvatar(null);
       setName("");
-      console.log(updateServerState);
+      // console.log(updateServerState);
     } catch (error) {
       console.log(error.message);
     }

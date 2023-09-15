@@ -38,7 +38,6 @@ const ChangePass = ({ UserCode, UserEmail }) => {
               new_password: newPassword,
             });
             if (go.status === "success") {
-              console.log(go?.data?.token);
               await setUserJWT(go?.data?.token);
             }
           }}

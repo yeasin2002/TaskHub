@@ -15,7 +15,6 @@ const AddTask_Form = () => {
   const [createTask, { isLoading }] = useCreateTaskMutation();
 
   const formHandler = async (data) => {
-    console.log(data);
     try {
       const addTask = await createTask({
         title: data.title,
@@ -30,7 +29,6 @@ const AddTask_Form = () => {
         console.log("task created successfully");
       } else {
         console.log("task not created");
-        console.log(addTask);
       }
     } catch (error) {
       console.log(error.message);

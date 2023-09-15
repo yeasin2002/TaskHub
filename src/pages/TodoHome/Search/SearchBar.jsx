@@ -8,13 +8,13 @@ const SearchBar = () => {
 
   const searchInputHandler = (e) => {
     e.preventDefault();
-    dispatch(setSearchValue(e?.target?.searchValue?.value));
+    dispatch(setSearchValue(e?.target?.value));
   };
   return (
     <>
       <form
-        onSubmit={searchInputHandler}
         className="bg-dim md:bg-white px-4 py-4"
+        onSubmit={(e) => e.preventDefault()}
       >
         <label htmlFor="simple-search" className="sr-only">
           Search
@@ -24,11 +24,11 @@ const SearchBar = () => {
             <BsSearch />
           </div>
           <input
+            onChange={searchInputHandler}
             type="search"
             id="searchValue"
             className="bg-Amber border border-Shades text-gray-900 text-sm rounded-lg focus:ring-Shades focus:border-Shades block w-full pl-10 p-2.5  "
             placeholder="Search"
-            required
           />
         </div>
 

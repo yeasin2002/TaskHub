@@ -48,7 +48,7 @@ const UpdateTaskForm = () => {
           collection: "",
         },
       });
-      console.log(updateTask);
+
       if (updateTask?.data?.status) {
         toast.success("Task updated  Successfully");
       } else {

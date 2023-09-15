@@ -95,7 +95,6 @@ const LogIn_ForgotPass = ({ setIsConfirmPass }) => {
               <Btn_Primary
                 className={"w-full mt-7 pt-3"}
                 onClick={() => {
-                  console.log(UserCode);
                   if (UserCode) {
                     setIsFinalStage(true);
                   } else {

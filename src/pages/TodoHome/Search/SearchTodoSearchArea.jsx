@@ -1,10 +1,17 @@
-import SearchBar from "./SearchBar";
-import TodoHomeTodoCard from "../HomeIndex/TodoHomeTodoCard";
-import CardSkeleton from "../../../components/skeleton/CardSkeleton";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+
+import TodoHomeTodoCard from "../HomeIndex/TodoHomeTodoCard";
+import SearchBar from "./SearchBar";
+// import Tooltip from "../../../components/Tooltip";
+
+import { AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai";
+import CardSkeleton from "../../../components/skeleton/CardSkeleton";
 
 const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
+  const [isExactMatch, setIsExactMatch] = useState(false);
+  // const [isShortTooltipOpen, setIsShortTooltipOpen] = useState(false);
+
   // eslint-disable-next-line no-unused-vars
   const { participants, nameAndDescription, sortByAccenting, searchValue } =
     useSelector((state) => state?.searchSlice);
@@ -12,12 +19,21 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const SearchedTasks = () => {
     return tasks.filter((perTask) => {
-      return perTask?.title?.toLowerCase().includes(searchValue.toLowerCase());
+      if (!searchValue) {
+        return perTask;
+      } else {
+        if (isExactMatch) {
+          return perTask?.title.includes(searchValue);
+        } else {
+          return perTask?.title
+            ?.toLowerCase()
+            .includes(searchValue.toLowerCase());
+        }
+      }
     });
   };
   useEffect(() => {
-    let data = SearchedTasks();
-    console.log(data);
+    SearchedTasks();
   }, [SearchedTasks]);
 
   return (
@@ -25,9 +41,39 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
       <SearchBar />
       <div className="flex justify-between px-6 my-4">
         {isSuccess && (
-          <p className="text-blackens font-bold">{tasks.length} Task Found</p>
+          <p className="text-blackens font-bold">
+            {SearchedTasks().length} Task Found
+          </p>
         )}
-        <span className="bg-dim border-Shades px-2 border-b">Sort By </span>
+        <div className=" flex">
+          <button
+            className="gap-x-1 flex items-center px-2 py-1 mr-5 border border-blue-600 rounded-lg cursor-pointer"
+            onClick={() => setIsExactMatch(!isExactMatch)}
+          >
+            {isExactMatch ? <AiFillCheckCircle /> : <AiOutlineCheckCircle />}
+            <p>Exact Match</p>
+          </button>
+
+          {/* <div className=" relative inline-block">
+            <div
+              className="gap-x-1 flex items-center"
+              onClick={() => {
+                setIsShortTooltipOpen(!isShortTooltipOpen);
+              }}
+            >
+              <p>Short By</p>
+              <span
+                className={` transition-all duration-500 ${
+                  isShortTooltipOpen && "-rotate-180"
+                }`}
+              >
+                <BiUpArrow />
+              </span>
+            </div>
+
+            {isShortTooltipOpen && <Tooltip />}
+          </div> */}
+        </div>
       </div>
       <div>
         {isLoading && (
@@ -40,7 +86,7 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
       </div>
       <div className="gap-y-2 md:mx-1 grid mx-4">
         {isSuccess &&
-          tasks?.map((items) => {
+          SearchedTasks()?.map((items) => {
             return <TodoHomeTodoCard todoDetails={items} key={items._id} />;
           })}
       </div>

@@ -12,10 +12,15 @@ import { BiHomeAlt2 } from "react-icons/bi";
 //  assets
 import logo from "../../assets/logo.svg";
 
-const LandingNav = () => {
+const LandingNav = ({ ExtraStyles }) => {
   return (
     <>
-      <nav className=" bg-white border-gray-200">
+      <nav
+        className={`  ${ExtraStyles}`}
+        style={{
+          backgroundImage: ` linear-gradient(61deg, rgba(198,211,236,1) 0%, rgba(255,255,255,1) 44%, rgba(217,226,242,1) 92%)`,
+        }}
+      >
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
           <Link to={"/"} className="flex items-center flex-1">
             <img src={logo} className="md:w-52 w-40" />
@@ -27,7 +32,7 @@ const LandingNav = () => {
               </Link>
               {/* <Link to={RouteTypes.todoHome}> */}
               <Link to={RouteTypes.singIn}>
-                <Button className="mx-1 bg-blue-600">Start For Free</Button>
+                <Button className="mx-1 bg-blue-600">Sing In </Button>
               </Link>
             </div>
 
@@ -44,7 +49,7 @@ const LandingNav = () => {
             className="md:flex md:w-auto md:order-1 items-center justify-between hidden w-full"
             id="navbar-search"
           >
-            <div className="md:p-0 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg">
+            <div className="md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg">
               <Link
                 to={RouteTypes.todoHome}
                 className="md:bg-transparent gap-x-1 md:text-blue-700 md:p-0 flex items-center justify-center py-2 pl-3 pr-4 text-white bg-blue-700 rounded"

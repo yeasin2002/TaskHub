@@ -21,6 +21,7 @@ export default withMT({
         dim: "#C6D3EC",
         blackens: "#132039",
         Amber: " #D9E1F2",
+        stripe: `linear-gradient(61deg, rgba(198,211,236,1) 0%, rgba(255,255,255,1) 44%, rgba(217,226,242,1) 92%)`,
       },
     },
   },

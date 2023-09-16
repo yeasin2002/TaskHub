@@ -1,12 +1,13 @@
 /* eslint-disable no-constant-condition */
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { useUpdateUserMutation } from "../../../Redux/feature/API/userApiSlice/userApiSlice";
 
 import { Input } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
+
 import ImgLoader from "../../../components/ImgLoader";
 import WifiFade from "../../../components/Icons/WifiFade";
-import { toast } from "react-toastify";
 
 //  temporary image
 let tempImg =

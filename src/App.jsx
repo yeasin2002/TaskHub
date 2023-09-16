@@ -12,6 +12,7 @@ import Loading from "./layout/Loading";
 
 import { getJWT } from "./lib/usetJWT_Handler";
 import { ToastContainer } from "react-toastify";
+import LandingNav from "./pages/LandingPage/LandingNav";
 
 // Public Pages
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"));
@@ -19,7 +20,6 @@ const About = lazy(() => import("./pages/aboutUs/AboutUs"));
 const Contact = lazy(() => import("./pages/aboutUs/AboutUs"));
 const SingIn = lazy(() => import("./pages/SingIn/SingIn"));
 const LogIn = lazy(() => import("./pages/Login/LogIn"));
-const GetApps = lazy(() => import("./pages/getApp/GetApps"));
 const HelpAndSupportPage = lazy(() =>
   import("./pages/HelpAndSupportPage/HelpAndSupport")
 );
@@ -47,7 +47,7 @@ function App() {
         <Routes>
           <Route path={allRouter.about} element={<About />} />
           <Route path={allRouter.contact} element={<Contact />} />
-          <Route path={allRouter.getApps} element={<GetApps />} />
+
           <Route
             path={allRouter.helpAndSupport}
             element={<HelpAndSupportPage />}

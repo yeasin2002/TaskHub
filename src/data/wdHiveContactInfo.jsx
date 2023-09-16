@@ -3,17 +3,17 @@ import { BsFacebook, BsGithub, BsGlobe } from "react-icons/bs";
 const wdHiveContactInfo = [
   {
     name: "website",
-    link: "https://wdhive.com/",
+    link: "wdhive.com",
     icons: <BsGlobe />,
   },
   {
     name: "github",
-    link: "https://github.com/wdhive/",
+    link: "github.com/wdhive/",
     icons: <BsGithub />,
   },
   {
     name: "Facebook",
-    link: "https://www.facebook.com/wdhive",
+    link: "facebook.com/wdhive",
     icons: <BsFacebook />,
   },
 ];

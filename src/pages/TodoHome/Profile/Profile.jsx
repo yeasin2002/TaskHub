@@ -9,8 +9,10 @@ import { TbLogout } from "react-icons/tb";
 import logOut from "../../../utils/logOut";
 import { useNavigate } from "react-router-dom";
 import { useGetAllUserQuery } from "../../../Redux/feature/API/userApiSlice/userApiSlice";
+import { useState } from "react";
 
 const Profile = () => {
+  const [isUpdating, setIsUpdating] = useState(false);
   const { data } = useGetAllUserQuery();
 
   const navigate = useNavigate();
@@ -20,12 +22,25 @@ const Profile = () => {
       id="profile"
     >
       <div className="md:w-6/12 container mb-20">
-        <ChanceName img={data?.data?.avatar} />
+        <ChanceName
+          img={data?.data?.avatar}
+          isUpdating={isUpdating}
+          setIsUpdating={setIsUpdating}
+        />
         <div className="mt-12">
-          <ChangeEmail />
-          <ChangePassword />
-          <ChangeUserName />
-          <DeleteAccount />
+          <ChangeEmail isUpdating={isUpdating} setIsUpdating={setIsUpdating} />
+          <ChangePassword
+            isUpdating={isUpdating}
+            setIsUpdating={setIsUpdating}
+          />
+          <ChangeUserName
+            isUpdating={isUpdating}
+            setIsUpdating={setIsUpdating}
+          />
+          <DeleteAccount
+            isUpdating={isUpdating}
+            setIsUpdating={setIsUpdating}
+          />
         </div>
         <div>
           <Button

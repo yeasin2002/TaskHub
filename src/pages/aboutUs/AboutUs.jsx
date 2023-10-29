@@ -1,8 +1,8 @@
-import wdHiveContactInfo from "../../data/wdHiveContactInfo";
 import whHiveLogo from "../../assets/logos/wdHive.png";
-import Developers from "./Developers";
 import DevelopersOfTodoProject from "../../data/DevelopersOfTodoProject";
+import wdHiveContactInfo from "../../data/wdHiveContactInfo";
 import LandingNav from "../LandingPage/LandingNav";
+import Developers from "./Developers";
 
 const AboutUs = () => {
   return (

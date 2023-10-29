@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { setSingInInputs } from "../../Redux/feature/singInInputs/singInInputs";
+import * as RouteTypes from '.././../lib/RouteTypes';
 
 //  react  toastify
 import { toast } from "react-toastify";
@@ -12,10 +13,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./FormSchema";
 
 //   Components and icons
-import Btn_Primary from "../../components/Btn_Primary";
 import { AiFillCamera } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useGetOTPMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
+import Btn_Primary from "../../components/Btn_Primary";
 
 const SingInForm = ({ setIsConfirmStage }) => {
   const [getOTP, { isLoading }] = useGetOTPMutation();
@@ -87,7 +88,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
               <input
                 type="text"
                 id="firstName"
-                placeholder="Md "
+                placeholder="Jon "
                 className="form-input w-full"
                 {...register("firstName")}
               />
@@ -102,7 +103,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
               <input
                 type="text"
                 id="lastName"
-                placeholder="Yeasin"
+                placeholder="Doe"
                 className="form-input w-full"
                 {...register("lastName")}
               />
@@ -130,7 +131,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
               <input
                 type="text"
                 id="userMail"
-                placeholder="mdkawsarislam2002@gmail.com"
+                placeholder="example@gmail.com"
                 className="form-input"
                 {...register("userMail")}
               />
@@ -195,7 +196,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
           </Btn_Primary>
           <div className="into-center gap-x-1 pt-4">
             <p className="text-slate-700">Already logged in?</p>
-            <Link className="text-blue-600" to={"sing_in"}>
+            <Link className="text-blue-600" to={RouteTypes.login}>
               Sing in
             </Link>
           </div>

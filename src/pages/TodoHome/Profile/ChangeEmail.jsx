@@ -1,9 +1,18 @@
 import { Input } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useGetOTPMutation } from "../../../Redux/feature/API/accountApiSlice/accountApiSlice";
 
-const ChangeEmail = () => {
+const ChangeEmail = ({ setIsUpdating, isUpdating }) => {
   const [Mail, setMail] = useState(false);
+  const [newMailValue, setNewMailValue] = useState("");
+  const dispatch = useDispatch();
+
+  const mailChangeHandler = async () => {
+    setIsUpdating(true);
+  };
+
   return (
     <div className="my-4">
       {!Mail ? (
@@ -12,10 +21,17 @@ const ChangeEmail = () => {
         </Button>
       ) : (
         <div>
-          {/* <p className="text-blackens text-lg font-bold">Change Email </p> */}
-          <Input label="Email" variant="outlined" />
+          <Input
+            label="Email"
+            variant="outlined"
+            onChange={(e) => {
+              setNewMailValue(e.target.value);
+            }}
+          />
           <div className=" gap-x-2 flex items-center">
-            <Button className="w-full my-2">Save</Button>
+            <Button className="w-full my-2" onClick={mailChangeHandler}>
+              Save
+            </Button>
             <Button
               variant="outlined"
               className="w-full my-2"

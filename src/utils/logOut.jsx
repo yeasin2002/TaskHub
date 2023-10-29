@@ -1,5 +1,6 @@
-const logOut = async () => {
-  await localStorage.removeItem("userJWT");
+const logOut = () => {
+  localStorage.removeItem("userJWT");
+  window.location.href = "/";
   return {
     done: true,
   };

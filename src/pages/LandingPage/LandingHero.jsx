@@ -1,9 +1,8 @@
-import { useGetAllUserCountQuery } from "../../Redux/feature/API/extraApiSlice/extraApiSlice";
 import { Link } from "react-router-dom";
+import { useGetAllUserCountQuery } from "../../Redux/feature/API/extraApiSlice/extraApiSlice";
 import * as RouteTypes from "../../lib/RouteTypes";
 
 import Btn_Primary from "../../components/Btn_Primary";
-
 import LandingCarousel from "./LandingCarousel";
 
 const LandingHero = () => {
@@ -12,17 +11,17 @@ const LandingHero = () => {
   return (
     <>
       <section
-        className="body-font w-full h-[90vh] text-gray-600"
+        className="body-font w-full h-screen max-h-screen text-gray-600"
         style={{
           backgroundImage: ` linear-gradient(61deg, rgba(198,211,236,1) 0%, rgba(255,255,255,1) 44%, rgba(217,226,242,1) 92%)`,
         }}
       >
         <div className="md:flex-row container flex flex-col items-center px-5 py-24 mx-auto">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0 flex flex-col items-center mb-16 text-center">
-            <h1 className="title-font sm:text-4xl mb-4 text-3xl font-medium text-gray-900">
+            <h1 className=" sm:text-4xl mb-4 font-serif text-3xl font-semibold text-gray-900">
               Smash all of your ideas into one place
             </h1>
-            <p className="mb-8 leading-relaxed">
+            <p className="mb-8 text-base leading-relaxed">
               Collaborate with your friends to help you make your journey of
               bringing them to live a bit more fun.
             </p>

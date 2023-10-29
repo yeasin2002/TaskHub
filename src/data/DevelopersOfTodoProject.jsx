@@ -1,5 +1,5 @@
 import { BsFacebook, BsGithub, BsGlobe } from "react-icons/bs";
-import YeasinsPic from "../assets/Devs/Yeasin2002.jpg";
+import YeasinsPic from "../assets/Devs/Yeasin2002.jpeg";
 import sayadsPic from "../assets/Devs/sayad.jpg";
 import tanimPic from "../assets/Devs/tanim.jpg";
 

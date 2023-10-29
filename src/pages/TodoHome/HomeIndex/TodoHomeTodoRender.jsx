@@ -4,9 +4,20 @@ import CompleteTask from "./CompleteTask/CompleteTask";
 import IncompleteTask from "./IncompleteTask/IncompleteTask";
 // import loading from "../.././../assets/global/loading.svg";
 import CardSkeleton from "../../../components/skeleton/CardSkeleton";
+import { toast } from "react-toastify";
+import logOut from "../../../utils/logOut";
 
 const TodoHomeTodoRender = ({ TodoStage }) => {
-  const { data, isLoading } = useGetAllTaskQuery();
+  const { data, isLoading, status, error } = useGetAllTaskQuery();
+
+  if (status === "rejected") {
+    if (error.status == 401) {
+      toast.error("Session Expired");
+      logOut();
+
+      console.log(error.data.message);
+    }
+  }
 
   const completedTask =
     data?.data?.tasks.filter((todo) => {

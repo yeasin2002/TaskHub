@@ -36,7 +36,7 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails, id }) => {
         exit={{
           opacity: 0,
         }}
-        className="group flex transition-all"
+        className="group border-accent/40 flex transition-all border rounded-md"
       >
         <div className={`${todoColor} flex-1 p-4  rounded-l-md rounded-r-sm`}>
           <div className=" rounded-l-md flex justify-between">

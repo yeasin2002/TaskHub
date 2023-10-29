@@ -1,8 +1,8 @@
 import { useState } from "react";
 
+import LogInOutAndSingInAndUpContainer from "../../components/LogInOutAndSingInAndUpContainer";
 import SingInConfirm from "./SingInConfirm";
 import SingInForm from "./SingInForm";
-import LogInOutAndSingInAndUpContainer from "../../components/LogInOutAndSingInAndUpContainer";
 
 const SingIn = () => {
   const [IsConfirmStage, setIsConfirmStage] = useState(false);

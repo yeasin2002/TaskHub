@@ -28,13 +28,14 @@ const ChanceName = ({ img, isUpdating, setIsUpdating }) => {
       });
       setName("");
       await setIsUpdating(false);
-      if (updateServerState.data.status === "success") {
+      console.log(updateServerState);
+      if (updateServerState?.data?.status === "success") {
         toast.success("Profile Updates");
-      } else {
-        toast.error("Profile Updates");
+      } else if (updateServerState?.error?.data?.status === "fail") {
+        toast.error(updateServerState?.error.data?.message);
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error("something went wrong, please try again");
       setIsUpdating(false);
     }
   };

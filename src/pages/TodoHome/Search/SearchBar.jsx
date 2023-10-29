@@ -12,10 +12,7 @@ const SearchBar = () => {
   };
   return (
     <>
-      <form
-        className="bg-dim md:bg-white px-4 py-4"
-        onSubmit={(e) => e.preventDefault()}
-      >
+      <form className=" px-4 py-4" onSubmit={(e) => e.preventDefault()}>
         <label htmlFor="simple-search" className="sr-only">
           Search
         </label>

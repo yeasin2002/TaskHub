@@ -1,13 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { LandingNavItem } from "../../data/NavItems";
 import * as RouteTypes from "../../lib/RouteTypes";
-
 //  components lib
 import { Button } from "@material-tailwind/react";
 import Drawer from "./Drawer";
-
-//  icons
-import { AiOutlineTeam, AiOutlineQuestionCircle } from "react-icons/ai";
-import { BiHomeAlt2 } from "react-icons/bi";
 
 //  assets
 import logo from "../../assets/logo.svg";
@@ -50,28 +46,18 @@ const LandingNav = ({ ExtraStyles }) => {
             id="navbar-search"
           >
             <div className="md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg">
-              <Link
-                to={RouteTypes.todoHome}
-                className="md:bg-transparent gap-x-1 md:text-blue-700 md:p-0 flex items-center justify-center py-2 pl-3 pr-4 text-white bg-blue-700 rounded"
-              >
-                <BiHomeAlt2 className="w-6 h-6" />
-                Home
-              </Link>
-              <Link
-                to={RouteTypes.about}
-                className="md:bg-transparent gap-x-1 md:text-blue-700 md:p-0 flex items-center justify-center py-2 pl-3 pr-4 text-white bg-blue-700 rounded"
-              >
-                <AiOutlineTeam className="w-6 h-6" />
-                About Us
-              </Link>
-
-              <Link
-                to={RouteTypes.helpAndSupport}
-                className="md:bg-transparent gap-x-1 md:text-blue-700 md:p-0 flex items-center justify-center py-2 pl-3 pr-4 text-white bg-blue-700 rounded"
-              >
-                <AiOutlineQuestionCircle className="w-6 h-6" />
-                Help And Support
-              </Link>
+              {LandingNavItem.map((item) => {
+                return (
+                  <NavLink
+                    key={item.name}
+                    to={item.url}
+                    className="md:bg-transparent gap-x-1 md:text-blue-700 md:p-0 flex items-center justify-center py-2 pl-3 pr-4 text-white bg-blue-700 rounded"
+                  >
+                    {item.Icon}
+                    <p className="font-semibold text-blue-700">{item.name}</p>
+                  </NavLink>
+                );
+              })}
             </div>
           </div>
         </div>

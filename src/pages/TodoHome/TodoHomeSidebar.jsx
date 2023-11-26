@@ -1,16 +1,16 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as RouteTypes from "./../../lib/RouteTypes";
-import { motion } from "framer-motion";
 import sidebarItem from "./SidebarItems";
 
 //  icons
 
-import { BsArrowLeftSquare } from "react-icons/bs";
 import { AiFillPlusCircle } from "react-icons/ai";
+import { BsArrowLeftSquare } from "react-icons/bs";
 
 //  Querys
-import { useGetAllUserQuery } from "@redux/API/userApiSlice/userApiSlice";
+import { useGetAllUserQuery } from "../../Redux/feature/API/userApiSlice/userApiSlice";
 
 const TodoHomeSidebar = () => {
   const [active, setActive] = useState("Home");

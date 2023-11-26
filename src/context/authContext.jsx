@@ -1,26 +1,37 @@
-import { createContext, useContext, useState } from "react";
+import { useLocalStorage } from "$hooks/useLocalStorage";
+import { createContext } from "react";
+import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLogIn, setIsLogIn] = useState(false);
-  const logOut = () => {
-    setIsLogIn(false);
+  const { value, setLocalStorage, removeLocalStorage, setCustomValue } =
+    useLocalStorage("usersToken");
+  const { value: isLoggedIn, setLocalStorage: setIsLoggedIn } =
+    useLocalStorage("isLoggedIn");
+  const navigate = useNavigate();
+
+  const logOut = (token, redirectTo) => {
+    setLocalStorage(token);
+    setIsLoggedIn(true);
+    navigate(redirectTo);
   };
 
-  const logIn = () => {
-    setIsLogIn(false);
+  const logIn = (redirectTo) => {
+    removeLocalStorage();
+    setCustomValue(false);
+    setIsLoggedIn(false);
+    navigate(redirectTo);
   };
 
-  const value = {
-    isLogIn,
-    setIsLogIn,
-    logOut,
+  const values = {
+    token: value,
     logIn,
+    logOut,
+    setCustomValue,
+    isLoggedIn,
+    setIsLoggedIn,
   };
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+

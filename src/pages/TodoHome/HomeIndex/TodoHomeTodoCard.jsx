@@ -1,8 +1,8 @@
-import ParticipantsManage from "../../../components/ParticipantsManage";
-import formateDate from "../../../utils/formateDate";
-import CompletedOrUncompleted from "./CompletedOrUncomplete";
-import TodoDeleteOrGoToUpdate from "./TodoDeleteOrGoToUpdate";
-import { AnimatePresence, motion } from "framer-motion";
+import ParticipantsManage from "../../../components/ParticipantsManage"
+import formateDate from "../../../utils/formateDate"
+import CompletedOrUncompleted from "./CompletedOrUncomplete"
+import TodoDeleteOrGoToUpdate from "./TodoDeleteOrGoToUpdate"
+import { AnimatePresence, motion } from "framer-motion"
 
 /* eslint-disable no-unused-vars */
 const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails, id }) => {
@@ -15,11 +15,11 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails, id }) => {
     description = "",
     createdAt = "",
     endingDate = "",
-  } = todoDetails;
+  } = todoDetails
 
   // modify the date
-  const startDate = formateDate(startingDate);
-  const EndDate = formateDate(endingDate);
+  const startDate = formateDate(startingDate)
+  const EndDate = formateDate(endingDate)
 
   return (
     <AnimatePresence>
@@ -36,16 +36,13 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails, id }) => {
         exit={{
           opacity: 0,
         }}
-        className="group border-accent/40 flex transition-all border rounded-md"
-      >
-        <div className={`${todoColor} flex-1 p-4  rounded-l-md rounded-r-sm`}>
-          <div className=" rounded-l-md flex justify-between">
+        className="group flex rounded-md border border-accent/40 transition-all">
+        <div className={`${todoColor} flex-1 rounded-l-md  rounded-r-sm p-4`}>
+          <div className=" flex justify-between rounded-l-md">
             <div>
               <div className=" flex items-center gap-2">
                 <h2 className="title">{title} </h2>
-                <span className="bg-Shades hidden px-2 py-1 text-sm text-white rounded-md">
-                  Tag Category
-                </span>
+                <span className="hidden rounded-md bg-Shades px-2 py-1 text-sm text-white">Tag Category</span>
               </div>
               <p>{description}</p>
             </div>
@@ -53,7 +50,7 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails, id }) => {
               <CompletedOrUncompleted id={_id} completed={completed} />
             </div>
           </div>
-          <div className="bg-slate-900/40 my-2 w-full h-[.10rem]"></div>
+          <div className="bg-slate-900/40 my-2 h-[.10rem] w-full"></div>
 
           <div className="flex justify-between">
             <div>
@@ -65,7 +62,7 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails, id }) => {
         <TodoDeleteOrGoToUpdate id={_id} todoDetails={todoDetails} />
       </motion.div>
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default TodoHomeTodoCard;
+export default TodoHomeTodoCard

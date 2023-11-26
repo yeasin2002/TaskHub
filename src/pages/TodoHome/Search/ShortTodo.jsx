@@ -1,10 +1,10 @@
 // import Search_FilterCard from "./Search_FilterCard";
-import Search_FilterCardMap from "./Search_FilterCardMap";
+import Search_FilterCardMap from "./Search_FilterCardMap"
 
 const ShortTodo = ({ AllParticipants }) => {
   return (
     <>
-      <div className=" pt-7 md:flex gap-y-4 flex-col hidden h-full px-4 transition-all">
+      <div className=" hidden h-full flex-col gap-y-4 px-4 pt-7 transition-all md:flex">
         {AllParticipants.length !== 0 && (
           <>
             {/* <Search_FilterCard /> */}
@@ -13,7 +13,7 @@ const ShortTodo = ({ AllParticipants }) => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ShortTodo;
+export default ShortTodo

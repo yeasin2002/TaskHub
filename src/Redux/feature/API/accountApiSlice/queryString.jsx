@@ -4,4 +4,4 @@ export const singUpString = (userMail) => ({
   body: {
     email: userMail,
   },
-});
+})

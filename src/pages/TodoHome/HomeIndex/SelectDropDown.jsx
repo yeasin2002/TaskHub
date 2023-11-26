@@ -1,4 +1,4 @@
-import { Select, Option } from "@material-tailwind/react";
+import { Select, Option } from "@material-tailwind/react"
 
 export default function SelectDropDown() {
   return (
@@ -11,5 +11,5 @@ export default function SelectDropDown() {
         <Option>Material Tailwind Svelte</Option>
       </Select>
     </div>
-  );
+  )
 }

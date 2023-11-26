@@ -1,54 +1,50 @@
-import { Link, useNavigate } from "react-router-dom";
-import * as RouteTypes from "../../lib/RouteTypes";
-import Btn_Primary from "../../components/Btn_Primary";
-import { useLogInMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
-import { useState } from "react";
-import { setUserJWT } from "../../lib/usetJWT_Handler";
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import Btn_Primary from "../../components/Btn_Primary"
+import * as RouteTypes from "../../lib/RouteTypes"
+import { setUserJWT } from "../../lib/usetJWT_Handler"
+import { useLogInMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice"
 
 //  toast
 // import "react-toastify/dist/ReactToastify.css";
-import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify"
 
-import SvgSpinnersBarsFade from "../../components/Icons/SvgSpinnersBarsFade";
+import SvgSpinnersBarsFade from "../../components/Icons/SvgSpinnersBarsFade"
+import { useAuth } from "../../hooks/useAuth"
 
 const LogIn_Direect = ({ setIsConfirmPass }) => {
-  const [emailOrUserName, setEmailOrUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [LogIn, { isLoading }] = useLogInMutation();
-
-  const navigate = useNavigate();
+  const [emailOrUserName, setEmailOrUserName] = useState("")
+  const [password, setPassword] = useState("")
+  const [LogIn, { isLoading }] = useLogInMutation()
+  const { logIn } = useAuth()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       const go = await LogIn({
         login: emailOrUserName,
         password,
-      });
+      })
+
       if (go?.data?.status === "success") {
-        setUserJWT(go?.data?.data?.token);
-        navigate(RouteTypes?.todoHome);
-        window.location.href = "/";
+        logIn(go?.data?.data?.token, "/")
       }
 
       if (go?.error?.data?.status === "fail") {
-        toast(go?.error?.data?.message || "Something went wrong");
+        toast(go?.error?.data?.message || "Something went wrong")
       }
     } catch (error) {
-      toast(error?.message || "Something went wrong");
-      console.log(error?.message);
+      toast(error?.message || "Something went wrong")
+      console.log(error?.message)
     }
-  };
+  }
   return (
-    <div className="md:p-14 px-4 py-10">
+    <div className="px-4 py-10 md:p-14">
       <h2 className="text-2xl font-bold text-blue-700">Log In </h2>
 
       <form className="mt-20" onSubmit={handleSubmit}>
         <div className="my-10">
-          <label
-            htmlFor="userName"
-            className=" block mb-4 text-sm font-medium text-gray-900"
-          >
+          <label htmlFor="userName" className=" mb-4 block text-sm font-medium text-gray-900">
             Email or username
           </label>
           <input
@@ -58,16 +54,13 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
             className="form-input"
             required
             onChange={(e) => {
-              setEmailOrUserName(e.target.value);
+              setEmailOrUserName(e.target.value)
             }}
           />
         </div>
 
         <div className="mt-10">
-          <label
-            htmlFor="logIg_passCode"
-            className=" block mb-4 text-sm font-medium text-gray-900"
-          >
+          <label htmlFor="logIg_passCode" className=" mb-4 block text-sm font-medium text-gray-900">
             password
           </label>
           <input
@@ -77,20 +70,19 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
             className="form-input"
             required
             onChange={(e) => {
-              setPassword(e.target.value);
+              setPassword(e.target.value)
             }}
           />
         </div>
         <p
-          className="text-Shades hover:text-blue-700 pl-1 mt-8 font-semibold transition-all cursor-pointer"
+          className="mt-8 cursor-pointer pl-1 font-semibold text-Shades transition-all hover:text-blue-700"
           onClick={() => {
-            setIsConfirmPass(true);
-          }}
-        >
+            setIsConfirmPass(true)
+          }}>
           Forget Password
         </p>
 
-        <Btn_Primary type={"submit"} className={"w-full mt-4 pt-3"}>
+        <Btn_Primary type={"submit"} className={"mt-4 w-full pt-3"}>
           {isLoading ? (
             <span className=" into-center gap-x-2">
               <p>Loading...</p>
@@ -111,6 +103,6 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
       </form>
       <ToastContainer position="top-right" />
     </div>
-  );
-};
-export default LogIn_Direect;
+  )
+}
+export default LogIn_Direect

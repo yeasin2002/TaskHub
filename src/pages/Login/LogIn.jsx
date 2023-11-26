@@ -1,12 +1,12 @@
-import { useState } from "react";
-import LogInOutAndSingInAndUpContainer from "../../components/LogInOutAndSingInAndUpContainer";
+import { useState } from "react"
+import LogInOutAndSingInAndUpContainer from "../../components/LogInOutAndSingInAndUpContainer"
 
 //  sub pages
-import LogIn_Direect from "./LogIn_Direect";
-import LogIn_ForgotPass from "./LogIn_ForgotPass";
+import LogIn_Direect from "./LogIn_Direect"
+import LogIn_ForgotPass from "./LogIn_ForgotPass"
 
 const LogIn = () => {
-  const [isConfirmPass, setIsConfirmPass] = useState(false);
+  const [isConfirmPass, setIsConfirmPass] = useState(false)
   return (
     <div>
       <LogInOutAndSingInAndUpContainer>
@@ -17,7 +17,7 @@ const LogIn = () => {
         )}
       </LogInOutAndSingInAndUpContainer>
     </div>
-  );
-};
+  )
+}
 
-export default LogIn;
+export default LogIn

@@ -1,8 +1,8 @@
 const Tooltip = () => {
   return (
-    <p className="-top-16 shadow-gray-200 absolute w-48 px-5 py-3 text-center text-gray-600 truncate -translate-x-1/2 bg-white rounded-lg shadow-lg">
+    <p className="absolute -top-16 w-48 -translate-x-1/2 truncate rounded-lg bg-white px-5 py-3 text-center text-gray-600 shadow-lg shadow-gray-200">
       This is a tooltip
     </p>
-  );
-};
-export default Tooltip;
+  )
+}
+export default Tooltip

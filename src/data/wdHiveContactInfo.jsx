@@ -1,4 +1,4 @@
-import { BsFacebook, BsGithub, BsGlobe } from "react-icons/bs";
+import { BsFacebook, BsGithub, BsGlobe } from "react-icons/bs"
 
 const wdHiveContactInfo = [
   {
@@ -16,6 +16,6 @@ const wdHiveContactInfo = [
     link: "facebook.com/wdhive",
     icons: <BsFacebook />,
   },
-];
+]
 
-export default wdHiveContactInfo;
+export default wdHiveContactInfo

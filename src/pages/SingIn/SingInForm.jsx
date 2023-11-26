@@ -1,26 +1,21 @@
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { setSingInInputs } from "../../Redux/feature/singInInputs/singInInputs";
-import * as RouteTypes from '.././../lib/RouteTypes';
+import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
+import { setSingInInputs } from "../../Redux/feature/singInInputs/singInInputs"
+import * as RouteTypes from ".././../lib/RouteTypes"
 
-//  react  toastify
-import { toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
-// form validation
-
-import { yupResolver } from "@hookform/resolvers/yup";
-import schema from "./FormSchema";
+import { yupResolver } from "@hookform/resolvers/yup"
+import { useDispatch } from "react-redux"
+import { toast } from "react-toastify"
+import schema from "./FormSchema"
 
 //   Components and icons
-import { AiFillCamera } from "react-icons/ai";
-import { useDispatch } from "react-redux";
-import { useGetOTPMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
-import Btn_Primary from "../../components/Btn_Primary";
+import { AiFillCamera } from "react-icons/ai"
+import { useGetOTPMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice"
+import Btn_Primary from "../../components/Btn_Primary"
 
 const SingInForm = ({ setIsConfirmStage }) => {
-  const [getOTP, { isLoading }] = useGetOTPMutation();
-  const dispatch = useDispatch();
+  const [getOTP, { isLoading }] = useGetOTPMutation()
+  const dispatch = useDispatch()
 
   const {
     register,
@@ -29,10 +24,10 @@ const SingInForm = ({ setIsConfirmStage }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  });
+  })
 
   const onSubmit = async (data) => {
-    const req = await getOTP(data?.userMail);
+    const req = await getOTP(data?.userMail)
 
     if (req?.data?.status === "success") {
       dispatch(
@@ -44,14 +39,14 @@ const SingInForm = ({ setIsConfirmStage }) => {
           userPassword: data?.userPassword,
           confirmPassword: data?.confirmPassword,
         })
-      );
-      await setIsConfirmStage(true);
+      )
+      await setIsConfirmStage(true)
     }
 
     if (req?.error?.data?.status === "fail") {
-      await toast(req.error.data.message || "Something went wrong");
+      await toast(req.error.data.message || "Something went wrong")
     }
-  };
+  }
   return (
     <>
       <div className=" px-6 py-3">
@@ -59,30 +54,20 @@ const SingInForm = ({ setIsConfirmStage }) => {
 
         <form className="mt-1" onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <input
-              type="file"
-              name="avatar"
-              id="avatar"
-              className="hidden"
-              {...register("userAvatar")}
-            />
+            <input type="file" name="avatar" id="avatar" className="hidden" {...register("userAvatar")} />
             <div>
               <label
                 htmlFor="avatar"
-                className="into-center w-16 h-16 mx-auto my-2 bg-blue-200 rounded-full cursor-pointer"
-              >
-                <AiFillCamera className="text-accent text-3xl" />
+                className="into-center mx-auto my-2 h-16 w-16 cursor-pointer rounded-full bg-blue-200">
+                <AiFillCamera className="text-3xl text-accent" />
               </label>
             </div>
           </div>
 
           {/* name */}
-          <div className="gap-x-2 flex justify-between flex-1">
+          <div className="flex flex-1 justify-between gap-x-2">
             <div className="w-full">
-              <label
-                htmlFor="firstName"
-                className=" block mb-4 text-sm font-medium text-gray-900"
-              >
+              <label htmlFor="firstName" className=" mb-4 block text-sm font-medium text-gray-900">
                 First Name
               </label>
               <input
@@ -94,10 +79,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
               />
             </div>
             <div className="w-full">
-              <label
-                htmlFor="lastName"
-                className=" block mb-4 text-sm font-medium text-gray-900"
-              >
+              <label htmlFor="lastName" className=" mb-4 block text-sm font-medium text-gray-900">
                 Last Name
               </label>
               <input
@@ -111,21 +93,14 @@ const SingInForm = ({ setIsConfirmStage }) => {
           </div>
 
           <div className="grid grid-cols-2">
-            {errors?.firstName && (
-              <p className="text-red-500">{errors?.firstName?.message}</p>
-            )}
-            {errors?.lastName && (
-              <p className="text-red-500">{errors?.lastName?.message}</p>
-            )}
+            {errors?.firstName && <p className="text-red-500">{errors?.firstName?.message}</p>}
+            {errors?.lastName && <p className="text-red-500">{errors?.lastName?.message}</p>}
           </div>
 
           {/* userMail */}
           <div>
             <div className="mt-2">
-              <label
-                htmlFor="userMail"
-                className=" block mb-4 text-sm font-medium text-gray-900"
-              >
+              <label htmlFor="userMail" className=" mb-4 block text-sm font-medium text-gray-900">
                 E-mail
               </label>
               <input
@@ -137,18 +112,13 @@ const SingInForm = ({ setIsConfirmStage }) => {
               />
             </div>
             <div className="my-1">
-              {errors?.userMail && (
-                <p className="text-red-500">{errors?.userMail?.message}</p>
-              )}
+              {errors?.userMail && <p className="text-red-500">{errors?.userMail?.message}</p>}
             </div>
           </div>
 
           {/* current password */}
           <div className="mt-2">
-            <label
-              htmlFor="userPassword"
-              className=" block mb-4 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="userPassword" className=" mb-4 block text-sm font-medium text-gray-900">
               password
             </label>
             <input
@@ -159,18 +129,13 @@ const SingInForm = ({ setIsConfirmStage }) => {
               {...register("userPassword")}
             />
             <div className="mt-1">
-              {errors?.userPassword && (
-                <p className="text-red-500">{errors?.userPassword?.message}</p>
-              )}
+              {errors?.userPassword && <p className="text-red-500">{errors?.userPassword?.message}</p>}
             </div>
           </div>
 
           {/* new password */}
           <div className="mt-2">
-            <label
-              htmlFor="confirmPassword"
-              className=" block mb-4 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="confirmPassword" className=" mb-4 block text-sm font-medium text-gray-900">
               confirm password
             </label>
             <input
@@ -180,18 +145,12 @@ const SingInForm = ({ setIsConfirmStage }) => {
               className="form-input"
               {...register("confirmPassword")}
             />
-            <div>
-              {errors?.confirmPassword && (
-                <p className="text-red-500">
-                  {errors?.confirmPassword?.message}
-                </p>
-              )}
-            </div>
+            <div>{errors?.confirmPassword && <p className="text-red-500">{errors?.confirmPassword?.message}</p>}</div>
           </div>
 
           {/* form input end */}
 
-          <Btn_Primary className={"w-full mt-8 pt-3"} type={"submit"}>
+          <Btn_Primary className={"mt-8 w-full pt-3"} type={"submit"}>
             {isLoading ? "Loading..." : "Sing In"}
           </Btn_Primary>
           <div className="into-center gap-x-1 pt-4">
@@ -203,7 +162,7 @@ const SingInForm = ({ setIsConfirmStage }) => {
         </form>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SingInForm;
+export default SingInForm

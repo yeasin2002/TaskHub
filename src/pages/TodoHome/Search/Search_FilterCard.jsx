@@ -1,12 +1,12 @@
-import { setNameAndDescription } from "../../../Redux/feature/search/search";
-import { BiDownArrow } from "react-icons/bi";
-import { useDispatch } from "react-redux";
+import { setNameAndDescription } from "../../../Redux/feature/search/search"
+import { BiDownArrow } from "react-icons/bi"
+import { useDispatch } from "react-redux"
 
 const Search_FilterCard = () => {
-  let dispatch = useDispatch();
+  let dispatch = useDispatch()
   return (
-    <div className="bg-Amber border-Shades p-4 border rounded-lg">
-      <div className=" w-28 flex justify-between">
+    <div className="rounded-lg border border-Shades bg-Amber p-4">
+      <div className=" flex w-28 justify-between">
         <p className="text-xl font-semibold">Filter</p>
         <BiDownArrow />
       </div>
@@ -41,7 +41,7 @@ const Search_FilterCard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Search_FilterCard;
+export default Search_FilterCard

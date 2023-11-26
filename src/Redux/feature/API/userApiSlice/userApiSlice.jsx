@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { getUserToken } from "../../../../utils/userStorageInfo"
 
 const userApiSlice = createApi({
   reducerPath: "userApiSlice",
@@ -6,7 +7,7 @@ const userApiSlice = createApi({
     baseUrl: "https://baby-todo.onrender.com/user",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("userJWT")}`,
+      authorization: `Bearer ${getUserToken()}`,
     },
   }),
 
@@ -25,7 +26,7 @@ const userApiSlice = createApi({
           url: `/`,
           method: "PATCH",
           body: updateRequirement,
-        };
+        }
       },
     }),
 
@@ -37,7 +38,7 @@ const userApiSlice = createApi({
           body: {
             password,
           },
-        };
+        }
       },
     }),
 
@@ -47,7 +48,7 @@ const userApiSlice = createApi({
           url: `/settings`,
           method: "PATCH",
           body: updateRequirement,
-        };
+        }
       },
     }),
 
@@ -58,7 +59,7 @@ const userApiSlice = createApi({
           url: `/collections`,
           method: "PATCH",
           body: collectionRequirement,
-        };
+        }
       },
     }),
     updateTaskCollection: builder.mutation({
@@ -67,7 +68,7 @@ const userApiSlice = createApi({
           url: `/collections`,
           method: "PATCH",
           body: updatedCollectionRequirement,
-        };
+        }
       },
     }),
     deleteTaskCollection: builder.mutation({
@@ -75,14 +76,14 @@ const userApiSlice = createApi({
         return {
           url: `/collections/${id}`,
           method: "PATCH",
-        };
+        }
       },
     }),
 
     //  endpoints end
   }),
-});
-export default userApiSlice;
+})
+export default userApiSlice
 export const {
   useAddTaskCollectionMutation,
   useDeleteTaskCollectionMutation,
@@ -94,4 +95,4 @@ export const {
   useUpdateUserMutation,
   useLazyGetAllUserQuery,
   useLazyGetNewJWTQuery,
-} = userApiSlice;
+} = userApiSlice

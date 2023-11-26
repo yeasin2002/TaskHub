@@ -1,11 +1,11 @@
-import { ReactComponent as Loader } from "../assets/loaderAndError/starLoading.svg";
+import { ReactComponent as Loader } from "../assets/loaderAndError/starLoading.svg"
 
 const ImgLoader = () => {
   return (
     <>
-      <Loader className="animate-spin w-20 h-20" />
+      <Loader className="h-20 w-20 animate-spin" />
     </>
-  );
-};
+  )
+}
 
-export default ImgLoader;
+export default ImgLoader

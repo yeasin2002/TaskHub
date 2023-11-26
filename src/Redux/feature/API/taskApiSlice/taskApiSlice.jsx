@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { getUserToken } from "../../../../utils/userStorageInfo"
 
 const taskApiSlice = createApi({
   reducerPath: "taskApiSlice",
@@ -6,7 +7,7 @@ const taskApiSlice = createApi({
     baseUrl: "https://baby-todo.onrender.com/tasks",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("userJWT")}`,
+      authorization: `Bearer ${getUserToken()}`,
     },
   }),
   tagTypes: ["Task"],
@@ -22,7 +23,7 @@ const taskApiSlice = createApi({
           url: "/",
           method: "POST",
           body: taskDetails,
-        };
+        }
       },
       invalidatesTags: ["Task"],
     }),
@@ -32,7 +33,7 @@ const taskApiSlice = createApi({
           url: `/${id}`,
           method: "PATCH",
           body: taskDetails,
-        };
+        }
       },
       invalidatesTags: ["Task"],
     }),
@@ -41,7 +42,7 @@ const taskApiSlice = createApi({
         return {
           url: `/${id}`,
           method: "DELETE",
-        };
+        }
       },
       invalidatesTags: ["Task"],
     }),
@@ -50,7 +51,7 @@ const taskApiSlice = createApi({
         return {
           url: `/${id}/complete`,
           method: "PATCH",
-        };
+        }
       },
       invalidatesTags: ["Task"],
     }),
@@ -60,7 +61,7 @@ const taskApiSlice = createApi({
         return {
           url: `/${id}/uncomplete`,
           method: "PATCH",
-        };
+        }
       },
       invalidatesTags: ["Task"],
     }),
@@ -70,7 +71,7 @@ const taskApiSlice = createApi({
         return {
           url: `/${id}/participants/${user}`,
           method: "DELETE",
-        };
+        }
       },
     }),
     changeParticipantRole: builder.mutation({
@@ -81,14 +82,14 @@ const taskApiSlice = createApi({
           body: {
             role, //admin or assigner
           },
-        };
+        }
       },
     }),
 
     //  endpoints end
   }),
-});
-export default taskApiSlice;
+})
+export default taskApiSlice
 export const {
   useGetAllTaskQuery,
   useCreateTaskMutation,
@@ -98,4 +99,4 @@ export const {
   useDeleteTaskMutation,
   useRemoveParticipantMutation,
   useUpdateTaskMutation,
-} = taskApiSlice;
+} = taskApiSlice

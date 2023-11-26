@@ -1,20 +1,20 @@
-import { useForm } from "react-hook-form";
-import Btn_Primary from "../../../../components/Btn_Primary";
-import { useLocation } from "react-router-dom";
-import EncodeDate from "../../../../utils/EncodeDate";
+import { useForm } from "react-hook-form"
+import Btn_Primary from "../../../../components/Btn_Primary"
+import { useLocation } from "react-router-dom"
+import EncodeDate from "../../../../utils/EncodeDate"
 
 //  react Toast
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
 
 //  icons
-import { AiFillPlusCircle } from "react-icons/ai";
+import { AiFillPlusCircle } from "react-icons/ai"
 
 // components
-import { useUpdateTaskMutation } from "../../../../Redux/feature/API/taskApiSlice/taskApiSlice";
-import SingleParticipant from "../../../../components/SingParticipant";
+import { useUpdateTaskMutation } from "../../../../Redux/feature/API/taskApiSlice/taskApiSlice"
+import SingleParticipant from "../../../../components/SingParticipant"
 
 const UpdateTaskForm = () => {
-  const location = useLocation();
+  const location = useLocation()
 
   const {
     title = "",
@@ -25,15 +25,15 @@ const UpdateTaskForm = () => {
     description = "",
     // createdAt = "",
     endingDate = "",
-  } = location.state;
+  } = location.state
 
-  const beginningDate = EncodeDate(startingDate);
-  const EndingDate = EncodeDate(endingDate);
+  const beginningDate = EncodeDate(startingDate)
+  const EndingDate = EncodeDate(endingDate)
 
   //   const [participants, setParticipants] = useState([]);
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register } = useForm()
 
-  const [uncompletedTask, { isLoading }] = useUpdateTaskMutation();
+  const [uncompletedTask, { isLoading }] = useUpdateTaskMutation()
 
   const formHandler = async (data) => {
     try {
@@ -47,25 +47,23 @@ const UpdateTaskForm = () => {
           participants: participants,
           collection: "",
         },
-      });
+      })
 
       if (updateTask?.data?.status) {
-        toast.success("Task updated  Successfully");
+        toast.success("Task updated  Successfully")
       } else {
-        toast.error("Task updated  Failed");
+        toast.error("Task updated  Failed")
       }
     } catch (error) {
-      console.warn(error.message);
+      console.warn(error.message)
     }
-  };
+  }
 
-  let tempImg =
-    "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0";
+  let tempImg = "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0"
   return (
     <form
       onSubmit={handleSubmit(formHandler)}
-      className=" px-7 flex flex-col justify-between flex-1 h-screen py-4 mb-20"
-    >
+      className=" mb-20 flex h-screen flex-1 flex-col justify-between px-7 py-4">
       <div>
         <input
           type="text"
@@ -80,7 +78,7 @@ const UpdateTaskForm = () => {
           defaultValue={title}
         />
         {/*  dates */}
-        <div className=" gap-x-2 flex items-center">
+        <div className=" flex items-center gap-x-2">
           <div className=" flex flex-col">
             <p>Start Date</p>
             <input
@@ -110,13 +108,12 @@ const UpdateTaskForm = () => {
           </label>
           <br />
           <textarea
-            className="placeholder:text-Shades ring ring-Shades/10 w-full h-48 border-none rounded-lg"
+            className="h-48 w-full rounded-lg border-none ring ring-Shades/10 placeholder:text-Shades"
             name="Description"
             id="Description"
             placeholder="Write a meaningfull  Description"
             {...register("description")}
-            defaultValue={description}
-          ></textarea>
+            defaultValue={description}></textarea>
         </div>
 
         <div className="hidden w-full">
@@ -134,33 +131,24 @@ const UpdateTaskForm = () => {
         </div>
 
         <div>
-          <p className="text-blackens my-4 text-xl font-semibold">
-            Participants
-          </p>
+          <p className="my-4 text-xl font-semibold text-blackens">Participants</p>
         </div>
 
-        <div className=" gap-x-3 flex">
+        <div className=" flex gap-x-3">
           {participants?.length > 0 &&
             participants?.map((SingleParticipantData, index) => {
-              return (
-                <SingleParticipant
-                  key={index}
-                  imgSrc={SingleParticipantData.user.avatar || tempImg}
-                />
-              );
+              return <SingleParticipant key={index} imgSrc={SingleParticipantData.user.avatar || tempImg} />
             })}
-          <span className="border-Shades hover:cursor-pointer into-center p-1 border-2 rounded-md">
+          <span className="into-center rounded-md border-2 border-Shades p-1 hover:cursor-pointer">
             <AiFillPlusCircle className="text-2xl text-blue-700" />
           </span>
         </div>
       </div>
 
       <div className="flex justify-end">
-        <Btn_Primary type={"submit"}>
-          {isLoading ? "Loading..." : "Create Task"}
-        </Btn_Primary>
+        <Btn_Primary type={"submit"}>{isLoading ? "Loading..." : "Create Task"}</Btn_Primary>
       </div>
     </form>
-  );
-};
-export default UpdateTaskForm;
+  )
+}
+export default UpdateTaskForm

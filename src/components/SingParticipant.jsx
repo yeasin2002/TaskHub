@@ -2,12 +2,12 @@ const SingParticipant = ({ imgSrc }) => {
   return (
     <>
       <div>
-        <span className="border-Shades hover:cursor-pointer inline-block p-1 border-2 rounded-md">
-          <img className="w-8 h-8" src={imgSrc} alt="participant......" />
+        <span className="inline-block rounded-md border-2 border-Shades p-1 hover:cursor-pointer">
+          <img className="h-8 w-8" src={imgSrc} alt="participant......" />
         </span>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SingParticipant;
+export default SingParticipant

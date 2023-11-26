@@ -1,36 +1,36 @@
-import { Link } from "react-router-dom";
-import * as RouteTypes from "../../../lib/RouteTypes";
+import { Link } from "react-router-dom"
+import * as RouteTypes from "../../../lib/RouteTypes"
 
 // react Toast
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
 
 // icons
-import SvgSpinners90RingWithBg from "../../../components/Icons/SvgSpinners90RingWithBg";
-import { BiEdit } from "react-icons/bi";
-import { useDeleteTaskMutation } from "../../../Redux/feature/API/taskApiSlice/taskApiSlice";
-import { AiFillDelete } from "react-icons/ai";
+import SvgSpinners90RingWithBg from "../../../components/Icons/SvgSpinners90RingWithBg"
+import { BiEdit } from "react-icons/bi"
+import { useDeleteTaskMutation } from "../../../Redux/feature/API/taskApiSlice/taskApiSlice"
+import { AiFillDelete } from "react-icons/ai"
 
 const TodoDeleteOrGoToUpdate = ({ id, todoDetails }) => {
-  const [deleteTask, { isLoading }] = useDeleteTaskMutation();
+  const [deleteTask, { isLoading }] = useDeleteTaskMutation()
 
   const deleteHandler = async () => {
     try {
-      const deleteIt = await deleteTask(id);
+      const deleteIt = await deleteTask(id)
 
       if (deleteIt?.error?.data?.status == "fail") {
-        await toast.error("Task delete Failed");
+        await toast.error("Task delete Failed")
       }
       if (deleteIt.data === null) {
-        await toast.success("Task delete Successfully");
+        await toast.success("Task delete Successfully")
       }
     } catch (error) {
-      console.log(error.message);
-      toast.error(error.message);
+      console.log(error.message)
+      toast.error(error.message)
     }
-  };
+  }
   return (
-    <div className="bg-Shades into-center group-hover:w-1/12 group-hover:flex rounded-r-md flex-col justify-around w-0 h-full overflow-hidden transition-all">
-      <div className="hover:bg-dim p-2 transition-all rounded-full cursor-pointer">
+    <div className="into-center h-full w-0 flex-col justify-around overflow-hidden rounded-r-md bg-Shades transition-all group-hover:flex group-hover:w-1/12">
+      <div className="cursor-pointer rounded-full p-2 transition-all hover:bg-dim">
         {!isLoading ? (
           <span onClick={deleteHandler}>
             <AiFillDelete />
@@ -42,11 +42,10 @@ const TodoDeleteOrGoToUpdate = ({ id, todoDetails }) => {
       <Link
         state={todoDetails}
         to={`/${RouteTypes.updateTask}/${id}`}
-        className="hover:bg-dim p-2 transition-all rounded-full cursor-pointer"
-      >
-        <BiEdit className="text-blackens text-xl font-bold" />
+        className="cursor-pointer rounded-full p-2 transition-all hover:bg-dim">
+        <BiEdit className="text-xl font-bold text-blackens" />
       </Link>
     </div>
-  );
-};
-export default TodoDeleteOrGoToUpdate;
+  )
+}
+export default TodoDeleteOrGoToUpdate

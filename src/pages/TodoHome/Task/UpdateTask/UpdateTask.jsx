@@ -1,15 +1,15 @@
-import EditsTaskStage from "./EditsTaskStage";
-import UpdateTaskForm from "./UpdateTaskForm";
+import EditsTaskStage from "./EditsTaskStage"
+import UpdateTaskForm from "./UpdateTaskForm"
 
 const UpdateTask = () => {
   return (
     <>
-      <div className="bg-Light w-full h-full">
+      <div className="h-full w-full bg-Light">
         <EditsTaskStage />
         <UpdateTaskForm />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default UpdateTask;
+export default UpdateTask

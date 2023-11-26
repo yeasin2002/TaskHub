@@ -1,14 +1,13 @@
 import {
   useCompletedTaskMutation,
   useUncompletedTaskMutation,
-} from "../../../Redux/feature/API/taskApiSlice/taskApiSlice";
+} from "../../../Redux/feature/API/taskApiSlice/taskApiSlice"
 
-import loader from "../../../assets/global/loaderIcon.svg";
+import loader from "../../../assets/global/loaderIcon.svg"
 
 const CompletedOrUncompleted = ({ completed, id }) => {
-  const [completedTask, { isLoading }] = useCompletedTaskMutation();
-  const [uncompletedTask, { isLoading: uncompletedTaskLoading }] =
-    useUncompletedTaskMutation();
+  const [completedTask, { isLoading }] = useCompletedTaskMutation()
+  const [uncompletedTask, { isLoading: uncompletedTaskLoading }] = useUncompletedTaskMutation()
 
   return (
     <div className=" relative flex flex-col justify-between">
@@ -19,16 +18,16 @@ const CompletedOrUncompleted = ({ completed, id }) => {
         value={completed}
         checked={completed}
         onChange={() => {
-          completed ? uncompletedTask(id) : completedTask(id);
+          completed ? uncompletedTask(id) : completedTask(id)
         }}
       />
       {(isLoading || uncompletedTaskLoading) && (
-        <span className=" bg-blackens absolute top-0 left-0 inline-block w-4 h-4">
-          <img className="w-full h-full" src={loader} alt="updating" />
+        <span className=" absolute left-0 top-0 inline-block h-4 w-4 bg-blackens">
+          <img className="h-full w-full" src={loader} alt="updating" />
         </span>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CompletedOrUncompleted;
+export default CompletedOrUncompleted

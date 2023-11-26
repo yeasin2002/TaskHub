@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from "react"
 
-import LogInOutAndSingInAndUpContainer from "../../components/LogInOutAndSingInAndUpContainer";
-import SingInConfirm from "./SingInConfirm";
-import SingInForm from "./SingInForm";
+import LogInOutAndSingInAndUpContainer from "../../components/LogInOutAndSingInAndUpContainer"
+import SingInConfirm from "./SingInConfirm"
+import SingInForm from "./SingInForm"
 
 const SingIn = () => {
-  const [IsConfirmStage, setIsConfirmStage] = useState(false);
+  const [IsConfirmStage, setIsConfirmStage] = useState(false)
 
   return (
     <div>
@@ -19,7 +19,7 @@ const SingIn = () => {
         <div className="px-14">{/* error state */}</div>
       </LogInOutAndSingInAndUpContainer>
     </div>
-  );
-};
+  )
+}
 
-export default SingIn;
+export default SingIn

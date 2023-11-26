@@ -1,44 +1,43 @@
 /* eslint-disable no-constant-condition */
-import { useState } from "react";
-import { toast } from "react-toastify";
-import { useUpdateUserMutation } from "../../../Redux/feature/API/userApiSlice/userApiSlice";
+import { useState } from "react"
+import { toast } from "react-toastify"
+import { useUpdateUserMutation } from "../../../Redux/feature/API/userApiSlice/userApiSlice"
 
-import { Input } from "@material-tailwind/react";
-import { Button } from "@material-tailwind/react";
+import { Input } from "@material-tailwind/react"
+import { Button } from "@material-tailwind/react"
 
-import ImgLoader from "../../../components/ImgLoader";
-import WifiFade from "../../../components/Icons/WifiFade";
+import ImgLoader from "../../../components/ImgLoader"
+import WifiFade from "../../../components/Icons/WifiFade"
 
 //  temporary image
-let tempImg =
-  "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0";
+let tempImg = "https://th.bing.com/th/id/R.677d3abf75ddc6139ac411467c792eef?rik=Lqi7AtlZe%2fFXbw&pid=ImgRaw&r=0"
 
 const ChanceName = ({ img, isUpdating, setIsUpdating }) => {
-  const [avatar, setAvatar] = useState(null);
-  const [name, setName] = useState("");
-  const [updateUser, { isLoading }] = useUpdateUserMutation();
+  const [avatar, setAvatar] = useState(null)
+  const [name, setName] = useState("")
+  const [updateUser, { isLoading }] = useUpdateUserMutation()
 
   const submitHandler = async (e) => {
-    e.preventDefault();
-    setIsUpdating(true);
+    e.preventDefault()
+    setIsUpdating(true)
     try {
       const updateServerState = await updateUser({
         name,
         // avatar: avatar,
-      });
-      setName("");
-      await setIsUpdating(false);
-      console.log(updateServerState);
+      })
+      setName("")
+      await setIsUpdating(false)
+      console.log(updateServerState)
       if (updateServerState?.data?.status === "success") {
-        toast.success("Profile Updates");
+        toast.success("Profile Updates")
       } else if (updateServerState?.error?.data?.status === "fail") {
-        toast.error(updateServerState?.error.data?.message);
+        toast.error(updateServerState?.error.data?.message)
       }
     } catch (error) {
-      toast.error("something went wrong, please try again");
-      setIsUpdating(false);
+      toast.error("something went wrong, please try again")
+      setIsUpdating(false)
     }
-  };
+  }
 
   return (
     <form className="my-4" onSubmit={submitHandler}>
@@ -48,11 +47,7 @@ const ChanceName = ({ img, isUpdating, setIsUpdating }) => {
         ) : (
           <>
             <label htmlFor="img">
-              <img
-                src={img || tempImg}
-                className="avatar w-20 h-20 cursor-pointer"
-                alt="Profile Picture "
-              />
+              <img src={img || tempImg} className="avatar h-20 w-20 cursor-pointer" alt="Profile Picture " />
             </label>
             <input
               className="hidden"
@@ -61,7 +56,7 @@ const ChanceName = ({ img, isUpdating, setIsUpdating }) => {
               id="img"
               multiple={false}
               onChange={(e) => {
-                setAvatar(e.target.files);
+                setAvatar(e.target.files)
               }}
             />
           </>
@@ -74,12 +69,12 @@ const ChanceName = ({ img, isUpdating, setIsUpdating }) => {
         required
         value={name}
         onChange={(e) => {
-          setName(e.target.value);
+          setName(e.target.value)
         }}
       />
-      <Button type="submit" className="w-full my-2">
+      <Button type="submit" className="my-2 w-full">
         {isLoading ? (
-          <div className="gap-x-1 flex justify-center">
+          <div className="flex justify-center gap-x-1">
             <p>Updating..</p>
             <WifiFade />
           </div>
@@ -88,7 +83,7 @@ const ChanceName = ({ img, isUpdating, setIsUpdating }) => {
         )}
       </Button>
     </form>
-  );
-};
+  )
+}
 
-export default ChanceName;
+export default ChanceName

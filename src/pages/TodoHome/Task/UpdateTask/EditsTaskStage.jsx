@@ -1,17 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 //  icons
-import { RxCross1 } from "react-icons/rx";
-import {
-  MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
+import { RxCross1 } from "react-icons/rx"
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md"
 
 const EditsTaskStage = () => {
   return (
     <>
-      <div className=" mx-9 flex justify-between mt-5">
+      <div className=" mx-9 mt-5 flex justify-between">
         <div className="flex items-center">
-          <div className="md:hidden flex">
+          <div className="flex md:hidden">
             <MdOutlineKeyboardArrowLeft className="text-2xl" />
             <MdOutlineKeyboardArrowRight className="text-2xl" />
           </div>
@@ -24,7 +21,7 @@ const EditsTaskStage = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default EditsTaskStage;
+export default EditsTaskStage

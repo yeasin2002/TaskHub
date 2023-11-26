@@ -1,10 +1,10 @@
-import { todoHome, search, notification, profile } from "../../lib/RouteTypes";
+import { todoHome, search, notification, profile } from "../../lib/RouteTypes"
 
 // icons
-import { BiHomeAlt2 } from "react-icons/bi";
-import { BsSearch } from "react-icons/bs";
-import { AiOutlineBell } from "react-icons/ai";
-import { RxAvatar } from "react-icons/rx";
+import { BiHomeAlt2 } from "react-icons/bi"
+import { BsSearch } from "react-icons/bs"
+import { AiOutlineBell } from "react-icons/ai"
+import { RxAvatar } from "react-icons/rx"
 
 const sidebarItem = [
   {
@@ -27,6 +27,6 @@ const sidebarItem = [
     icons: <RxAvatar className=" w-full text-2xl" />,
     route: profile,
   },
-];
+]
 
-export default sidebarItem;
+export default sidebarItem

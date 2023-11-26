@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { getUserToken } from "../../../../utils/userStorageInfo"
 
 const accountApiSlice = createApi({
   reducerPath: "accountApiSlice",
@@ -6,7 +7,7 @@ const accountApiSlice = createApi({
     baseUrl: "https://baby-todo.onrender.com/account",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("userJWT")}`,
+      authorization: `Bearer ${getUserToken()}}`,
     },
   }),
 
@@ -77,8 +78,8 @@ const accountApiSlice = createApi({
 
     //  endpoints end
   }),
-});
-export default accountApiSlice;
+})
+export default accountApiSlice
 export const {
   useGetJWTQuery,
   useGetOTPMutation,
@@ -89,4 +90,4 @@ export const {
   useUpdateEmailMutation,
   useUpdateUsernameMutation,
   useUpdatePasswordMutation,
-} = accountApiSlice;
+} = accountApiSlice

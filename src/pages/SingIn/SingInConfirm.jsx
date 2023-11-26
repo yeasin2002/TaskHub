@@ -1,32 +1,31 @@
 //  Components  and icons
-import { useNavigate } from "react-router-dom";
-import * as RouteTypes from "../../lib/RouteTypes";
-import { useForm } from "react-hook-form";
-import Btn_Primary from "../../components/Btn_Primary";
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSingUpMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice";
-import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form"
+import { AiOutlineArrowLeft } from "react-icons/ai"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { useSingUpMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice"
+import Btn_Primary from "../../components/Btn_Primary"
+import * as RouteTypes from "../../lib/RouteTypes"
 
 //   react  toastify
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
 // import "react-toastify/dist/ReactToastify.css";
 
 //  util
-import { setUserJWT } from "../../lib/usetJWT_Handler";
+import { setUserJWT } from "../../lib/usetJWT_Handler"
 
 const SingInConfirm = ({ setIsConfirmStage }) => {
-  const navigate = useNavigate();
-  const { userAvatar, firstName, lastName, userMail, userPassword } =
-    useSelector((state) => state?.singInInputsSlice);
+  const navigate = useNavigate()
+  const { userAvatar, firstName, lastName, userMail, userPassword } = useSelector((state) => state?.singInInputsSlice)
 
-  const [singUp, { isLoading }] = useSingUpMutation();
+  const [singUp, { isLoading }] = useSingUpMutation()
 
   const {
     register,
     handleSubmit,
 
     formState: { errors },
-  } = useForm();
+  } = useForm()
   const handleForm = async (data) => {
     const finalSingUp = await singUp({
       email: userMail,
@@ -35,17 +34,17 @@ const SingInConfirm = ({ setIsConfirmStage }) => {
       avatar: userAvatar,
       password: userPassword,
       code: data?.provideCode,
-    });
+    })
 
     if (finalSingUp?.data?.data?.token) {
-      setUserJWT(finalSingUp?.data?.data?.token);
-      navigate(RouteTypes.todoHome);
-      window.location.href = "/";
+      setUserJWT(finalSingUp?.data?.data?.token)
+      navigate(RouteTypes.todoHome)
+      window.location.href = "/"
     }
     if (finalSingUp?.error?.data?.status === "fail") {
-      await toast(finalSingUp.error.data.message || "Something went wrong");
+      await toast(finalSingUp.error.data.message || "Something went wrong")
     }
-  };
+  }
   return (
     <>
       <div className=" p-14">
@@ -53,44 +52,35 @@ const SingInConfirm = ({ setIsConfirmStage }) => {
           <span
             className="cursor-pointer"
             onClick={() => {
-              setIsConfirmStage(false);
-            }}
-          >
-            <AiOutlineArrowLeft className="text-Shades text-3xl font-bold" />
+              setIsConfirmStage(false)
+            }}>
+            <AiOutlineArrowLeft className="text-3xl font-bold text-Shades" />
           </span>
-          <p className=" text-Shades text-2xl font-bold">Go Back </p>
+          <p className=" text-2xl font-bold text-Shades">Go Back </p>
         </div>
 
         {/* <HandleCodeAfterReceivingOTP setErrorState={setErrorState} /> */}
 
         <form className="mt-20" onSubmit={handleSubmit(handleForm)}>
           <div className="my-10">
-            <label
-              htmlFor="userName"
-              className=" block mb-4 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="userName" className=" mb-4 block text-sm font-medium text-gray-900">
               User Name
             </label>
             <input
               type="text"
               id="userName"
-              placeholder="yeasin2002"
+              placeholder="write you userName"
               className="form-input"
               {...register("userName", {
                 required: "User Name is required",
               })}
             />
-            {errors?.userName && (
-              <p className="text-red-800">{errors?.userName?.message}</p>
-            )}
+            {errors?.userName && <p className="text-red-800">{errors?.userName?.message}</p>}
           </div>
 
           {/* provide code */}
           <div className="my-10">
-            <label
-              htmlFor="provideCode"
-              className=" block mb-4 text-sm font-medium text-gray-900"
-            >
+            <label htmlFor="provideCode" className=" mb-4 block text-sm font-medium text-gray-900">
               code
             </label>
             <input
@@ -106,19 +96,17 @@ const SingInConfirm = ({ setIsConfirmStage }) => {
                 },
               })}
             />
-            {errors?.provideCode && (
-              <p className="text-red-800">{errors?.provideCode?.message}</p>
-            )}
+            {errors?.provideCode && <p className="text-red-800">{errors?.provideCode?.message}</p>}
           </div>
 
-          <Btn_Primary className={"w-full mt-4 pt-3"} type={"submit"}>
+          <Btn_Primary className={"mt-4 w-full pt-3"} type={"submit"}>
             {isLoading ? "Loading..." : "Sing In"}
           </Btn_Primary>
           <p className="mt-4 text-center"> Send again in 58 seconds </p>
         </form>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SingInConfirm;
+export default SingInConfirm

@@ -1,11 +1,11 @@
 export const setUserJWT = (token) => {
-  return localStorage.setItem("userJWT", token);
-};
+  return localStorage.setItem("usersToken", token)
+}
 
 export const removeUserToken = () => {
-  return localStorage.removeItem("userJWT");
-};
+  return localStorage.removeItem("usersToken")
+}
 
 export const getJWT = () => {
-  return localStorage.getItem("userJWT");
-};
+  return localStorage.getItem("usersToken")
+}

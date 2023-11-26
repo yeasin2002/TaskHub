@@ -1,42 +1,42 @@
-import { useEffect, useState } from "react";
-import { useLocalStorageUtils } from "../utils/localStorageActions";
-const { setStorage, getStorage, clearStorageItem, clearStorage } =
-  useLocalStorageUtils;
+import { useEffect, useState } from "react"
+import { useLocalStorageUtils } from "../utils/localStorageActions"
+const { setStorage, getStorage, clearStorageItem, clearStorage } = useLocalStorageUtils
 
 export const useLocalStorage = (key) => {
   const [value, setValue] = useState(() => {
-    const item = getStorage(key);
-    return item ? JSON.parse(item) : "";
-  });
+    const item = getStorage(key)
+    return item ? JSON.parse(item) : ""
+  })
   useEffect(() => {
-    const item = getStorage(key);
+    const item = getStorage(key)
     if (item) {
-      setValue(JSON.parse(item));
+      setValue(JSON.parse(item))
     }
-  }, [key]);
+  }, [key])
 
   window.addEventListener("storage", () => {
-    const item = getStorage(key);
+    const item = getStorage(key)
     if (item) {
-      setValue(JSON.parse(item));
+      setValue(JSON.parse(item))
     }
-  });
+  })
 
   const setLocalStorage = (value) => {
-    setStorage(key, value);
-    setValue(value);
-  };
+    if (!value) return
+    setStorage(key, value)
+    setValue(value)
+  }
   const removeLocalStorage = () => {
-    clearStorageItem(key);
-    setValue("");
-  };
+    clearStorageItem(key)
+    setValue("")
+  }
   const getLocalStorage = () => {
-    return getStorage(key);
-  };
+    return getStorage(key)
+  }
   const clearAllLocalStorage = () => {
-    clearStorage();
-    setValue("");
-  };
+    clearStorage()
+    setValue("")
+  }
 
   return {
     value,
@@ -45,5 +45,5 @@ export const useLocalStorage = (key) => {
     removeLocalStorage,
     getLocalStorage,
     clearAllLocalStorage,
-  };
-};
+  }
+}

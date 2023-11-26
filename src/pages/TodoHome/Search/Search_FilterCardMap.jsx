@@ -1,12 +1,12 @@
-import { BiDownArrow } from "react-icons/bi";
-import { useDispatch } from "react-redux";
-import { setParticipants } from "../../../Redux/feature/search/search";
+import { BiDownArrow } from "react-icons/bi"
+import { useDispatch } from "react-redux"
+import { setParticipants } from "../../../Redux/feature/search/search"
 
 const Search_FilterCardMap = ({ AllParticipants }) => {
-  let dispatch = useDispatch();
+  let dispatch = useDispatch()
   return (
-    <div className="bg-Amber border-Shades p-4 border rounded-lg">
-      <div className=" w-28 flex justify-between">
+    <div className="rounded-lg border border-Shades bg-Amber p-4">
+      <div className=" flex w-28 justify-between">
         <p className="text-xl font-semibold">Participants</p>
         <BiDownArrow />
       </div>
@@ -27,9 +27,9 @@ const Search_FilterCardMap = ({ AllParticipants }) => {
               </label>
             </div>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
-export default Search_FilterCardMap;
+  )
+}
+export default Search_FilterCardMap

@@ -1,112 +1,48 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const NotFound = () => {
   return (
     <div>
-      <section className="dark:bg-gray-900 bg-white">
-        <div className="lg:flex lg:items-center lg:gap-12 container min-h-screen px-6 py-12 mx-auto">
+      <section className="bg-white dark:bg-gray-900">
+        <div className="container mx-auto min-h-screen px-6 py-12 lg:flex lg:items-center lg:gap-12">
           <div className="wf-ull lg:w-1/2">
-            <p className="dark:text-blue-400 text-sm font-medium text-blue-500">
-              404 error
-            </p>
-            <h1 className="dark:text-white md:text-3xl mt-3 text-2xl font-semibold text-gray-800">
-              Page not found
-            </h1>
-            <p className="dark:text-gray-400 mt-4 text-gray-500">
-              Sorry, the page you are looking for {`doesn't`} exist.Here are
-              some helpful links:
+            <p className="text-sm font-medium text-blue-500 dark:text-blue-400">404 error</p>
+            <h1 className="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">Page not found</h1>
+            <p className="mt-4 text-gray-500 dark:text-gray-400">
+              Sorry, the page you are looking for {`doesn't`} exist.Here are some helpful links:
             </p>
 
-            <div className="gap-x-3 flex items-center mt-6">
-              <button className="gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700 flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg">
+            <div className="mt-6 flex items-center gap-x-3">
+              <button className="flex w-1/2 items-center justify-center gap-x-2 rounded-lg border bg-white px-5 py-2 text-sm text-gray-700 transition-colors duration-200 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 sm:w-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="rtl:rotate-180 w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-                  />
+                  className="h-5 w-5 rtl:rotate-180">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                 </svg>
 
                 <Link to={"/"}>Go back</Link>
               </button>
 
-              <button className="shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600 w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg">
+              <button className="w-1/2 shrink-0 rounded-lg bg-blue-500 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 sm:w-auto">
                 Take me home
               </button>
             </div>
           </div>
 
-          <div className="lg:w-1/2 lg:mt-0 relative w-full mt-12">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="514"
-              height="164"
-              viewBox="0 0 514 164"
-              fill="none"
-            >
-              <circle
-                cx="101"
-                cy="22"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="101"
-                cy="142"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="21"
-                cy="102"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="141"
-                cy="102"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="193"
-                cy="82"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="313"
-                cy="82"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="253"
-                cy="22"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="253"
-                cy="142"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
+          <div className="relative mt-12 w-full lg:mt-0 lg:w-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="514" height="164" viewBox="0 0 514 164" fill="none">
+              <circle cx="101" cy="22" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="101" cy="142" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="21" cy="102" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="141" cy="102" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="193" cy="82" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="313" cy="82" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="253" cy="22" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="253" cy="142" r="20" stroke="#667085" strokeWidth="2" />
               <path
                 d="M1 102C1 90.9543 9.9543 82 21 82H141C152.046 82 161 90.9543 161 102C161 113.046 152.046 122 141 122H21C9.9543 122 1 113.046 1 102Z"
                 stroke="#667085"
@@ -122,34 +58,10 @@ const NotFound = () => {
                 stroke="#667085"
                 strokeWidth="2"
               />
-              <circle
-                cx="453"
-                cy="22"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="453"
-                cy="142"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="373"
-                cy="102"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="493"
-                cy="102"
-                r="20"
-                stroke="#667085"
-                strokeWidth="2"
-              />
+              <circle cx="453" cy="22" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="453" cy="142" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="373" cy="102" r="20" stroke="#667085" strokeWidth="2" />
+              <circle cx="493" cy="102" r="20" stroke="#667085" strokeWidth="2" />
               <path
                 d="M353 102C353 90.9543 361.954 82 373 82H493C504.046 82 513 90.9543 513 102C513 113.046 504.046 122 493 122H373C361.954 122 353 113.046 353 102Z"
                 stroke="#667085"
@@ -165,42 +77,16 @@ const NotFound = () => {
                 stroke="#667085"
                 strokeWidth="2"
               />
-              <circle
-                cx="253"
-                cy="82"
-                r="80"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <circle
-                cx="253"
-                cy="82"
-                r="40"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <line
-                x1="8.74228e-08"
-                y1="1"
-                x2="513"
-                y2="1.00004"
-                stroke="#667085"
-                strokeWidth="2"
-              />
-              <line
-                x1="-8.74228e-08"
-                y1="163"
-                x2="513"
-                y2="163"
-                stroke="#667085"
-                strokeWidth="2"
-              />
+              <circle cx="253" cy="82" r="80" stroke="#667085" strokeWidth="2" />
+              <circle cx="253" cy="82" r="40" stroke="#667085" strokeWidth="2" />
+              <line x1="8.74228e-08" y1="1" x2="513" y2="1.00004" stroke="#667085" strokeWidth="2" />
+              <line x1="-8.74228e-08" y1="163" x2="513" y2="163" stroke="#667085" strokeWidth="2" />
             </svg>
           </div>
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

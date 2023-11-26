@@ -1,5 +1,5 @@
-import LandingHero from "./LandingHero";
-import LandingNav from "./LandingNav";
+import LandingHero from "./LandingHero"
+import LandingNav from "./LandingNav"
 
 const LandingPage = () => {
   return (
@@ -7,7 +7,7 @@ const LandingPage = () => {
       <LandingNav />
       <LandingHero />
     </div>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage

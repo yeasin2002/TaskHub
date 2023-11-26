@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { getUserToken } from "../../../../utils/userStorageInfo"
 
 const extraApiSlice = createApi({
   reducerPath: "extraApiSlice",
@@ -6,7 +7,7 @@ const extraApiSlice = createApi({
     baseUrl: "https://baby-todo.onrender.com/extra",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${localStorage.getItem("userJWT")}`,
+      authorization: `Bearer ${getUserToken()}`,
     },
   }),
 
@@ -18,6 +19,6 @@ const extraApiSlice = createApi({
 
     //  endpoints end
   }),
-});
-export default extraApiSlice;
-export const { useGetAllUserCountQuery } = extraApiSlice;
+})
+export default extraApiSlice
+export const { useGetAllUserCountQuery } = extraApiSlice

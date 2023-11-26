@@ -1,4 +1,4 @@
-import { BsGlobe } from "react-icons/bs";
+import { BsGlobe } from "react-icons/bs"
 
 const DevelopersOfTodoProject = [
   {
@@ -47,6 +47,6 @@ const DevelopersOfTodoProject = [
       },
     ],
   },
-];
+]
 
-export default DevelopersOfTodoProject;
+export default DevelopersOfTodoProject

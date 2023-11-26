@@ -1,14 +1,10 @@
-import view from "./../../assets/display/view.png";
+import view from "./../../assets/display/view.png"
 const LandingCarousel = () => {
   return (
     <>
-      <img
-        className="object-cover object-center rounded"
-        alt="hero"
-        src={view}
-      />
+      <img className="rounded object-cover object-center" alt="hero" src={view} />
     </>
-  );
-};
+  )
+}
 
-export default LandingCarousel;
+export default LandingCarousel

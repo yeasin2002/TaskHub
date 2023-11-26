@@ -1,13 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom"
 
 //  components
-import TodoHomeSidebar from "./TodoHomeSidebar";
-import TodoHomeBottomMobileNav from "./TodoHomeBottomMobileNav";
+import TodoHomeSidebar from "./TodoHomeSidebar"
+import TodoHomeBottomMobileNav from "./TodoHomeBottomMobileNav"
 
 const HomeIndex = () => {
   return (
     <main>
-      <div className=" flex-col justify-between h-screen">
+      <div className=" h-screen flex-col justify-between">
         <div className="flex h-screen">
           <TodoHomeSidebar />
           {/* outlets */}
@@ -20,7 +20,7 @@ const HomeIndex = () => {
       {/*  bottom area mobile nav  */}
       <TodoHomeBottomMobileNav />
     </main>
-  );
-};
+  )
+}
 
-export default HomeIndex;
+export default HomeIndex

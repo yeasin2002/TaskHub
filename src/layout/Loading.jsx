@@ -1,13 +1,13 @@
-import { ReactComponent as LoadingImg } from "./../assets/global/loaderIcon.svg";
+import { ReactComponent as LoadingImg } from "./../assets/global/loaderIcon.svg"
 
 const Loading = () => {
   return (
-    <div className="bg-dim absolute top-0 left-0 w-full h-full">
+    <div className="absolute left-0 top-0 h-full w-full bg-dim">
       <div className=" bg-screens into-center h-screen">
-        <LoadingImg className=" w-64 h-64" />
+        <LoadingImg className=" h-64 w-64" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading

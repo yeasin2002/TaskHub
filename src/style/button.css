@@ -1,9 +1,9 @@
 /* make button reusable */
 .btn {
-  @apply w-full px-6 py-2 font-bold transition-all rounded-lg;
+  @apply w-full rounded-lg px-6 py-2 font-bold transition-all;
 }
 .btn-primary {
-  @apply hover:bg-blue-900 text-gray-100 bg-blue-800;
+  @apply bg-blue-800 text-gray-100 hover:bg-blue-900;
 }
 .btn-secondary {
   @apply bg-Amber text-blue-800;

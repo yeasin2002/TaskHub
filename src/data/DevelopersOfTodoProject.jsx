@@ -1,7 +1,7 @@
-import { BsFacebook, BsGithub, BsGlobe } from "react-icons/bs";
-import YeasinsPic from "../assets/Devs/Yeasin2002.jpeg";
-import sayadsPic from "../assets/Devs/sayad.jpg";
-import tanimPic from "../assets/Devs/tanim.jpg";
+import { BsFacebook, BsGithub, BsGlobe } from "react-icons/bs"
+import YeasinsPic from "../assets/Devs/Yeasin2002.jpeg"
+import sayadsPic from "../assets/Devs/sayad.jpg"
+import tanimPic from "../assets/Devs/tanim.jpg"
 
 const DevelopersOfTodoProject = [
   {
@@ -94,6 +94,6 @@ const DevelopersOfTodoProject = [
       displayName: "Source",
     },
   },
-];
+]
 
-export default DevelopersOfTodoProject;
+export default DevelopersOfTodoProject

@@ -1,14 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit"
 
 //  api slices
-import accountApiSlice from "./feature/API/accountApiSlice/accountApiSlice";
-import extraApiSlice from "./feature/API/extraApiSlice/extraApiSlice";
-import taskApiSlice from "./feature/API/taskApiSlice/taskApiSlice";
-import userApiSlice from "./feature/API/userApiSlice/userApiSlice";
+import accountApiSlice from "./feature/API/accountApiSlice/accountApiSlice"
+import extraApiSlice from "./feature/API/extraApiSlice/extraApiSlice"
+import taskApiSlice from "./feature/API/taskApiSlice/taskApiSlice"
+import userApiSlice from "./feature/API/userApiSlice/userApiSlice"
 
 //  general  Slices
-import singInInputsSlice from "./feature/singInInputs/singInInputs";
-import searchSlice from "./feature/search/search";
+import singInInputsSlice from "./feature/singInInputs/singInInputs"
+import searchSlice from "./feature/search/search"
 
 const store = configureStore({
   reducer: {
@@ -27,6 +27,6 @@ const store = configureStore({
       taskApiSlice.middleware,
       userApiSlice.middleware
     ),
-});
+})
 
-export default store;
+export default store

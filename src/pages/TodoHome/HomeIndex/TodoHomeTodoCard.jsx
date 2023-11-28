@@ -1,8 +1,8 @@
+import { AnimatePresence, motion } from "framer-motion"
 import ParticipantsManage from "../../../components/ParticipantsManage"
 import formateDate from "../../../utils/formateDate"
 import CompletedOrUncompleted from "./CompletedOrUncomplete"
 import TodoDeleteOrGoToUpdate from "./TodoDeleteOrGoToUpdate"
-import { AnimatePresence, motion } from "framer-motion"
 
 /* eslint-disable no-unused-vars */
 const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails, id }) => {
@@ -15,7 +15,7 @@ const TodoHomeTodoCard = ({ todoColor = "bg-dim", todoDetails, id }) => {
     description = "",
     createdAt = "",
     endingDate = "",
-  } = todoDetails
+  } = todoDetails 
 
   // modify the date
   const startDate = formateDate(startingDate)

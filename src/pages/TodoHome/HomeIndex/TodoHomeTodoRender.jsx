@@ -1,4 +1,5 @@
 import { useGetAllTaskQuery } from "../../../Redux/feature/API/taskApiSlice/taskApiSlice"
+
 import AllTask from "./AllTask/AllTask"
 import CompleteTask from "./CompleteTask/CompleteTask"
 import IncompleteTask from "./IncompleteTask/IncompleteTask"
@@ -8,7 +9,7 @@ import CardSkeleton from "../../../components/skeleton/CardSkeleton"
 // import logOut from "../../../utils/logOut"
 
 const TodoHomeTodoRender = ({ TodoStage }) => {
-  const { data, isLoading, status, error } = useGetAllTaskQuery()
+  const { data, isLoading } = useGetAllTaskQuery()
 
   // if (status === "rejected") {
   //   if (error.status == 401) {

@@ -5,12 +5,13 @@ import * as RouteTypes from "../../../lib/RouteTypes"
 import { toast } from "react-toastify"
 
 // icons
-import SvgSpinners90RingWithBg from "../../../components/Icons/SvgSpinners90RingWithBg"
+import { AiFillDelete } from "react-icons/ai"
 import { BiEdit } from "react-icons/bi"
 import { useDeleteTaskMutation } from "../../../Redux/feature/API/taskApiSlice/taskApiSlice"
-import { AiFillDelete } from "react-icons/ai"
+import SvgSpinners90RingWithBg from "../../../components/Icons/SvgSpinners90RingWithBg"
+import CompletedOrUncompleted from "./CompletedOrUncomplete"
 
-const TodoDeleteOrGoToUpdate = ({ id, todoDetails }) => {
+const TodoDeleteOrGoToUpdate = ({ id, todoDetails, completed }) => {
   const [deleteTask, { isLoading }] = useDeleteTaskMutation()
 
   const deleteHandler = async () => {
@@ -29,7 +30,9 @@ const TodoDeleteOrGoToUpdate = ({ id, todoDetails }) => {
     }
   }
   return (
-    <div className="into-center h-full w-0 flex-col justify-around overflow-hidden rounded-r-md bg-Shades transition-all group-hover:flex group-hover:w-1/12">
+    <div className="into-center h-full  justify-around  rounded-r-md  transition-all ">
+      {/* <input type="checkbox" id="updateTodoCompleteOrUncompleted" className="mx-3 cursor-pointer " /> */}
+      <CompletedOrUncompleted id={id} completed={completed} />
       <div className="cursor-pointer rounded-full p-2 transition-all hover:bg-dim">
         {!isLoading ? (
           <span onClick={deleteHandler}>

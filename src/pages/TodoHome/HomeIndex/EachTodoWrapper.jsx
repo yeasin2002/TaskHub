@@ -1,5 +1,6 @@
 import { cn } from "../../../utils/cn"
 import formateDate from "../../../utils/formateDate"
+import TodoDeleteOrGoToUpdate from "./TodoDeleteOrGoToUpdate"
 const EachTodoWrapper = ({ tasks, todoType }) => {
   return (
     <div className="grid gap-2 p-8 " key={todoType}>
@@ -45,7 +46,9 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
                   <p className="text-gray-200">{task?.owner?.name}</p>
                   <p className="text-gray-300">@{task?.owner?.username}</p>
                 </div>
-                <div>delete</div>
+                <div>
+                  <TodoDeleteOrGoToUpdate id={task._id} todoDetails={task} completed={task?.completed} />
+                </div>
               </div>
             </div>
           </div>

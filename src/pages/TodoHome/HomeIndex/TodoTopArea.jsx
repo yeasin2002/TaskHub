@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
-import { BsFillSunFill } from "react-icons/bs"
 import { useGetAllUserQuery } from "../../../Redux//feature/API/userApiSlice/userApiSlice"
+import userImg from "../../../assets/global/user.jpg"
 
 const topAreaItems = [
   {
@@ -17,25 +17,17 @@ const topAreaItems = [
 const TodoTopArea = ({ TodoStage, setTodoStage }) => {
   const { data } = useGetAllUserQuery()
 
-  //  avatar, email, name , username,id
-  let tempIng = "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?pid=ImgDet&rs=1"
   return (
     <>
       <div className="z-50 w-full bg-dim pt-6">
         <div className="topAre flex items-center justify-between px-10 pb-5 md:hidden">
           <div className="into-center gap-x-2">
             <div>
-              <img className="h-10 w-10 rounded-full ring-2 ring-Shades" src={tempIng} alt="Bordered avatar" />
+              <img className="h-10 w-10 rounded-full ring-2 ring-Shades" src={userImg} alt="Bordered avatar" />
             </div>
             <div>
-              <p className="text-slate-600 font-semibold">Good Morning</p>
-              <h4 className="text-xl font-bold text-Shades">{data?.data?.user?.name}</h4>
-            </div>
-          </div>
-
-          <div>
-            <div className="h-full w-full rounded-full bg-Shades/70 p-4 hover:bg-Shades">
-              <BsFillSunFill className=" h-full w-full text-dim" />
+              <h4 className="text-xl font-bold text-gray-900">{data?.data?.user?.name}</h4>
+              <p className="font-semibold text-gray-700">@{data?.data?.user?.username}</p>
             </div>
           </div>
         </div>

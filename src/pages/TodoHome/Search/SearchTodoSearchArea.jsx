@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
-import TodoHomeTodoCard from "../HomeIndex/TodoHomeTodoCard"
 import SearchBar from "./SearchBar"
-// import Tooltip from "../../../components/Tooltip";
 
 import { AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai"
 import CardSkeleton from "../../../components/skeleton/CardSkeleton"
+import EachTodoWrapper from "../HomeIndex/EachTodoWrapper"
 
 const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
   const [isExactMatch, setIsExactMatch] = useState(false)
-  // const [isShortTooltipOpen, setIsShortTooltipOpen] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
   const { participants, nameAndDescription, sortByAccenting, searchValue } = useSelector((state) => state?.searchSlice)
@@ -32,7 +30,7 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
   useEffect(() => {
     SearchedTasks()
   }, [SearchedTasks])
-
+  const todo = SearchedTasks()
   return (
     <div className=" flex-1">
       <SearchBar />
@@ -45,26 +43,6 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
             {isExactMatch ? <AiFillCheckCircle /> : <AiOutlineCheckCircle />}
             <p>Exact Match</p>
           </button>
-
-          {/* <div className=" relative inline-block">
-            <div
-              className="gap-x-1 flex items-center"
-              onClick={() => {
-                setIsShortTooltipOpen(!isShortTooltipOpen);
-              }}
-            >
-              <p>Short By</p>
-              <span
-                className={` transition-all duration-500 ${
-                  isShortTooltipOpen && "-rotate-180"
-                }`}
-              >
-                <BiUpArrow />
-              </span>
-            </div>
-
-            {isShortTooltipOpen && <Tooltip />}
-          </div> */}
         </div>
       </div>
       <div>
@@ -76,12 +54,7 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
           </div>
         )}
       </div>
-      <div className="mx-4 grid gap-y-2 md:mx-1">
-        {isSuccess &&
-          SearchedTasks()?.map((items) => {
-            return <TodoHomeTodoCard todoDetails={items} key={items._id} />
-          })}
-      </div>
+      <div className="mx-4 grid gap-y-2 md:mx-1">{isSuccess && <EachTodoWrapper todoType={"all"} tasks={todo} />}</div>
     </div>
   )
 }

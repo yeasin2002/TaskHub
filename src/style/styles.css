@@ -23,4 +23,5 @@
   .navActive {
     @apply inline-block h-2 w-16 border-b-4 border-red-800;
   }
+  
 }

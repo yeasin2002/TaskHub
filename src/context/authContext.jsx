@@ -1,43 +1,32 @@
-import { createContext } from "react"
+import { createContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useLocalStorage } from "../hooks/useLocalStorage"
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-  const { value, setLocalStorage, removeLocalStorage, setCustomValue } = useLocalStorage("usersToken")
+  const [value, setValue] = useState("")
   const { value: isLoggedIn, setLocalStorage: setIsLoggedIn } = useLocalStorage("isLoggedIn")
   const navigate = useNavigate()
 
-  const logIn = (token, redirectTo) => {
-    setLocalStorage(token)
+  const logIn = (token, redirectTo = "/") => {
+    localStorage.setItem("usersToken", token)
+    setValue(token)
     setIsLoggedIn(true)
     navigate(redirectTo)
   }
 
   const logOut = (redirectTo) => {
-    removeLocalStorage()
-    setCustomValue(false)
+    // removeLocalStorage()
+    localStorage.removeItem("usersToken")
+    setValue("")
     setIsLoggedIn(false)
-    navigate(redirectTo)
+   navigate(redirectTo)
   }
-
-  /**
-   * @typedef {Object} AuthValues
-   * @property {string} token
-   * @property {function(): void} logIn
-   * @property {function(): void} logOut
-   * @property {function(any): void} setCustomValue
-   * @property {boolean} isLoggedIn
-   * @property {function(boolean): void} setIsLoggedIn
-   */
-
-  /** @type {AuthValues} */
 
   const values = {
     token: value,
     logIn,
     logOut,
-    setCustomValue,
     isLoggedIn,
     setIsLoggedIn,
   }

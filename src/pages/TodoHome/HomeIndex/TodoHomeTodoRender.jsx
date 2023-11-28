@@ -3,9 +3,9 @@ import AllTask from "./AllTask/AllTask"
 import CompleteTask from "./CompleteTask/CompleteTask"
 import IncompleteTask from "./IncompleteTask/IncompleteTask"
 // import loading from "../.././../assets/global/loading.svg";
-import { toast } from "react-toastify"
+
 import CardSkeleton from "../../../components/skeleton/CardSkeleton"
-import logOut from "../../../utils/logOut"
+// import logOut from "../../../utils/logOut"
 
 const TodoHomeTodoRender = ({ TodoStage }) => {
   const { data, isLoading, status, error } = useGetAllTaskQuery()

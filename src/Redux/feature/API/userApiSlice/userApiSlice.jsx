@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { getUserToken } from "../../../../utils/userStorageInfo"
+
 
 const userApiSlice = createApi({
   reducerPath: "userApiSlice",
@@ -7,7 +7,7 @@ const userApiSlice = createApi({
     baseUrl: "https://baby-todo.onrender.com/user",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${getUserToken()}`,
+      authorization: `Bearer ${localStorage.getItem("usersToken")}`,
     },
   }),
 

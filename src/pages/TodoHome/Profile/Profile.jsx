@@ -1,4 +1,4 @@
-// import { useAuth } from "../../../hooks/useAuth";
+// import { useAuth } from "../../../hooks/useAuth"
 
 import { Button } from "@material-tailwind/react"
 import ChanceName from "./ChanceName"

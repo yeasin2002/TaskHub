@@ -1,6 +1,7 @@
+import { motion } from "framer-motion"
 import { BsFillSunFill } from "react-icons/bs"
 import { useGetAllUserQuery } from "../../../Redux//feature/API/userApiSlice/userApiSlice"
-import { motion } from "framer-motion"
+
 const topAreaItems = [
   {
     title: "all",

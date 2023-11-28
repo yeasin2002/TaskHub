@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useLocalStorageUtils } from "../utils/localStorageActions"
-const { setStorage, getStorage, clearStorageItem, clearStorage } = useLocalStorageUtils
+const { getStorage, clearStorageItem, clearStorage } = useLocalStorageUtils
 
 export const useLocalStorage = (key) => {
   const [value, setValue] = useState(() => {
@@ -23,7 +23,7 @@ export const useLocalStorage = (key) => {
 
   const setLocalStorage = (value) => {
     if (!value) return
-    setStorage(key, value)
+    localStorage.setItem(key, value)
     setValue(value)
   }
   const removeLocalStorage = () => {

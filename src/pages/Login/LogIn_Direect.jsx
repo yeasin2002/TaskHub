@@ -1,22 +1,18 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import Btn_Primary from "../../components/Btn_Primary"
-import * as RouteTypes from "../../lib/RouteTypes"
-import { setUserJWT } from "../../lib/usetJWT_Handler"
+import { toast, ToastContainer } from "react-toastify"
 import { useLogInMutation } from "../../Redux/feature/API/accountApiSlice/accountApiSlice"
 
-//  toast
-// import "react-toastify/dist/ReactToastify.css";
-import { toast, ToastContainer } from "react-toastify"
-
+import Btn_Primary from "../../components/Btn_Primary"
 import SvgSpinnersBarsFade from "../../components/Icons/SvgSpinnersBarsFade"
 import { useAuth } from "../../hooks/useAuth"
+import * as RouteTypes from "../../lib/RouteTypes"
 
 const LogIn_Direect = ({ setIsConfirmPass }) => {
   const [emailOrUserName, setEmailOrUserName] = useState("")
   const [password, setPassword] = useState("")
   const [LogIn, { isLoading }] = useLogInMutation()
-  const { logIn } = useAuth()
+  const { logIn: loginAction } = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -27,7 +23,8 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
       })
 
       if (go?.data?.status === "success") {
-        logIn(go?.data?.data?.token, "/")
+        console.log(go?.data?.data?.token)
+        await loginAction(go?.data?.data?.token)
       }
 
       if (go?.error?.data?.status === "fail") {

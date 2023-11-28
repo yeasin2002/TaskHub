@@ -1,4 +1,4 @@
-// import { useAuth } from "../../../hooks/useAuth"
+import { useAuth } from "../../../hooks/useAuth"
 
 import { Button } from "@material-tailwind/react"
 import ChanceName from "./ChanceName"
@@ -12,7 +12,7 @@ import { TbLogout } from "react-icons/tb"
 import { useGetAllUserQuery } from "../../../Redux/feature/API/userApiSlice/userApiSlice"
 const Profile = () => {
   const [isUpdating, setIsUpdating] = useState(false)
-  // const { logOut } = useAuth();
+  const { logOut } = useAuth()
 
   const { data } = useGetAllUserQuery()
 
@@ -34,7 +34,7 @@ const Profile = () => {
         <div>
           <Button
             onClick={async () => {
-              // await logOut("/");
+              await logOut("/")
             }}
             className="group flex gap-x-2 bg-red-700">
             Log

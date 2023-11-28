@@ -1,26 +1,37 @@
 import { createContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { useLocalStorage } from "../hooks/useLocalStorage"
+
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-  const [value, setValue] = useState("")
-  const { value: isLoggedIn, setLocalStorage: setIsLoggedIn } = useLocalStorage("isLoggedIn")
+  const [value, setValue] = useState(() => {
+    const token = localStorage.getItem("usersToken")
+    return token || ""
+  })
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn")
+    return loggedIn || false
+  })
   const navigate = useNavigate()
 
   const logIn = (token, redirectTo = "/") => {
     localStorage.setItem("usersToken", token)
+    localStorage.setItem("isLoggedIn", true)
+
     setValue(token)
     setIsLoggedIn(true)
+
     navigate(redirectTo)
   }
 
   const logOut = (redirectTo) => {
-    // removeLocalStorage()
+    localStorage.setItem("isLoggedIn", false)
     localStorage.removeItem("usersToken")
+
     setValue("")
     setIsLoggedIn(false)
-   navigate(redirectTo)
+
+    navigate(redirectTo)
   }
 
   const values = {

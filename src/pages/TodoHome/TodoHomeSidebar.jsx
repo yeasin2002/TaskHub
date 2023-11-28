@@ -56,17 +56,15 @@ const TodoHomeSidebar = () => {
             <div className="flex flex-col gap-y-3">
               {sidebarItem.map((val) => {
                 return (
-                  <>
-                    <Link
-                      onClick={() => setActive(val.title)}
-                      key={val.title}
-                      to={val.route}
-                      className={` flex items-start   justify-start rounded-lg   px-4  py-2 text-gray-700 transition-all duration-200 
+                  <Link
+                    onClick={() => setActive(val.title)}
+                    key={val.title}
+                    to={val.route}
+                    className={` flex items-start   justify-start rounded-lg   px-4  py-2 text-gray-700 transition-all duration-200 
                       ${active === val.title && "bg-gray-100"}`}>
-                      <div>{val.icons}</div>
-                      {isOpen && <span className="mx-4 font-medium">{val.title}</span>}
-                    </Link>
-                  </>
+                    <div>{val.icons}</div>
+                    {isOpen && <span className="mx-4 font-medium">{val.title}</span>}
+                  </Link>
                 )
               })}
             </div>

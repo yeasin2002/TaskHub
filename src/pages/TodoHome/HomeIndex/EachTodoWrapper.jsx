@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 import { Fragment } from "react"
 import notFound from "../../../assets/global/no-results-found.png"
 import { cn } from "../../../utils/cn"
@@ -7,13 +9,13 @@ import TodoDeleteOrGoToUpdate from "./TodoDeleteOrGoToUpdate"
 const EachTodoWrapper = ({ tasks, todoType }) => {
   return (
     <Fragment>
-      <div className="grid gap-2 p-8 " key={todoType}>
+      <div className="grid grid-cols-1 gap-2 p-8 lg:grid-cols-2 2xl:grid-cols-3 " key={todoType}>
         {todoType.length >= 0 &&
-          tasks.map((task) => {
+          tasks.map((task, index) => {
             const startDate = formateDate(task?.startingDate)
             const endDate = formateDate(task?.endingDate)
             return (
-              <div key={task._id}>
+              <motion.div key={task._id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.02 * index }}>
                 <div
                   className={cn("max-w-2xl rounded-lg px-4 py-2   shadow-md ", {
                     "bg-blue-600": todoType === "all",
@@ -52,7 +54,7 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
       </div>
@@ -68,21 +70,3 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
   )
 }
 export default EachTodoWrapper
-
-/*
-{
-    "_id": "6565ed80ca0b6f0e02e446c5",
-    "title": "React ",
-    "description": "test ",
-    "owner": {
-        "_id": "65635a685a9c00e46dda7ca0",
-        "name": "Mohammad Yeasin",
-        "username": "yesin2023"
-    },
-    "completed": false,
-    "startingDate": "2023-11-29T00:00:00.000Z",
-    "endingDate": "2023-11-29T00:00:00.000Z",
-    "createdAt": "2023-11-28T13:39:12.838Z",
-    "participants": []
-}
-*/

@@ -5,12 +5,13 @@ import * as allRouter from "./lib/RouteTypes"
 //  redux
 
 import { ToastContainer } from "react-toastify"
-import Loading from "./layout/Loading"
+// import Loading from "./layout/Loading"
 
 //  Global Components / layout
 const NotFound = lazy(() => import("./layout/NotFound"))
 
 import { useAuth } from "./hooks/useAuth"
+import { NextLoader } from "./layout/NextLoader"
 
 // Public Pages
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"))
@@ -34,7 +35,8 @@ const UpdateTask = lazy(() => import("./pages/TodoHome/Task/UpdateTask/UpdateTas
 function App() {
   const { isLoggedIn } = useAuth()
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<NextLoader />}>
+      {/* <NextLoader /> */}
       <Routes>
         <Route path={allRouter.about} element={<About />} />
         <Route path={allRouter.contact} element={<Contact />} />

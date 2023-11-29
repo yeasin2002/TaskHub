@@ -37,6 +37,7 @@
     "react-router-dom": "^6.11.1",
     "react-toastify": "^9.1.3",
     "tailwind-merge": "^2.0.0",
+    "tailwindcss-animated": "^1.0.1",
     "vite-plugin-svgr": "^3.3.0",
     "yup": "^1.2.0"
   },

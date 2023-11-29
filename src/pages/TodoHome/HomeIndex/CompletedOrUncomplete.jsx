@@ -15,6 +15,7 @@ const CompletedOrUncompleted = ({ completed, id }) => {
         type="checkbox"
         name="todo"
         id="todo"
+        className="cursor-pointer"
         value={completed}
         checked={completed}
         onChange={() => {
@@ -22,7 +23,7 @@ const CompletedOrUncompleted = ({ completed, id }) => {
         }}
       />
       {(isLoading || uncompletedTaskLoading) && (
-        <span className=" absolute left-0 top-0 inline-block h-4 w-4 bg-blackens">
+        <span className=" absolute left-0 top-0 inline-block h-4 w-4 bg-blackens ">
           <img className="h-full w-full" src={loader} alt="updating" />
         </span>
       )}

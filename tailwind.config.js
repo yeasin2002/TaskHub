@@ -25,5 +25,5 @@ export default withMT({
       },
     },
   },
-  plugins: [],
-});
+  plugins: ["tailwindcss-animated"],
+})

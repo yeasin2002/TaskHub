@@ -23,3 +23,9 @@ const SingIn = () => {
 }
 
 export default SingIn
+
+
+const time = Array.from(6)
+for (let i = 0; i < time.length; i++) {
+  console.log("আমি তোমাকে ভালোবাসি জান")
+}

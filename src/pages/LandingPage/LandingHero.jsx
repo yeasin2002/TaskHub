@@ -3,6 +3,7 @@ import { useGetAllUserCountQuery } from "../../Redux/feature/API/extraApiSlice/e
 import * as RouteTypes from "../../lib/RouteTypes"
 
 import Btn_Primary from "../../components/Btn_Primary"
+import { GuestLogIn } from "./GuestLogIn"
 import LandingCarousel from "./LandingCarousel"
 
 const LandingHero = () => {
@@ -23,12 +24,13 @@ const LandingHero = () => {
             <p className="mb-8 text-base leading-relaxed">
               Collaborate with your friends to help you make your journey of bringing them to live a bit more fun.
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-center gap-x-2">
               <Link to={RouteTypes.singIn}>
                 <Btn_Primary className="inline-flex rounded border-0 bg-indigo-500 px-4 py-2 text-base text-white hover:bg-indigo-600 focus:outline-none">
                   Start For Free
                 </Btn_Primary>
               </Link>
+              <GuestLogIn />
             </div>
 
             <p className="mt-4">

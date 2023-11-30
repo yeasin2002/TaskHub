@@ -21,6 +21,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
     "@material-tailwind/react": "^2.0.1",
+    "@radix-ui/react-popover": "^1.0.7",
     "@reduxjs/toolkit": "^1.9.5",
     "clsx": "^2.0.0",
     "daisyui": "^2.51.6",

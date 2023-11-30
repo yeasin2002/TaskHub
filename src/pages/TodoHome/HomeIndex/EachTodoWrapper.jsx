@@ -9,7 +9,7 @@ import TodoDeleteOrGoToUpdate from "./TodoDeleteOrGoToUpdate"
 const EachTodoWrapper = ({ tasks, todoType }) => {
   return (
     <Fragment>
-      <div className="grid grid-cols-1 gap-2 p-8 lg:grid-cols-2 2xl:grid-cols-3 " key={todoType}>
+      <div className="group grid grid-cols-1 gap-2 p-8 lg:grid-cols-2 2xl:grid-cols-3 " key={todoType}>
         {todoType.length >= 0 &&
           tasks.map((task, index) => {
             const startDate = formateDate(task?.startingDate)
@@ -39,14 +39,8 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
                     </p>
                   </div>
                   <div className="mt-2">
-                    <a
-                      href="#"
-                      className="text-xl font-bold text-gray-100 hover:text-gray-600 hover:underline "
-                      tabIndex="0"
-                      role="link">
-                      {task?.title}
-                    </a>
-                    <p className="mt-2 text-gray-200 ">{task?.description}</p>
+                    <p className="text-xl font-bold text-gray-100 group-hover:text-gray-200  ">{task?.title}</p>
+                    <p className="mt-2 text-gray-200 group-hover:text-gray-300 ">{task?.description}</p>
                   </div>
                   <div className="mt-4 flex items-center justify-between">
                     <div>

@@ -1,17 +1,12 @@
 import { lazy, Suspense } from "react"
 import { Route, Routes } from "react-router-dom"
-import * as allRouter from "./lib/RouteTypes"
-
-//  redux
-
 import { ToastContainer } from "react-toastify"
-// import Loading from "./layout/Loading"
 
-//  Global Components / layout
-const NotFound = lazy(() => import("./layout/NotFound"))
-
+import { Fragment } from "react"
 import { useAuth } from "./hooks/useAuth"
 import { NextLoader } from "./layout/NextLoader"
+import * as allRouter from "./lib/RouteTypes"
+const NotFound = lazy(() => import("./layout/NotFound"))
 
 // Public Pages
 const LandingPage = lazy(() => import("./pages/LandingPage/LandingPage"))
@@ -36,23 +31,12 @@ function App() {
   const { isLoggedIn } = useAuth()
   return (
     <Suspense fallback={<NextLoader />}>
-      {/* <NextLoader /> */}
       <Routes>
         <Route path={allRouter.about} element={<About />} />
         <Route path={allRouter.contact} element={<Contact />} />
-
         <Route path={allRouter.helpAndSupport} element={<HelpAndSupportPage />} />
-
-        {!isLoggedIn ? (
-          <>
-            {/* public route for is not logged in */}
-            <Route path={allRouter.LandingPage} element={<LandingPage />} />
-            <Route path={allRouter.singIn} element={<SingIn />} />
-            <Route path={allRouter.login} element={<LogIn />} />
-          </>
-        ) : (
-          <>
-            {/*  protected if logged in   */}
+        {isLoggedIn ? (
+          <Fragment>
             <Route path={allRouter.todoHome} element={<TodoIndex />}>
               <Route index element={<TodoHome />} />
               <Route path={allRouter.search} element={<Search />} />
@@ -61,7 +45,13 @@ function App() {
               <Route path={allRouter.addTask} element={<AddTask />} />
               <Route path={`${allRouter.updateTask}/:id`} element={<UpdateTask />} />
             </Route>
-          </>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <Route path={allRouter.LandingPage} element={<LandingPage />} />
+            <Route path={allRouter.singIn} element={<SingIn />} />
+            <Route path={allRouter.login} element={<LogIn />} />
+          </Fragment>
         )}
 
         <Route path={"*"} element={<NotFound />} />

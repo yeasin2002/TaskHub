@@ -23,7 +23,6 @@ const LogIn_Direect = ({ setIsConfirmPass }) => {
       })
 
       if (go?.data?.status === "success") {
-        console.log(go?.data?.data?.token)
         await loginAction(go?.data?.data?.token)
       }
 

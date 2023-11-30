@@ -37,7 +37,7 @@ const Profile = () => {
               await logOut("/")
             }}
             className="group flex gap-x-2 bg-red-700">
-            Log
+            Log Out
             <TbLogout className="transition-all group-hover:translate-x-2" />
           </Button>
         </div>

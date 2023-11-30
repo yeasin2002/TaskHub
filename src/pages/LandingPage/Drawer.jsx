@@ -1,5 +1,5 @@
+import { Button, Drawer } from "@material-tailwind/react"
 import React from "react"
-import { Drawer, Button } from "@material-tailwind/react"
 import Btn_Primary from "../../components/Btn_Primary"
 import * as RouteTypes from "../../lib/RouteTypes"
 
@@ -54,9 +54,11 @@ export default function Example() {
           <Btn_Primary>
             <Link to={RouteTypes.singIn}>Start For Free</Link>
           </Btn_Primary>
-          <Btn_Primary className={"bg-white text-blackens transition-all hover:bg-[#ECF0F9] "}>
-            <Link to={RouteTypes.login}>Log In </Link>
-          </Btn_Primary>
+          <Link
+            to={RouteTypes.login}
+            className={"rounded-md bg-white py-3 text-center text-blackens transition-all hover:bg-[#ECF0F9]"}>
+            Log In
+          </Link>
         </div>
       </Drawer>
     </>

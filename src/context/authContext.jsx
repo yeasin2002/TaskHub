@@ -1,5 +1,6 @@
 import { createContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import * as routes from "../lib/RouteTypes"
 
 export const AuthContext = createContext()
 
@@ -14,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   })
   const navigate = useNavigate()
 
-  const logIn = (token, redirectTo = "/") => {
+  const logIn = (token, redirectTo = routes.todoHome) => {
     localStorage.setItem("usersToken", token)
     localStorage.setItem("isLoggedIn", true)
 
@@ -24,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     navigate(redirectTo)
   }
 
-  const logOut = (redirectTo) => {
+  const logOut = (redirectTo = routes.LandingPage) => {
     localStorage.setItem("isLoggedIn", false)
     localStorage.removeItem("usersToken")
 

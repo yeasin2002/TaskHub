@@ -15,7 +15,11 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
             const startDate = formateDate(task?.startingDate)
             const endDate = formateDate(task?.endingDate)
             return (
-              <motion.div key={task._id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.02 * index }}>
+              <motion.div
+                key={task._id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 * index }}>
                 <div
                   className={cn("max-w-2xl rounded-lg px-4 py-2   shadow-md ", {
                     "bg-blue-600": todoType === "all",

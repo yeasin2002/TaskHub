@@ -7,6 +7,10 @@
 @tailwind utilities;
 
 @layer components {
+  .btn-primary {
+    @apply bg-accent capitalize  transition-all  hover:bg-blue-700 py-3 rounded-md
+  }
+
   .into-center {
     @apply flex items-center justify-center;
   }

@@ -1,17 +1,16 @@
+import { Spinner } from "@material-tailwind/react"
 import { useForm } from "react-hook-form"
-import Btn_Primary from "../../../../components/Btn_Primary"
-
-//   react toast message
-import { toast } from "react-toastify"
-
-//  icons
 import { AiOutlineTeam } from "react-icons/ai"
+import { toast } from "react-toastify"
 import { useCreateTaskMutation } from "../../../../Redux/feature/API/taskApiSlice/taskApiSlice"
 
-// import UploadLoop from "../../../../components/Icons/UploadLoop";
-
 const AddTask_Form = () => {
-  const { handleSubmit, register } = useForm()
+  const { handleSubmit, register, reset } = useForm({
+    defaultValues: {
+      StartDate: new Date().toISOString().substring(0, 10),
+      EndDate: new Date().toISOString().substring(0, 10),
+    },
+  })
   const [createTask, { isLoading }] = useCreateTaskMutation()
 
   const formHandler = async (data) => {
@@ -26,11 +25,12 @@ const AddTask_Form = () => {
       })
       if (addTask?.data?.status === "success") {
         toast.success("Task created successfully")
-        console.log("task created successfully")
+        reset()
       } else {
-        console.log("task not created")
+        toast.error("Task not created")
       }
     } catch (error) {
+      toast.error("Something went wrong")
       console.log(error.message)
     }
   }
@@ -42,7 +42,6 @@ const AddTask_Form = () => {
         <div>
           <input
             type="text"
-            //    daysi ui is conflicting with this  input so i have to add this style
             style={{
               outline: "none",
             }}
@@ -62,7 +61,6 @@ const AddTask_Form = () => {
                 {...register("StartDate", {
                   defaultValue: new Date(),
                 })}
-                // how to provide a default value to  input:date in react-hook-form
               />
             </div>
             <div className=" flex flex-col">
@@ -104,13 +102,17 @@ const AddTask_Form = () => {
               <AiOutlineTeam className="text-3xl text-blue-800" />
             </span>
           </div>
-        </div>
 
-        <div className="flex justify-end">
-          <Btn_Primary type={"submit"}>
-            {/* <UploadLoop className={"w-full "} /> */}
-            {isLoading ? "loading" : "Create Task"}
-          </Btn_Primary>
+          <button className="btn-primary my-2 w-full" type={"submit"}>
+            {isLoading ? (
+              <span className="inline-flex items-center justify-center gap-x-2">
+                <Spinner width={15} height={15} />
+                Creating Task......
+              </span>
+            ) : (
+              "Create Task"
+            )}
+          </button>
         </div>
       </form>
     </div>

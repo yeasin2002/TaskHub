@@ -47,7 +47,7 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
       </div>
       <div>
         {isLoading && (
-          <div className="w-full grid  grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid w-full  grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
             {[1, 2, 3, 4, 5].map((val) => {
               return <CardSkeleton className={"my-2 w-full"} key={val} />
             })}

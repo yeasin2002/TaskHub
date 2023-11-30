@@ -28,14 +28,6 @@ const SearchBar = () => {
             placeholder="Search"
           />
         </div>
-
-        <div className="mt-6 flex justify-center gap-x-6 md:hidden">
-          <button className="rounded-3xl bg-Light p-2 px-4 ring ring-Shades">Filter</button>
-
-          <button className="rounded-3xl bg-Light p-2 px-4 ring ring-Shades">cateroy</button>
-
-          <button className="rounded-3xl bg-Light p-2 px-4 ring ring-Shades">Participant</button>
-        </div>
       </form>
     </>
   )

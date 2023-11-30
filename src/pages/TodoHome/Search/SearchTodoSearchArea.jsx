@@ -7,28 +7,26 @@ import CardSkeleton from "../../../components/skeleton/CardSkeleton"
 import EachTodoWrapper from "../HomeIndex/EachTodoWrapper"
 
 const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
-  const isExactMatch = true
-
   // eslint-disable-next-line no-unused-vars
-  const { participants, nameAndDescription, sortByAccenting, searchValue } = useSelector((state) => state?.searchSlice)
+  const { participants, nameAndDescription, sortByAccenting, filterByName, searchValue } = useSelector(
+    (state) => state?.searchSlice
+  )
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const SearchedTasks = () => {
-    return tasks.filter((perTask) => {
-      if (!searchValue) {
-        return perTask
+    const searchedTask = tasks.filter((perTask) => {
+      if (!searchValue) return perTask
+      if (filterByName) {
+        return perTask?.title?.toLowerCase().includes(searchValue.toLowerCase())
       } else {
-        if (isExactMatch) {
-          return perTask?.title.includes(searchValue)
-        } else {
-          return perTask?.title?.toLowerCase().includes(searchValue.toLowerCase())
-        }
+        return perTask?.description?.toLowerCase().includes(searchValue.toLowerCase())
       }
     })
+    return sortByAccenting ? searchedTask : searchedTask.reverse()
   }
   useEffect(() => {
     SearchedTasks()
-  }, [SearchedTasks])
+  }, [SearchedTasks, sortByAccenting, filterByName, searchValue])
   const todo = SearchedTasks()
   return (
     <div className=" flex-1">

@@ -5,6 +5,7 @@ const initialState = {
   nameAndDescription: [],
   sortByAccenting: true,
   searchValue: "",
+  filterByName: true,
 }
 
 const searchSlice = createSlice({
@@ -31,8 +32,14 @@ const searchSlice = createSlice({
     setSearchValue: (state, action) => {
       state.searchValue = action.payload
     },
+    setFilterByName: (state, action) => {
+      state.filterByName = action.payload
+    },
   },
 })
 
-export const { setNameAndDescription, setParticipants, setSearchValue, setSortByAccenting } = searchSlice.actions
+export const { setNameAndDescription, setParticipants, setSearchValue, setSortByAccenting, setFilterByName } =
+  searchSlice.actions
 export default searchSlice
+
+

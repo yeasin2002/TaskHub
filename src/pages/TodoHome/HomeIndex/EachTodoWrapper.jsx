@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 import { Fragment } from "react"
 import notFound from "../../../assets/global/no-results-found.png"
 import { cn } from "../../../utils/cn"
-import formateDate from "../../../utils/formateDate"
+import { convertDateFormat } from "../../../utils/convertDateFormat"
 import TodoDeleteOrGoToUpdate from "./TodoDeleteOrGoToUpdate"
 
 const EachTodoWrapper = ({ tasks, todoType }) => {
@@ -12,8 +12,8 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
       <div className="group grid grid-cols-1 gap-2 p-8 lg:grid-cols-2 2xl:grid-cols-3 " key={todoType}>
         {todoType.length >= 0 &&
           tasks.map((task, index) => {
-            const startDate = formateDate(task?.startingDate)
-            const endDate = formateDate(task?.endingDate)
+            const startDate = convertDateFormat(task?.startingDate)
+            const endDate = convertDateFormat(task?.endingDate)
             return (
               <motion.div
                 key={task._id}
@@ -43,10 +43,7 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
                     <p className="mt-2 text-gray-200 group-hover:text-gray-300 ">{task?.description}</p>
                   </div>
                   <div className="mt-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-gray-200">{task?.owner?.name}</p>
-                      <p className="text-gray-300">@{task?.owner?.username}</p>
-                    </div>
+                    <p className="text-sm text-gray-300">@{task?.owner?.username}</p>
                     <div>
                       <TodoDeleteOrGoToUpdate id={task._id} todoDetails={task} completed={task?.completed} />
                     </div>

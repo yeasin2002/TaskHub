@@ -8,9 +8,7 @@ import EachTodoWrapper from "../HomeIndex/EachTodoWrapper"
 
 const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
   // eslint-disable-next-line no-unused-vars
-  const { participants, nameAndDescription, sortByAccenting, filterByName, searchValue } = useSelector(
-    (state) => state?.searchSlice
-  )
+  const { nameAndDescription, sortByAccenting, filterByName, searchValue } = useSelector((state) => state?.searchSlice)
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const SearchedTasks = () => {

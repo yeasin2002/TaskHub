@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom"
 
 //  components
-import TodoHomeSidebar from "./TodoHomeSidebar"
 import TodoHomeBottomMobileNav from "./TodoHomeBottomMobileNav"
+import TodoHomeSidebar from "./TodoHomeSidebar"
 
 const HomeIndex = () => {
   return (
     <main>
       <div className=" h-screen flex-col justify-between">
-        <div className="flex h-screen">
+        <div className="flex  ">
           <TodoHomeSidebar />
-          {/* outlets */}
           <div className=" flex-1 overflow-y-scroll">
             <Outlet />
           </div>

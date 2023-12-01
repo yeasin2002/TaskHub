@@ -11,7 +11,7 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
     <Fragment>
       <div className="group grid grid-cols-1 gap-2 p-8 lg:grid-cols-2 2xl:grid-cols-3 " key={todoType}>
         {todoType.length >= 0 &&
-          tasks.map((task, index) => {
+          tasks?.map((task, index) => {
             const startDate = convertDateFormat(task?.startingDate)
             const endDate = convertDateFormat(task?.endingDate)
             return (
@@ -54,7 +54,7 @@ const EachTodoWrapper = ({ tasks, todoType }) => {
           })}
       </div>
       <div>
-        {tasks.length === 0 && (
+        {tasks?.length === 0 && (
           <div className="flex flex-col items-center justify-center">
             <img src={notFound} alt="not found" className="h-1/2 w-1/2" />
             <p className="text-2xl font-bold text-gray-600">No Task Found</p>

@@ -20,17 +20,19 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
         return perTask?.description?.toLowerCase().includes(searchValue.toLowerCase())
       }
     })
-    return sortByAccenting ? searchedTask : searchedTask.reverse()
+
+    const shortByAcc = searchedTask.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+    return sortByAccenting ? shortByAcc : shortByAcc.reverse()
   }
   useEffect(() => {
     SearchedTasks()
   }, [SearchedTasks, sortByAccenting, filterByName, searchValue])
-  const todo = SearchedTasks()
+
   return (
     <div className=" flex-1">
       <SearchBar />
       <div className="my-4 flex justify-between px-6">
-        <div>{isSuccess && <p className="font-bold text-blackens">{SearchedTasks().length} Task Found</p>}</div>
+        <div>{isSuccess && <p className="font-bold text-blackens">{SearchedTasks()?.length} Task Found</p>}</div>
         <div className=" flex">
           <FilterItems />
         </div>
@@ -44,8 +46,33 @@ const SearchTodoSearchArea = ({ tasks, isSuccess, isLoading }) => {
           </div>
         )}
       </div>
-      <div>{isSuccess && <EachTodoWrapper todoType={"all"} tasks={todo} />}</div>
+      <div>{isSuccess && <EachTodoWrapper todoType={"all"} tasks={SearchedTasks()} />}</div>
     </div>
   )
 }
 export default SearchTodoSearchArea
+
+
+/*
+
+My responsive this an array of object , Each object gonna be this 
+{
+    "_id": "656771bcc0d4f0c5588b8905",
+    "title": "React ",
+    "description": "Reacta testing",
+    "owner": {
+        "_id": "65635a685a9c00e46dda7ca0",
+        "name": "Mohammad Yeasin",
+        "username": "yesin2023"
+    },
+    "completed": false,
+    "startingDate": "2023-11-24T00:00:00.000Z",
+    "endingDate": "2023-11-30T00:00:00.000Z",
+    "createdAt": "2023-11-29T17:15:40.461Z",
+    "participants": []
+}
+
+
+Now i want to sort by date, Accending and decending order
+how can i do that ?
+*/

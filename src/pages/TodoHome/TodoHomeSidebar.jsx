@@ -1,39 +1,45 @@
-import { useLocalStorage } from "$hooks/useLocalStorage"
+import { ChevronRightSquare, PlusCircle } from "lucide-react"
+import { useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+import { twMerge } from "tailwind-merge"
+import { cn } from "../.././utils/cn"
 import { useGetAllUserQuery } from "../../Redux/feature/API/userApiSlice/userApiSlice"
 import defaultUser from "../../assets/global/user.jpg"
 import sidebarItem from "./SidebarItems"
 
-import { ChevronRightSquare } from "lucide-react"
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import { twMerge } from "tailwind-merge"
-
 export const TodoHomeSidebar = ({ ...rest }) => {
   const { data } = useGetAllUserQuery()
+  const location = useLocation()
 
   const [isOpen, setIsOpen] = useState(false)
-  const { value: activeMenu, setLocalStorage: setActiveMenu } = useLocalStorage("sidebar-item")
 
   return (
     <aside
       {...rest}
       className={twMerge(
         "bg-slate-100 sticky left-0 top-0 flex   h-screen  flex-col items-center justify-between px-2 py-10 transition-all ",
-        isOpen ? "w-56" : "w-24"
+        isOpen ? "w-48" : "w-20"
       )}>
-      <Link to={"/"}>
+      <div className="flex flex-col items-center justify-center gap-y-2">
         <img src={data?.data?.user?.avatar || defaultUser} alt="Home" className="h-14 w-14" />
-      </Link>
-      <div className="my-6 space-y-2 ">
+        {isOpen && <h3 className=" ">{data?.data?.user?.name}</h3>}
+
+        <Link to={"/todo/add_task"} className="my-8 flex gap-x-2 rounded-md px-2  py-2 transition-all hover:bg-dim">
+          <PlusCircle />
+          {isOpen && "Add Todo"}
+        </Link>
+      </div>
+      <div className="my-6 flex flex-col place-items-start  gap-y-2 ">
         {sidebarItem.map((items) => {
           return (
             <Link
-              onClick={() => setActiveMenu(items.title)}
               to={items.route}
-              className={twMerge(
-                `flex  cursor-pointer gap-x-2  border-b-4 border-white p-2 font-semibold
-              text-gray-700 hover:text-gray-900 `,
-                activeMenu === items.title && "border-brand-900"
+              className={cn(
+                `flex   cursor-pointer   gap-x-2 rounded-lg border-b-4 border-white p-3
+              font-semibold text-gray-700 hover:text-gray-900 `,
+                {
+                  "bg-dim": items.route === location.pathname.split("/")[2] || items.route === location.pathname,
+                }
               )}
               key={items.title + items.route}>
               {items.icons}
@@ -52,19 +58,3 @@ export const TodoHomeSidebar = ({ ...rest }) => {
 }
 
 export default TodoHomeSidebar
-
-/*
-
-//  Querys
-import { useGetAllUserQuery } from "../../Redux/feature/API/userApiSlice/userApiSlice"
-const { data } = useGetAllUserQuery()
-  <div className=" -mx-2 mt-6 flex flex-col items-center">
-            <img
-              className="mx-2 h-24 w-24 rounded-full object-cover"
-              src={data?.data?.user?.avatar || tempIng}
-              alt="avatar"
-            />
-            <h4 className=" title">{data?.data?.user?.name}</h4>
-            <p className=" mx-2 mt-1 text-sm font-medium text-gray-600">{data?.data?.user?.mail}</p>
-          </div>
-*/

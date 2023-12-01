@@ -16,7 +16,7 @@
     @apply flex items-center justify-center;
   }
   .title {
-    @apply text-2xl font-bold text-blackens;
+    @apply font-semibold      text-gray-700 hover:text-gray-900
   }
   .moodSwitcher {
     @apply mx-2 cursor-pointer rounded-lg bg-dim/50 py-2 pl-2 pr-20 text-xl font-bold text-blackens transition-all hover:bg-dim;
